@@ -22,7 +22,7 @@ subtitle = ""
   
 [[feature]]
   icon = "bacterium"
-  icon_pack = "fas"
+  icon_pack = "fa"
   name = "Engineering"
   description = "Synthetic biology, bioencapsulation"  
 
