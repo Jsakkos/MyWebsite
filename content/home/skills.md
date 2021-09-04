@@ -18,18 +18,20 @@ subtitle = ""
   icon = "code"
   icon_pack = "fa"
   name = "Programming"
-  description = "**Python**, Bash, R, git"
+  description = "Python"
   
 [[feature]]
-  icon = "brain"
-  icon_pack = "fa"
-  name = "Neuroimaging software"
-  description = "**FSL**, **ANTS**, AFNI, BrainVoyager, Freesurfer"  
-  
+  icon = "bacterium"
+  icon_pack = "fas"
+  name = "Engineering"
+  description = "Synthetic biology, bioencapsulation"  
+
 [[feature]]
-  icon = "language"
-  icon_pack = "fa"
-  name = "Languages"
-  description = "**Greek**, **Georgian**, **English**, German, Russian"
+  icon = "microscope"
+  icon_pack = "fas"
+  name = "Characterization techniques"
+  description = "Fluorescence microscopy, SEM, FTIR, Contact Angle"  
+  
+
 
 +++
