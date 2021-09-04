@@ -1,12 +1,14 @@
 ---
 title: Orthogonal Degron System for Controlled Protein Degradation in Cyanobacteria
+publication: '*ACS Synthetic Biology *10, 7, 1667–1681'
+publication_short: "ACS Syn Bio"
 publication_types:
   - "2"
 authors:
   - Jonathan K. Sakkos
   - Sergio Hernandez-Ortiz
   - Katherine W. Osteryoung
-  - and Daniel C. Ducat
+  - Daniel C. Ducat
 doi: 10.1021/acssynbio.1c00035
 abstract: Synechococcus elongatus PCC 7942 is a model cyanobacterium for study
   of the circadian clock, photosynthesis, and bioproduction of chemicals, yet
@@ -36,4 +38,8 @@ image:
     (PDT). Upon induction of the protease, the PDT is recognized and the protein
     is degraded.  Copyright 2021 American Chemical Society
 date: 2021-09-04T20:04:32.427Z
+tags:
+- published
+projects:
+- degron
 ---
