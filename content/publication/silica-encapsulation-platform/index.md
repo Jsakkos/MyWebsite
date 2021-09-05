@@ -1,5 +1,5 @@
 ---
-title: Engineering of a Silica Encapsulation Platform forHydrocarbon Degradation UsingPseudomonassp.NCIB 9816-4
+title: Engineering of a Silica Encapsulation Platform for Hydrocarbon Degradation Using Pseudomonas sp. NCIB 9816-4
 publication_types:
   - "2"
 authors:
