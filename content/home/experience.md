@@ -26,10 +26,9 @@ date_format = "Jan 2006"
   location = "East Lansing, Michigan"
   date_start = "2018-10-01"
   date_end = ""
-  description = "Ducat Laboratory"
-
-  * Developed a tunable protein degradation system in cyanobacteria
-  * Studying a light-driven, modular platform consortia for fundamental insight into emergent microbial interactions within consortia
+  description = 
+      * Developed a tunable protein degradation system in cyanobacteria
+      * Studying a light-driven, modular platform consortia for fundamental insight into emergent microbial interactions within consortia
 
 [[experience]]
   title = "Research Assistant"
@@ -38,9 +37,8 @@ date_format = "Jan 2006"
   location = "Minneapolis, MN"
   date_start = "2012-08-01"
   date_end = "2018-09-30"
-  description = "Bioencapsulation Lab"
-
-  * Studied bioencapsulation (physical confinement) of bacteria for applications in biotechnology
-  * Synthesized new porous materials for bioencapsulation
-  * Performed materials characterization on novel materials
+  description =
+      * Studied bioencapsulation (physical confinement) of bacteria for applications in biotechnology
+      * Synthesized new porous materials for bioencapsulation
+      * Performed materials characterization on novel materials
 +++
