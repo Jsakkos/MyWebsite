@@ -17,28 +17,30 @@ date_format = "Jan 2006"
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
+
+
 [[experience]]
-  title = "CEO"
-  company = "GenCoin"
-  company_url = ""
-  location = "California"
-  date_start = "2017-01-01"
+  title = "Postdoctoral Research Associate"
+  company = "Michigan State University"
+  company_url = "http://www.msu.edu"
+  location = "East Lansing, Michigan"
+  date_start = "2018-10-01"
   date_end = ""
-  description = """
-  Responsibilities include:
-  
-  * Analysing
-  * Modelling
-  * Deploying
-  """
+  description = "Ducat Laboratory"
+
+  * Developed a tunable protein degradation system in cyanobacteria
+  * Studying a light-driven, modular platform consortia for fundamental insight into emergent microbial interactions within consortia
 
 [[experience]]
-  title = "Professor"
-  company = "University X"
-  company_url = ""
-  location = "California"
-  date_start = "2016-01-01"
-  date_end = "2016-12-31"
-  description = """Taught electronic engineering and researched semiconductor physics."""
+  title = "Research Assistant"
+  company = "University of Minnesota"
+  company_url = "http://www.umn.edu"
+  location = "Minneapolis, MN"
+  date_start = "2012-08-01"
+  date_end = "2018-09-30"
+  description = "Bioencapsulation Lab"
 
+  * Studied bioencapsulation (physical confinement) of bacteria for applications in biotechnology
+  * Synthesized new porous materials for bioencapsulation
+  * Performed materials characterization on novel materials
 +++
