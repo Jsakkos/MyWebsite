@@ -50,7 +50,7 @@ social:
     label: linkedin.com
   - display:
       header: false
-    link: sakkosjo@msu.edu
+    link: mailto:sakkosjo@msu.edu
     icon_pack: far
     icon: envelope
 superuser: true
