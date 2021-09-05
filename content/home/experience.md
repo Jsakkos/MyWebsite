@@ -37,7 +37,7 @@ experience:
   - title: Gradiate Assistant
     company: University of Minnesota
     company_url: 'http://www.umn.edu'
-    company_logo: umn
+    company_logo: org-umn
     location: Minneapolis, MN
     date_start: '2012-09-01'
     date_end: '2018-09-30'
@@ -50,7 +50,7 @@ experience:
   - title: Teaching Assistant
     company: University of Minnesota
     company_url: 'http://www.umn.edu'
-    company_logo: umn
+    company_logo: org-umn
     location: Minneapolis, MN
     date_start: '2018-01-05'
     date_end: '2018-05-30'
@@ -61,7 +61,7 @@ experience:
   - title: Product Engineer
     company: Columbia Steel Casting Co.
     company_url: 'https://www.columbiasteel.com/'
-    company_logo: cscc
+    company_logo: org-cscc
     location: Portland, OR
     date_start: '2009-09-01'
     date_end: '2012-06-30'
