@@ -46,7 +46,8 @@ experience:
         * Studied bioencapsulation (physical confinement) of bacteria for applications in biotechnology
         * Synthesized new porous materials for bioencapsulation
         * Performed materials characterization on novel materials
-    - title: Teaching Assistant
+
+  - title: Teaching Assistant
     company: University of Minnesota
     company_url: 'http://www.umn.edu'
     company_logo: umn
@@ -57,7 +58,7 @@ experience:
       Mechanical Engineering Department:
         * ME 3331 - Thermodynamics
 
-    - title: Product Engineer
+  - title: Product Engineer
     company: Columbia Steel Casting Co.
     company_url: 'https://www.columbiasteel.com/'
     company_logo: cscc
