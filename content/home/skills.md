@@ -21,7 +21,7 @@ subtitle = ""
   description = "Python"
   
 [[feature]]
-  icon = "bacterium"
+  icon = "bacteria"
   icon_pack = "fas"
   name = "Engineering"
   description = "Synthetic biology, bioencapsulation"  
