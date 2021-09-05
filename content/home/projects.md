@@ -26,15 +26,15 @@ subtitle = ""
     tag = "*"
   
   [[content.filter_button]]
-    name = "My research"
+    name = "Research"
     tag = "research"
     
   [[content.filter_button]]
-    name = "My side projects"
+    name = "Side projects"
     tag = "side"
   
   [[content.filter_button]]
-    name = "Collaborative"
+    name = "Collaborations"
     tag = "collaborative"
 
 [design]
