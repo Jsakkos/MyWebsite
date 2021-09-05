@@ -8,7 +8,7 @@ education:
   - course: PhD in Mechanical Engineering
     institution: University of Minnesota
     year: 2012-2018
-  - course: BS in Mechanical Engineerin
+  - course: BS in Mechanical Engineering
     institution: University of Portland
     year: 2005-2009
 email: "sakkosjo@msu.edu"

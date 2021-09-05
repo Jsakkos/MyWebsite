@@ -1,7 +1,7 @@
 ---
 title: Visualizing in Vivo Dynamics of Designer Nanoscaffolds
 publication_types:
-  - "0"
+  - "2"
 authors:
   - Eric J. Young
   - Jonathan K. Sakkos
@@ -35,4 +35,8 @@ image:
   focal_point: Smart
   preview_only: false
 date: 2021-09-04T20:20:40.475Z
+tags:
+- published
+projects:
+- nanoscaffold
 ---
