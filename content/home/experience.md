@@ -19,7 +19,7 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 
-[[experience]]
+<!-- [[experience]]
   title = "Postdoctoral Research Associate"
   company = "Michigan State University"
   company_url = "http://www.msu.edu"
@@ -37,7 +37,19 @@ date_format = "Jan 2006"
   location = "Minneapolis, MN"
   date_start = "2012-08-01"
   date_end = "2018-09-30"
-  description =
+  description = -->
+
+experience:
+  - title: Research assistant
+    company: University of Minnesota
+    company_url: ''
+    #company_logo: org-gc
+    location: Minneapolis, MN
+    date_start: "2012-08-01"
+    date_end: "2018-09-30"
+    description: |2-
+        Responsibilities include:
+        
       * Studied bioencapsulation (physical confinement) of bacteria for applications in biotechnology
       * Synthesized new porous materials for bioencapsulation
       * Performed materials characterization on novel materials
