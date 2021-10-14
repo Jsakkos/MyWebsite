@@ -1,7 +1,7 @@
 ---
 title: Investigating the growth of an engineered strain of Cyanobacteria with an Agent-Based Model and a Recurrent Neural Network
 publication_types:
-  - "2"
+  - "3"
 authors:
   - Jonathan K. Sakkos
   - Joe Weaver
