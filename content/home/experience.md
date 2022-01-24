@@ -34,7 +34,7 @@ experience:
         * Developed a tunable protein degradation system in cyanobacteria
         * Studying a light-driven, modular platform consortia for fundamental insight into emergent microbial interactions within consortia
         
-  - title: Gradiate Assistant
+  - title: Graduate Assistant
     company: University of Minnesota
     company_url: 'http://www.umn.edu'
     company_logo: org-umn
