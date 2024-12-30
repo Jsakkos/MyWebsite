@@ -21,7 +21,6 @@ image:
   caption: Rubisco activity and organization are key outputs involve in source-sink balancing in cyanobacteria
 date: 2021-10-12T0:00:00.00Z
 tags:
-- preprint
 - collaborative
 projects:
 ---
