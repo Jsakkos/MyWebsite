@@ -18,13 +18,13 @@ subtitle = ""
   icon = "code"
   icon_pack = "fa"
   name = "Programming"
-  description = "Python"
+  description = "Python, MATLAB"
   
 [[feature]]
-  icon = "bacteria"
+  icon = "gear"
   icon_pack = "fas"
   name = "Engineering"
-  description = "Synthetic biology, bioencapsulation"  
+  description = "Process automation, rapid prototyping, synthetic biology"  
 
 [[feature]]
   icon = "microscope"
