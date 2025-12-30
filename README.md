@@ -120,7 +120,6 @@ Content here...
 ## 🙋‍♂️ Author
 
 **Jonathan K. Sakkos**
-- Senior Process Development Engineer at Curio Bioscience
-- Email: jonathansakkos@gmail.com
+- Staff Process Development Engineer at Takara Bio USA, Inc.
 - LinkedIn: [jonathan-sakkos](https://www.linkedin.com/in/jonathan-sakkos-b2833a4/)
 - GitHub: [jsakkos](https://github.com/jsakkos)
