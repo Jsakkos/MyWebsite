@@ -1,5 +1,7 @@
 // API configuration and client for Caltrain data
-const CALTRAIN_API_BASE = process.env.NEXT_PUBLIC_CALTRAIN_API_URL || 'http://localhost:8181';
+// Static data is now the primary source (pushed from server hourly)
+const STATIC_DATA_PATH = '/data/caltrain';
+const CALTRAIN_API_BASE = process.env.NEXT_PUBLIC_CALTRAIN_API_URL || '';
 
 export interface CaltrainStats {
   on_time_percentage: number;
@@ -120,3 +122,42 @@ export const mockDelayData: DelayData[] = [
   { date: '2024-12-08', hour: 18, avg_delay_minutes: 7.1, on_time_count: 44, delay_count: 24 },
   { date: '2024-12-08', hour: 19, avg_delay_minutes: 5.3, on_time_count: 49, delay_count: 18 },
 ];
+
+// Static data loading functions (primary data source)
+export async function getStaticCaltrainStats(): Promise<CaltrainStats> {
+  try {
+    const response = await fetch(`${STATIC_DATA_PATH}/stats.json`, {
+      next: { revalidate: 3600 }, // Cache for 1 hour
+    });
+    if (!response.ok) throw new Error('Failed to load static stats');
+    return response.json();
+  } catch (error) {
+    console.warn('Static stats not available, using mock data:', error);
+    return mockCaltrainStats;
+  }
+}
+
+export interface CaltrainMetadata {
+  last_updated: string;
+  source: string;
+}
+
+export async function getCaltrainMetadata(): Promise<CaltrainMetadata | null> {
+  try {
+    const response = await fetch(`${STATIC_DATA_PATH}/metadata.json`);
+    if (!response.ok) return null;
+    return response.json();
+  } catch {
+    return null;
+  }
+}
+
+// Get available plot filenames
+export function getCaltrainPlotPaths() {
+  return {
+    dailyStats: `${STATIC_DATA_PATH}/plots/daily_stats.html`,
+    commuteDelay: `${STATIC_DATA_PATH}/plots/commute_delay.html`,
+    onTimeHeatmap: `${STATIC_DATA_PATH}/plots/on_time_heatmap.html`,
+    onTimeHeatmap2025: `${STATIC_DATA_PATH}/plots/on_time_heatmap_2025.html`,
+  };
+}

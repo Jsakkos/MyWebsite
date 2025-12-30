@@ -63,13 +63,16 @@
   to = "/files/SakkosCV.pdf"
   status = 301
 
-# API routes (for caltrain integration)
-[[redirects]]
-  from = "/api/caltrain/*"
-  to = "/.netlify/functions/caltrain-:splat"
-  status = 200
+# Cache headers for static Caltrain data (hourly updates)
+[[headers]]
+  for = "/data/caltrain/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
 
-
+[[headers]]
+  for = "/data/caltrain/plots/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
 
 # Headers for API CORS
 [[headers]]

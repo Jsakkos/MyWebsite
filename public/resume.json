@@ -192,7 +192,7 @@
         },
         {
             "name": "MKV Episode Matcher",
-            "description": "Smart utility for automatically matching and renaming video files to episode data using fuzzy logic and metadata analysis.",
+            "description": "Smart utility for automatically matching and renaming video files to episode data using automatic speech recognition, fuzzy logic, and metadata analysis.",
             "url": "https://github.com/Jsakkos/mkv-episode-matcher",
             "startDate": "2024-01-01",
             "type": "personal",
@@ -201,33 +201,37 @@
                 "Python",
                 "Automation",
                 "Fuzzy Logic",
-                "Data Processing"
+                "Data Processing",
+                "Speech Recognition"
             ]
         },
         {
             "name": "AirIQ Air Quality Sensor",
             "description": "Custom IoT air quality monitoring solution. Designed and built hardware sensors for real-time environmental data collection.",
             "url": "https://github.com/Jsakkos/airIQ",
-            "startDate": "2024-01-01",
+            "startDate": "2021-11-22",
+            "endDate": "2022-01-16",
             "type": "personal",
             "featured": true,
-            "image": "/projects/boards.jpg",
             "keywords": [
                 "IoT",
                 "Hardware",
-                "C++",
-                "Environmental Sensing"
+                "Home Assistant",
+                "Environmental Sensing",
+                "PCB Design"
             ]
         },
         {
             "name": "Cat Wheel Speedometer",
             "description": "IoT-enabled speedometer and activity tracker for a cat exercise wheel. Tracks speed, distance, and running habits.",
-            "startDate": "2024-01-01",
+            "url": "https://github.com/Jsakkos/cat-wheel-speedometer",
+            "startDate": "2025-09-28",
             "type": "personal",
             "featured": true,
             "keywords": [
                 "IoT",
                 "Hardware",
+                "Home Assistant",
                 "Sensors",
                 "Data Logging"
             ]
@@ -246,8 +250,7 @@
                 "Open Source",
                 "Simulation",
                 "Microbial Communities"
-            ],
-            "image": "/projects/hero-academic.png"
+            ]
         },
         {
             "name": "Orthogonal Degron System",
