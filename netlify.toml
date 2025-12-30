@@ -1,5 +1,5 @@
 [build]
-  publish = ".next"
+
   command = "npm run build"
 
 [build.environment]
@@ -69,11 +69,7 @@
   to = "/.netlify/functions/caltrain-:splat"
   status = 200
 
-# SPA fallback for client-side routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+
 
 # Headers for API CORS
 [[headers]]
