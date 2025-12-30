@@ -1,1 +1,0 @@
-Move folder to "publication" to activate

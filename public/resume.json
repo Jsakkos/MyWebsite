@@ -1,0 +1,294 @@
+{
+    "basics": {
+        "name": "Jonathan K. Sakkos",
+        "label": "Staff Engineer, Spatial Genomics R&D",
+        "image": "/avatar.jpg",
+        "url": "https://jonathanasakkos.com",
+        "summary": "Staff Engineer specializing in scaling manufacturing processes for spatial biology platforms, combining mechanical engineering expertise with biotechnology innovation. Experienced in process automation, CAD/3D printing, and developing automated systems for biotechnology applications.",
+        "location": {
+            "region": "California",
+            "countryCode": "US"
+        },
+        "profiles": [
+            {
+                "network": "LinkedIn",
+                "username": "jonathan-sakkos",
+                "url": "https://www.linkedin.com/in/jonathan-sakkos-b2833a4/"
+            },
+            {
+                "network": "Google Scholar",
+                "username": "Jonathan K Sakkos",
+                "url": "https://scholar.google.com/citations?user=lk-vZ4EAAAAJ&hl=en"
+            },
+            {
+                "network": "ORCID",
+                "username": "0000-0002-6647-5805",
+                "url": "https://orcid.org/0000-0002-6647-5805"
+            }
+        ]
+    },
+    "work": [
+        {
+            "name": "Takara Bio USA, Inc.",
+            "position": "Staff Engineer, Spatial Genomics R&D",
+            "startDate": "2025-01-01",
+            "summary": "Leading spatial genomics R&D engineering initiatives."
+        },
+        {
+            "name": "Curio Bioscience",
+            "position": "Senior Process Engineer II",
+            "startDate": "2024-01-01",
+            "endDate": "2025-01-01",
+            "summary": "Scaled manufacturing processes for spatial biology platforms."
+        },
+        {
+            "name": "Curio Bioscience",
+            "position": "Senior Process Development Engineer",
+            "startDate": "2022-01-01",
+            "endDate": "2023-12-31",
+            "summary": "Developed and optimized manufacturing workflows for biotech products."
+        },
+        {
+            "name": "Michigan State University",
+            "position": "Postdoctoral Researcher",
+            "endDate": "2022-09-01",
+            "summary": "Research in synthetic biology, microbial consortia, and bioengineering."
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of Minnesota",
+            "studyType": "PhD",
+            "area": "Mechanical Engineering",
+            "startDate": "2012-01-01",
+            "endDate": "2018-01-01"
+        },
+        {
+            "institution": "University of Portland",
+            "studyType": "BS",
+            "area": "Mechanical Engineering",
+            "startDate": "2005-01-01",
+            "endDate": "2009-01-01"
+        }
+    ],
+    "publications": [
+        {
+            "name": "Coordination of carbon partitioning and photosynthesis in an engineered cyanobacterial consortium",
+            "publisher": "Metabolic Engineering",
+            "releaseDate": "2024-01-01",
+            "url": "https://doi.org/10.1016/j.ymben.2023.12.001",
+            "summary": "Investigated carbon partitioning in engineered cyanobacterial strains."
+        },
+        {
+            "name": "Predicting partner fitness based on spatial structuring in a light-driven microbial consortium",
+            "publisher": "PLOS Computational Biology",
+            "releaseDate": "2023-05-01",
+            "url": "https://doi.org/10.1371/journal.pcbi.1011045",
+            "summary": "Computational modeling of spatial structuring in microbial communities."
+        },
+        {
+            "name": "Investigating Carboxysome Morphology Dynamics",
+            "publisher": "The Journal of Physical Chemistry A",
+            "releaseDate": "2022-01-01",
+            "url": "https://doi.org/10.1021/acs.jpca.2c03386",
+            "summary": "Study of carboxysome morphology using high-resolution imaging."
+        },
+        {
+            "name": "Developing cyanobacterial quorum sensing toolkits for diverse applications",
+            "publisher": "ACS Synthetic Biology",
+            "releaseDate": "2022-01-01",
+            "url": "https://pubs.acs.org/doi/10.1021/acssynbio.1c00418",
+            "summary": "Creation of modular quorum sensing tools for cyanobacteria."
+        },
+        {
+            "name": "Multi-layer Regulation of Rubisco",
+            "publisher": "Plant Physiology",
+            "releaseDate": "2022-01-01",
+            "summary": "Investigation into the regulatory mechanisms of Rubisco."
+        },
+        {
+            "name": "Orthogonal degron system for controlled protein degradation in cyanobacteria",
+            "publisher": "ACS Synthetic Biology",
+            "releaseDate": "2021-01-01",
+            "url": "https://doi.org/10.1021/acssynbio.1c00191",
+            "summary": "Engineered controllable protein degradation system."
+        },
+        {
+            "name": "Visualizing in Vivo Dynamics of Designer Nanoscaffolds",
+            "publisher": "Nano Letters",
+            "releaseDate": "2019-01-01",
+            "url": "https://pubs.acs.org/doi/10.1021/acs.nanolett.9b02273",
+            "summary": "Visualization of protein nanoscaffolds in live cells."
+        },
+        {
+            "name": "Signal disruption leads to changes in bacterial community structure",
+            "publisher": "Frontiers in Microbiology",
+            "releaseDate": "2019-01-01",
+            "summary": "Impact of signal disruption on biofilm communities."
+        },
+        {
+            "name": "Enhancement of biocatalyst activity",
+            "publisher": "Scientific Reports",
+            "releaseDate": "2019-01-01",
+            "summary": "Methods for improving biocatalyst performance."
+        },
+        {
+            "name": "Adsorption and Biodegradation of Aromatic Chemicals",
+            "publisher": "ACS Applied Materials and Interfaces",
+            "releaseDate": "2017-01-01",
+            "summary": "Study of simultaneous adsorption and biodegradation."
+        },
+        {
+            "name": "Silica ecosystem for synergistic biotransformation",
+            "publisher": "Scientific Reports",
+            "releaseDate": "2016-01-01",
+            "summary": "Encapsulation of microbial communities in silica."
+        },
+        {
+            "name": "Engineering of a silica encapsulation platform",
+            "publisher": "Biotechnology and Bioengineering",
+            "releaseDate": "2016-01-01",
+            "summary": "Development of a silica platform for protein stabilization."
+        }
+    ],
+    "skills": [
+        {
+            "name": "Engineering",
+            "keywords": [
+                "Process Development",
+                "Automation",
+                "Robotics",
+                "CAD Design",
+                "3D Printing",
+                "Microscopy",
+                "Image Processing"
+            ]
+        },
+        {
+            "name": "Biotechnology",
+            "keywords": [
+                "Synthetic Biology",
+                "Spatial Biology",
+                "Bioengineering",
+                "Biomaterials",
+                "Microbial Consortia"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "Caltrain Performance Tracker",
+            "description": "Real-time transit performance analytics platform using Python, FastAPI, and PostgreSQL. Automated data collection and visualization of on-time performance metrics.",
+            "url": "https://github.com/jsakkos/caltrain-tracker",
+            "startDate": "2024-01-01",
+            "type": "personal",
+            "featured": true,
+            "keywords": [
+                "Python",
+                "FastAPI",
+                "PostgreSQL",
+                "Data Analytics",
+                "Docker"
+            ]
+        },
+        {
+            "name": "MKV Episode Matcher",
+            "description": "Smart utility for automatically matching and renaming video files to episode data using fuzzy logic and metadata analysis.",
+            "url": "https://github.com/Jsakkos/mkv-episode-matcher",
+            "startDate": "2024-01-01",
+            "type": "personal",
+            "featured": true,
+            "keywords": [
+                "Python",
+                "Automation",
+                "Fuzzy Logic",
+                "Data Processing"
+            ]
+        },
+        {
+            "name": "AirIQ Air Quality Sensor",
+            "description": "Custom IoT air quality monitoring solution. Designed and built hardware sensors for real-time environmental data collection.",
+            "url": "https://github.com/Jsakkos/airIQ",
+            "startDate": "2024-01-01",
+            "type": "personal",
+            "featured": true,
+            "image": "/projects/boards.jpg",
+            "keywords": [
+                "IoT",
+                "Hardware",
+                "C++",
+                "Environmental Sensing"
+            ]
+        },
+        {
+            "name": "Cat Wheel Speedometer",
+            "description": "IoT-enabled speedometer and activity tracker for a cat exercise wheel. Tracks speed, distance, and running habits.",
+            "startDate": "2024-01-01",
+            "type": "personal",
+            "featured": true,
+            "keywords": [
+                "IoT",
+                "Hardware",
+                "Sensors",
+                "Data Logging"
+            ]
+        },
+        {
+            "name": "NuFEB Simulation Platform",
+            "description": "Contributed to open-source biofilm modeling software. Implemented new features for cyanobacterial modeling and quorum sensing systems.",
+            "url": "https://github.com/nufeb/NUFEB",
+            "startDate": "2020-01-01",
+            "endDate": "2023-01-01",
+            "type": "academic",
+            "featured": false,
+            "keywords": [
+                "C++",
+                "Scientific Computing",
+                "Open Source",
+                "Simulation",
+                "Microbial Communities"
+            ],
+            "image": "/projects/hero-academic.png"
+        },
+        {
+            "name": "Orthogonal Degron System",
+            "description": "Engineered controllable protein degradation system for cyanobacteria, enabling temporal control of gene expression.",
+            "startDate": "2021-01-01",
+            "type": "academic",
+            "featured": false,
+            "keywords": [
+                "Synthetic Biology",
+                "Protein Engineering",
+                "Research"
+            ],
+            "image": "/projects/degron.png"
+        },
+        {
+            "name": "Designer Nanoscaffold Platform",
+            "description": "Developed visualization tools for tracking nanoscaffold dynamics in live cells using microscopy automation and custom image analysis.",
+            "startDate": "2020-01-01",
+            "type": "academic",
+            "featured": false,
+            "keywords": [
+                "Microscopy",
+                "Image Analysis",
+                "Python",
+                "Cell Biology"
+            ],
+            "image": "/projects/nanoscaffold.png"
+        },
+        {
+            "name": "Quorum Sensing Toolkit",
+            "description": "Modular toolkit for implementing quorum sensing circuits in cyanobacteria, enabling cell-cell communication for coordinated behavior.",
+            "startDate": "2019-01-01",
+            "type": "academic",
+            "featured": false,
+            "keywords": [
+                "Synthetic Biology",
+                "Cyanobacteria",
+                "Biofilms"
+            ],
+            "image": "/projects/quorum.jpg"
+        }
+    ]
+}

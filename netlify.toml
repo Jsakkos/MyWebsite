@@ -1,0 +1,84 @@
+[build]
+  publish = ".next"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Redirects for old Hugo URLs to new Next.js URLs
+[[redirects]]
+  from = "/author/*"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/authors/*"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/publication/*"
+  to = "/publications"
+  status = 301
+
+[[redirects]]
+  from = "/project/*"
+  to = "/projects"
+  status = 301
+
+[[redirects]]
+  from = "/talk/*"
+  to = "/publications"
+  status = 301
+
+[[redirects]]
+  from = "/slides/*"
+  to = "/publications"
+  status = 301
+
+[[redirects]]
+  from = "/courses/*"
+  to = "/experience"
+  status = 301
+
+[[redirects]]
+  from = "/home/*"
+  to = "/"
+  status = 301
+
+# Specific post redirects
+[[redirects]]
+  from = "/post/getting-started/*"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/post/*"
+  to = "/blog"
+  status = 301
+
+# Files
+[[redirects]]
+  from = "/files/cv.pdf"
+  to = "/files/SakkosCV.pdf"
+  status = 301
+
+# API routes (for caltrain integration)
+[[redirects]]
+  from = "/api/caltrain/*"
+  to = "/.netlify/functions/caltrain-:splat"
+  status = 200
+
+# SPA fallback for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for API CORS
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
