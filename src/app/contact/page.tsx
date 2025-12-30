@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Linkedin, Github, BookOpen, Send, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github, BookOpen, Send, CheckCircle } from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -45,7 +45,7 @@ export default function ContactPage() {
       } else {
         alert("There was an problem submitting your form. Please try again.");
       }
-    } catch (error) {
+    } catch {
       alert("There was an error submitting your form.");
     } finally {
       setIsSubmitting(false);
@@ -66,7 +66,7 @@ export default function ContactPage() {
           <CheckCircle className="mx-auto h-12 w-12 text-green-500 mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Thank You!</h2>
           <p className="text-gray-600 dark:text-gray-300">
-            Your message has been received. I'll get back to you within 24-48 hours.
+            Your message has been received. I&apos;ll get back to you within 24-48 hours.
           </p>
         </div>
       </div>
@@ -83,8 +83,8 @@ export default function ContactPage() {
               Get In Touch
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              Whether you're interested in collaboration, have questions about my work, or want to discuss
-              biotech innovation and process development, I'd love to hear from you.
+              Whether you&apos;re interested in collaboration, have questions about my work, or want to discuss
+              biotech innovation and process development, I&apos;d love to hear from you.
             </p>
           </div>
         </div>
@@ -96,10 +96,10 @@ export default function ContactPage() {
           <div className="lg:col-span-1">
             <div className="max-w-xl lg:max-w-lg">
               <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Let's Connect
+                Let&apos;s Connect
               </h2>
               <p className="mt-4 text-lg leading-6 text-gray-600 dark:text-gray-300">
-                I'm always open to discussing new opportunities, technical challenges,
+                I&apos;m always open to discussing new opportunities, technical challenges,
                 and innovation in biotechnology.
               </p>
 

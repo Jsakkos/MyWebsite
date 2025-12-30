@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/96c68816-5ef0-4fea-98a7-d5492305e6a6/deploy-status)](https://app.netlify.com/sites/vibrant-lumiere-c7de04/deploys)
 # Professional Website - Jonathan K. Sakkos
 
 A modern, professional website built with Next.js 16, showcasing biotech engineering expertise and technical projects.

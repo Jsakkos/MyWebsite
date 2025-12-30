@@ -142,7 +142,7 @@ export default function About() {
 
           {/* Contact CTA */}
           <div className="mt-16 text-center">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Let's Connect</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Let&apos;s Connect</h3>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
               Interested in collaborating or discussing biotechnology innovation?
             </p>

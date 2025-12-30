@@ -319,7 +319,7 @@ export default function ExperiencePage() {
       <section className="bg-gray-50 dark:bg-gray-800/50 py-16 sm:py-20">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
-            Let's Work Together
+            Let&apos;s Work Together
           </h2>
           <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
             Interested in discussing process development opportunities, biotech innovation,
