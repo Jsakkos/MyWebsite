@@ -8,8 +8,17 @@ const allPublications = [
     authors: "María Santos-Merino, Jonathan K Sakkos, Amit K Singh, Daniel C Ducat",
     journal: "Metabolic Engineering",
     year: "2024",
-    doi: "", // DOI to be added if known, otherwise Link search
+    doi: "10.1016/j.ymben.2023.11.001",
     description: "Investigated carbon partitioning in engineered cyanobacterial strains to optimize photosynthetic efficiency and biomass production.",
+  },
+  {
+    id: "surface-display-2024",
+    title: "Population-level heterogeneity complicates utilization of Synechococcus elongatus PCC 7942 surface display platforms",
+    authors: "Lisa Yun, Jonathan K Sakkos, Daniel C Ducat",
+    journal: "Micropublication Biology",
+    year: "2024",
+    doi: "https://doi.org/10.17912/micropub.biology.001097",
+    description: "Engineered cyanobacterial surface display platforms to facilitate interaction with other microorganisms.",
   },
   {
     id: "partner-fitness-2023",
@@ -27,7 +36,7 @@ const allPublications = [
     journal: "The Journal of Physical Chemistry A",
     year: "2022",
     doi: "10.1021/acs.jpca.2c03386",
-    description: "Study of carboxysome morphology using high-resolution imaging and molecular dynamics simulations to understand their structural organization.",
+    description: "Study of carboxysome morphology using high-resolution imaging and computational models to understand their dynamics and organization.",
   },
   {
     id: "quorum-sensing-toolkit-2022",
@@ -46,6 +55,15 @@ const allPublications = [
     year: "2022",
     doi: "10.1093/plphys/kiac065",
     description: "Unraveling the complex regulatory mechanisms of Rubisco in cyanobacteria under varying carbon conditions.",
+  },
+  {
+    id: "degron-2021",
+    title: "Orthogonal degron system for controlled protein degradation in cyanobacteria",
+    authors: "Jonathan K Sakkos, Sergio Hernandez-Ortiz, Katherine W Osteryoung, Daniel C Ducat",
+    journal: "ACS synthetic biology",
+    year: "2021",
+    doi: "10.1021/acssynbio.1c00035",
+    description: "Developed tool for controlled protein degradation in cyanobacteria which can be used to study protein function, regulation, and also has potential applications in biotechnology.",
   },
   {
     id: "nanoscaffold-dynamics-2019",

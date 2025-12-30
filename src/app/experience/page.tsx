@@ -9,48 +9,67 @@ const experiences = [
     location: "San Jose, CA",
     period: "Jan 2025 - Present",
     type: "Full-time",
-    description: "Leading R&D engineering initiatives for spatial genomics platforms. Responsible for developing and scaling manufacturing processes, implementing automation solutions, and driving technical innovation for next-generation products.",
+    description: "Team lead for many spatial genomics R&D engineering initiatives. Responsible for developing and scaling manufacturing processes, implementing automation solutions, and driving technical innovation for next-generation products.",
     achievements: [
-      "Leading process development for novel spatial biology applications",
-      "Designing automated workflows for high-throughput manufacturing",
-      "Bridging R&D and production teams to accelerate product commercialization"
+      "Led engineering initiative for process improvement and scaling",
+      "Designed high-throughput bioinformatics pipeline for spatial genomics data analysis",
+      "Collaborated within R&D and production teams to accelerate new product commercialization"
     ],
-    skills: ["Spatial Genomics", "R&D Strategy", "Process Automation", "Manufacturing Scaling", "Technical Leadership"],
+    skills: ["Spatial Genomics", "Process Automation", "Manufacturing Scaling", "Technical Leadership"],
     website: "https://www.takarabio.com"
   },
   {
-    id: "curio-bioscience",
+    id: "curio-bioscience-2",
+    title: "Senior Process Engineer II",
+    company: "Curio Bioscience",
+    location: "Palo Alto, CA",
+    period: "2024 - 2025",
+    type: "Full-time",
+    description: "Developed and scaled manufacturing processes for spatial biology products. Focused on workflow optimization and transition from research to production environments.",
+    achievements: [
+      "Continually improved manufacturing processes for Seeker (R) and Trekker (R) spatial transcriptomics products",
+      "Implemented quality control systems ensuring high process reliability",
+      "Led process efficiency initiatives for increased production throughput",
+      "Supported successful product launches through process development and manufacturing improvements"
+    ],
+    skills: ["Process Scaling", "Manufacturing", "Spatial Biology", "Computer Vision", "Image Analysis", "Python"],
+    website: "https://curiobioscience.com"
+  },
+  {
+    id: "curio-bioscience-1",
     title: "Senior Process Development Engineer",
     company: "Curio Bioscience",
     location: "Palo Alto, CA",
-    period: "2022 - 2024",
+    period: "2022 - 2023",
     type: "Full-time",
-    description: "Led process development initiatives for spatial biology platforms, focusing on scaling manufacturing processes from research to production. Designed and implemented automation solutions to improve efficiency and reproducibility.",
+    description: "Developed and optimized manufacturing workflows for biotech products. Designed and implemented automation solutions to improve efficiency and reproducibility.",
     achievements: [
-      "Developed automated sample preparation workflows that increased throughput by 300%",
-      "Led cross-functional teams to optimize manufacturing processes for spatial transcriptomics platforms",
-      "Implemented quality control systems ensuring >99% process reliability",
-      "Designed custom automation tools reducing manual intervention by 80%"
+      "Provided technical expertise in microscopy, mechanical design, and rapid prototyping",
+      "Designed process automation tools reducing manual intervention",
+      "Established standard operating procedures for new processes"
     ],
-    skills: ["Process Development", "Automation", "Spatial Biology", "Manufacturing Scaling", "Quality Control"],
+    skills: ["Process Development", "Automation", "Spatial Biology", "R&D"],
     website: "https://curiobioscience.com"
   },
   {
     id: "postdoc-research",
-    title: "Postdoctoral Research Associate",
-    company: "University of Minnesota",
-    location: "Minneapolis, MN",
-    period: "2018 - 2023",
+    title: "Postdoctoral Researcher",
+    company: "Michigan State University",
+    location: "East Lansing, MI",
+    period: "2018 - 2022",
     type: "Research",
-    description: "Conducted advanced research in synthetic biology and biomaterials engineering. Developed novel protein engineering approaches and automated microscopy systems for studying cellular dynamics.",
+    description: "Conducted advanced research in synthetic biology, microbial consortia, and bioengineering.",
     achievements: [
-      "Published 10+ peer-reviewed articles in high-impact journals",
-      "Developed orthogonal degron systems for controllable protein degradation",
-      "Created automated image analysis pipelines for tracking cellular processes",
-      "Mentored 8+ graduate and undergraduate students"
+      "Designed, executed, and analyzed experiments using microbes for sustainable bioproduction of sucrose",
+      "Developed a tunable protein degradation system in cyanobacteria",
+      "Studied a light‑driven, modular platform based on cyanobacteria for fundamental insight into emergent microbial interactions within consortia using both computational and experimental methodology",
+      "Led a team developing genetic circuits based on quorum sensing for use in cyanobacteria and microbial consortia",
+      "Co‑authored 3 peer‑reviewed journal articles on molecular tools for cyanobacteria and protein‑based nanomaterials in current position",
+      "Mentored 7 graduate and 3 undergraduate students in synthetic biology, leading to 2 co‑authorships on peer‑reviewed journal articles",
+      "Established collaborations with scientists and engineers at Oak Ridge National Laboratory’s Center For Nanophase Materials and Newcastle University for studying microbial communities, leading to 3 upcoming journal articles"
     ],
-    skills: ["Synthetic Biology", "Protein Engineering", "Microscopy", "Data Analysis", "Research Management"],
-    website: "https://www.umn.edu"
+    skills: ["Synthetic Biology", "Computational Biology", "Microscopy", "Bioimage Analysis"],
+    website: "https://bmb.natsci.msu.edu/labs/ducat-lab/"
   },
   {
     id: "graduate-research",
@@ -59,15 +78,16 @@ const experiences = [
     location: "Minneapolis, MN",
     period: "2012 - 2018",
     type: "PhD Research",
-    description: "Doctoral research focused on biofilm engineering and synthetic biology applications. Specialized in developing controllable biological systems and understanding microbial community dynamics.",
+    description: "Doctoral research focused on living material engineering and biodegradation/biocatalysis applications.",
     achievements: [
-      "Completed PhD in Mechanical Engineering with focus on bioengineering",
-      "Developed novel quorum sensing toolkits for cyanobacterial systems",
-      "Created mathematical models for predicting biofilm behavior",
-      "Collaborated with interdisciplinary teams across engineering and biology"
+      "Designed, synthesized, and characterized new porous silica nanomaterials for bioencapsulation (physical confinement) of bacteria for applications in biotechnology",
+      "Authored 7 peer-reviewed journal articles and filed 3 patent applications on bioencapsulation of microbes for water remediation and biocatalysis",
+      "Collaborated with a multi‑disciplinary team of biochemists, microbiologists, and engineers to meet overarching project goals",
+      "Communicated research output through oral and poster presentations at regional, national, and international conferences",
+      "Mentored 6 undergraduate students in materials testing, biochemical assays, and bioencapsulation, leading to co‑authorship on a peer‑reviewed journal article"
     ],
-    skills: ["Biofilm Engineering", "Mathematical Modeling", "Cyanobacteria", "Research Design"],
-    website: "https://www.umn.edu"
+    skills: ["Engineering Living Materials", "Mechanical Testing", "Microscopy", "Spectroscopy", "Biointerface Characterization", "Design of Experiments"],
+    website: "https://biogellabs.umn.edu/"
   }
 ];
 
@@ -77,8 +97,8 @@ const education = [
     institution: "University of Minnesota",
     location: "Minneapolis, MN",
     period: "2012 - 2018",
-    focus: "Bioengineering, Synthetic Biology, Biomaterials",
-    thesis: "Engineering Controllable Biological Systems for Biofilm Applications"
+    focus: "Engineered Living Materials, Biocatalysis, Biomaterials",
+    thesis: "Engineering Biocatalytic Materials: Encapsulation Systems for Biotechnology"
   },
   {
     degree: "BS in Mechanical Engineering",
@@ -101,7 +121,7 @@ export default function ExperiencePage() {
               Professional Experience
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              A journey from academic research to biotech industry leadership,
+              A journey from academic research to biotech industry,
               specializing in spatial genomics, process development, and automation.
             </p>
           </div>

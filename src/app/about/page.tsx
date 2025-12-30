@@ -92,7 +92,7 @@ export default function About() {
                 <div className="grid grid-cols-1 gap-2">
                   {[
                     "Process Development & Scaling",
-                    "Automation & Robotics",
+                    "Automation",
                     "Bioimage Processing",
                     "CAD Design & Prototyping",
                     "Microscopy & Imaging",
