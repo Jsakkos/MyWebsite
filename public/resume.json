@@ -181,7 +181,7 @@
             "url": "https://github.com/jsakkos/caltrain-tracker",
             "startDate": "2024-01-01",
             "type": "personal",
-            "featured": true,
+            "featured": false,
             "keywords": [
                 "Python",
                 "FastAPI",

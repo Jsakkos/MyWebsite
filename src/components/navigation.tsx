@@ -30,7 +30,7 @@ export function Navigation() {
             <span className="text-xl font-bold text-primary">Jonathan K. Sakkos</span>
           </Link>
         </div>
-        
+
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -45,7 +45,7 @@ export function Navigation() {
             )}
           </button>
         </div>
-        
+
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
             <Link
@@ -62,7 +62,7 @@ export function Navigation() {
             </Link>
           ))}
         </div>
-        
+
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-4">
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -74,11 +74,10 @@ export function Navigation() {
           </button>
         </div>
       </nav>
-      
+
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden">
-          <div className="fixed inset-0 z-50" />
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
