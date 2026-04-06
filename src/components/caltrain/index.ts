@@ -7,3 +7,5 @@ export { StationRankings } from "./station-rankings";
 export { TrainLeaderboard } from "./train-leaderboard";
 export { CommuteAnalysis } from "./commute-analysis";
 export { TimeBreakdown } from "./time-breakdown";
+export { IncidentAnalysis } from "./incident-analysis";
+export { MareyDiagram } from "./marey-diagram";

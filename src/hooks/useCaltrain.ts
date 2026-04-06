@@ -11,6 +11,8 @@ import type {
   WeeklySummary,
   MonthlySummary,
   DelayData,
+  Incident,
+  IncidentDetail,
 } from '@/lib/api';
 import {
   mockCaltrainStats,
@@ -23,6 +25,8 @@ import {
   getStaticCommuteAnalysis,
   getStaticWeeklySummary,
   getStaticMonthlySummary,
+  getStaticIncidents,
+  getStaticIncidentTrajectories,
 } from '@/lib/api';
 
 // Generic hook for fetching static JSON data
@@ -93,6 +97,14 @@ export function useCaltrainWeekly() {
 
 export function useCaltrainMonthly() {
   return useStaticData<MonthlySummary[]>(getStaticMonthlySummary);
+}
+
+export function useCaltrainIncidents() {
+  return useStaticData<Incident[]>(getStaticIncidents);
+}
+
+export function useCaltrainIncidentTrajectories() {
+  return useStaticData<Record<string, IncidentDetail>>(getStaticIncidentTrajectories);
 }
 
 // Legacy hooks for backward compatibility

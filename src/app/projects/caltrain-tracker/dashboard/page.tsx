@@ -11,6 +11,8 @@ import {
   useCaltrainCommute,
   useCaltrainWeekly,
   useCaltrainMonthly,
+  useCaltrainIncidents,
+  useCaltrainIncidentTrajectories,
 } from "@/hooks/useCaltrain";
 import {
   HeroSection,
@@ -22,6 +24,7 @@ import {
   TrainLeaderboard,
   CommuteAnalysis,
   TimeBreakdown,
+  IncidentAnalysis,
 } from "@/components/caltrain";
 
 function LoadingSkeleton() {
@@ -47,6 +50,8 @@ export default function CaltrainDashboardPage() {
   const { data: commute } = useCaltrainCommute();
   const { data: weekly } = useCaltrainWeekly();
   const { data: monthly } = useCaltrainMonthly();
+  const { data: incidents } = useCaltrainIncidents();
+  const { data: trajectories } = useCaltrainIncidentTrajectories();
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -116,6 +121,11 @@ export default function CaltrainDashboardPage() {
 
             {/* Commute Analysis */}
             {commute && Object.keys(commute).length > 0 && <CommuteAnalysis data={commute} />}
+
+            {/* Incident Analysis */}
+            {incidents && incidents.length > 0 && trajectories && (
+              <IncidentAnalysis incidents={incidents} trajectories={trajectories} />
+            )}
 
             {/* Station Rankings */}
             {stations && stations.length > 0 && <StationRankings data={stations} />}

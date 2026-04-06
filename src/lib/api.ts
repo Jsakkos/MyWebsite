@@ -96,6 +96,42 @@ export interface MonthlySummary {
   on_time_pct: number;
 }
 
+// --- Incident / Anomaly Detection Types ---
+
+export interface Incident {
+  id: string;
+  date: string;
+  tier: 1 | 2;
+  summary: string;
+  trains_affected: number;
+  max_delay_min: number;
+  avg_delay_min: number;
+  on_time_pct: number;
+  severity_score: number;
+  root_cause_train?: string;
+  root_cause_station?: string;
+}
+
+export interface TrajectoryPoint {
+  time: string;
+  distance: number;
+}
+
+export interface TrainTrajectory {
+  trip_id: string;
+  direction: "NB" | "SB";
+  points: TrajectoryPoint[];
+  is_anomalous: boolean;
+  is_cascading: boolean;
+  max_delay_min: number;
+}
+
+export interface IncidentDetail {
+  incident_id: string;
+  stations: { name: string; distance: number }[];
+  trajectories: TrainTrajectory[];
+}
+
 export interface DelayData {
   date: string;
   hour: number;
@@ -224,6 +260,14 @@ export async function getStaticMonthlySummary(): Promise<MonthlySummary[] | null
 
 export async function getCaltrainMetadata(): Promise<CaltrainMetadata | null> {
   return fetchStaticJson<CaltrainMetadata>('metadata.json');
+}
+
+export async function getStaticIncidents(): Promise<Incident[] | null> {
+  return fetchStaticJson<Incident[]>('incidents.json');
+}
+
+export async function getStaticIncidentTrajectories(): Promise<Record<string, IncidentDetail> | null> {
+  return fetchStaticJson<Record<string, IncidentDetail>>('incident_trajectories.json');
 }
 
 export function getCaltrainPlotPaths() {
