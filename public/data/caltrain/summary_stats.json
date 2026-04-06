@@ -1,0 +1,28 @@
+{
+  "on_time_performance": 92.59903180721261,
+  "total_trips": 413554,
+  "on_time_trips": 382947,
+  "best_train": {
+    "id": 176,
+    "avg_delay_minutes": 0.0
+  },
+  "worst_train": {
+    "id": 822,
+    "avg_delay_minutes": 4.480755649717514
+  },
+  "best_stop": {
+    "id": 0,
+    "name": "N/A",
+    "avg_delay_minutes": 0
+  },
+  "worst_stop": {
+    "id": 0,
+    "name": "N/A",
+    "avg_delay_minutes": 0
+  },
+  "date_range": {
+    "start": "08/10/2025",
+    "end": "04/04/2026"
+  },
+  "data_status": "Data available"
+}
