@@ -7,7 +7,7 @@
     "trains_affected": 39,
     "max_delay_min": 93.9,
     "avg_delay_min": 54.9,
-    "on_time_pct": 0.0,
+    "on_time_pct": 71.2,
     "severity_score": 2141,
     "root_cause_train": "822",
     "root_cause_station": "San Jose Diridon"
@@ -20,7 +20,7 @@
     "trains_affected": 24,
     "max_delay_min": 102.8,
     "avg_delay_min": 53.7,
-    "on_time_pct": 0.0,
+    "on_time_pct": 84.9,
     "severity_score": 1289,
     "root_cause_train": "153",
     "root_cause_station": "San Jose Diridon"
@@ -33,7 +33,7 @@
     "trains_affected": 30,
     "max_delay_min": 59.0,
     "avg_delay_min": 34.1,
-    "on_time_pct": 0.0,
+    "on_time_pct": 75.6,
     "severity_score": 1023,
     "root_cause_train": "144",
     "root_cause_station": "San Francisco"
@@ -46,7 +46,7 @@
     "trains_affected": 27,
     "max_delay_min": 76.8,
     "avg_delay_min": 36.8,
-    "on_time_pct": 0.0,
+    "on_time_pct": 75.5,
     "severity_score": 993,
     "root_cause_train": "105",
     "root_cause_station": "San Jose Diridon"
@@ -59,7 +59,7 @@
     "trains_affected": 27,
     "max_delay_min": 89.0,
     "avg_delay_min": 35.2,
-    "on_time_pct": 0.0,
+    "on_time_pct": 77.3,
     "severity_score": 951,
     "root_cause_train": "417",
     "root_cause_station": "San Jose Diridon"
@@ -72,7 +72,7 @@
     "trains_affected": 20,
     "max_delay_min": 72.8,
     "avg_delay_min": 41.0,
-    "on_time_pct": 0.0,
+    "on_time_pct": 86.3,
     "severity_score": 819,
     "root_cause_train": "527",
     "root_cause_station": "San Jose Diridon"
@@ -85,7 +85,7 @@
     "trains_affected": 15,
     "max_delay_min": 110.0,
     "avg_delay_min": 49.5,
-    "on_time_pct": 0.0,
+    "on_time_pct": 85.5,
     "severity_score": 743,
     "root_cause_train": "822",
     "root_cause_station": "San Jose Diridon"
@@ -98,7 +98,7 @@
     "trains_affected": 17,
     "max_delay_min": 90.8,
     "avg_delay_min": 42.0,
-    "on_time_pct": 0.0,
+    "on_time_pct": 88.3,
     "severity_score": 714,
     "root_cause_train": "157",
     "root_cause_station": "Tamien"
@@ -111,7 +111,7 @@
     "trains_affected": 25,
     "max_delay_min": 45.0,
     "avg_delay_min": 27.0,
-    "on_time_pct": 0.0,
+    "on_time_pct": 68.7,
     "severity_score": 676,
     "root_cause_train": "634",
     "root_cause_station": "San Francisco"
@@ -124,7 +124,7 @@
     "trains_affected": 20,
     "max_delay_min": 65.9,
     "avg_delay_min": 32.5,
-    "on_time_pct": 0.0,
+    "on_time_pct": 76.4,
     "severity_score": 649,
     "root_cause_train": "628",
     "root_cause_station": "San Francisco"
@@ -137,7 +137,7 @@
     "trains_affected": 23,
     "max_delay_min": 42.8,
     "avg_delay_min": 25.8,
-    "on_time_pct": 0.0,
+    "on_time_pct": 78.0,
     "severity_score": 594,
     "root_cause_train": "523",
     "root_cause_station": "San Jose Diridon"
@@ -150,7 +150,7 @@
     "trains_affected": 13,
     "max_delay_min": 66.0,
     "avg_delay_min": 40.7,
-    "on_time_pct": 0.0,
+    "on_time_pct": 90.5,
     "severity_score": 530,
     "root_cause_train": "123",
     "root_cause_station": "San Jose Diridon"
@@ -163,7 +163,7 @@
     "trains_affected": 10,
     "max_delay_min": 59.9,
     "avg_delay_min": 45.3,
-    "on_time_pct": 0.0,
+    "on_time_pct": 92.5,
     "severity_score": 453,
     "root_cause_train": "660",
     "root_cause_station": "Millbrae"
@@ -176,7 +176,7 @@
     "trains_affected": 12,
     "max_delay_min": 65.9,
     "avg_delay_min": 34.8,
-    "on_time_pct": 0.0,
+    "on_time_pct": 80.1,
     "severity_score": 417,
     "root_cause_train": "632",
     "root_cause_station": "San Francisco"
@@ -189,7 +189,7 @@
     "trains_affected": 14,
     "max_delay_min": 46.0,
     "avg_delay_min": 27.2,
-    "on_time_pct": 0.0,
+    "on_time_pct": 82.6,
     "severity_score": 381,
     "root_cause_train": "141",
     "root_cause_station": "Tamien"
@@ -202,7 +202,7 @@
     "trains_affected": 19,
     "max_delay_min": 23.0,
     "avg_delay_min": 17.9,
-    "on_time_pct": 0.0,
+    "on_time_pct": 63.7,
     "severity_score": 339,
     "root_cause_train": "644",
     "root_cause_station": "San Francisco"
@@ -215,7 +215,7 @@
     "trains_affected": 10,
     "max_delay_min": 45.0,
     "avg_delay_min": 26.0,
-    "on_time_pct": 0.0,
+    "on_time_pct": 89.0,
     "severity_score": 260,
     "root_cause_train": "149",
     "root_cause_station": "Millbrae"
@@ -228,7 +228,7 @@
     "trains_affected": 9,
     "max_delay_min": 61.9,
     "avg_delay_min": 26.6,
-    "on_time_pct": 0.0,
+    "on_time_pct": 87.7,
     "severity_score": 240,
     "root_cause_train": "638",
     "root_cause_station": "San Francisco"
@@ -241,7 +241,7 @@
     "trains_affected": 6,
     "max_delay_min": 51.0,
     "avg_delay_min": 36.6,
-    "on_time_pct": 0.0,
+    "on_time_pct": 93.1,
     "severity_score": 220,
     "root_cause_train": "156",
     "root_cause_station": "San Francisco"
@@ -254,7 +254,7 @@
     "trains_affected": 7,
     "max_delay_min": 34.9,
     "avg_delay_min": 27.1,
-    "on_time_pct": 0.0,
+    "on_time_pct": 91.5,
     "severity_score": 189,
     "root_cause_train": "114",
     "root_cause_station": "San Francisco"
@@ -267,7 +267,7 @@
     "trains_affected": 6,
     "max_delay_min": 52.8,
     "avg_delay_min": 31.6,
-    "on_time_pct": 0.0,
+    "on_time_pct": 92.1,
     "severity_score": 189,
     "root_cause_train": "166",
     "root_cause_station": "San Francisco"
@@ -280,7 +280,7 @@
     "trains_affected": 5,
     "max_delay_min": 59.0,
     "avg_delay_min": 37.2,
-    "on_time_pct": 0.0,
+    "on_time_pct": 87.5,
     "severity_score": 186,
     "root_cause_train": "147",
     "root_cause_station": "San Jose Diridon"
@@ -293,7 +293,7 @@
     "trains_affected": 8,
     "max_delay_min": 52.9,
     "avg_delay_min": 21.6,
-    "on_time_pct": 0.0,
+    "on_time_pct": 87.9,
     "severity_score": 173,
     "root_cause_train": "138",
     "root_cause_station": "San Francisco"
@@ -306,7 +306,7 @@
     "trains_affected": 4,
     "max_delay_min": 48.0,
     "avg_delay_min": 32.5,
-    "on_time_pct": 0.0,
+    "on_time_pct": 88.2,
     "severity_score": 130,
     "root_cause_train": "620",
     "root_cause_station": "San Francisco"
@@ -319,7 +319,7 @@
     "trains_affected": 6,
     "max_delay_min": 24.9,
     "avg_delay_min": 21.4,
-    "on_time_pct": 0.0,
+    "on_time_pct": 89.3,
     "severity_score": 128,
     "root_cause_train": "117",
     "root_cause_station": "Redwood City"

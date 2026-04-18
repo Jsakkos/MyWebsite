@@ -1,7 +1,7 @@
 {
   "Other": {
-    "total_trips": 181505,
-    "on_time_pct": 0.0,
+    "total_trips": 181791,
+    "on_time_pct": 93.9,
     "minor_pct": 5.0,
     "major_pct": 1.1,
     "avg_delay_min": 1.4,
@@ -9,23 +9,23 @@
   },
   "Morning": {
     "total_trips": 65131,
-    "on_time_pct": 0.0,
+    "on_time_pct": 94.5,
     "minor_pct": 4.9,
     "major_pct": 0.6,
     "avg_delay_min": 1.25,
     "median_delay_min": 0.0
   },
   "Evening": {
-    "total_trips": 94312,
-    "on_time_pct": 0.0,
-    "minor_pct": 7.7,
+    "total_trips": 94659,
+    "on_time_pct": 90.6,
+    "minor_pct": 7.8,
     "major_pct": 1.6,
     "avg_delay_min": 1.95,
     "median_delay_min": 0.85
   },
   "Weekend": {
     "total_trips": 95905,
-    "on_time_pct": 0.0,
+    "on_time_pct": 91.0,
     "minor_pct": 7.4,
     "major_pct": 1.7,
     "avg_delay_min": 1.68,
