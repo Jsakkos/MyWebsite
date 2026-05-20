@@ -234,6 +234,19 @@
     "root_cause_station": "San Francisco"
   },
   {
+    "id": "2026-05-18-system",
+    "date": "2026-05-18",
+    "tier": 2,
+    "summary": "System Disruption \u2014 11 trains delayed",
+    "trains_affected": 11,
+    "max_delay_min": 32.0,
+    "avg_delay_min": 20.6,
+    "on_time_pct": 91.2,
+    "severity_score": 227,
+    "root_cause_train": "420",
+    "root_cause_station": "San Francisco"
+  },
+  {
     "id": "2026-04-10-system",
     "date": "2026-04-10",
     "tier": 2,
@@ -310,18 +323,5 @@
     "severity_score": 130,
     "root_cause_train": "620",
     "root_cause_station": "San Francisco"
-  },
-  {
-    "id": "2026-03-30-system",
-    "date": "2026-03-30",
-    "tier": 2,
-    "summary": "System Disruption \u2014 6 trains delayed",
-    "trains_affected": 6,
-    "max_delay_min": 24.9,
-    "avg_delay_min": 21.4,
-    "on_time_pct": 89.3,
-    "severity_score": 128,
-    "root_cause_train": "117",
-    "root_cause_station": "Redwood City"
   }
 ]
