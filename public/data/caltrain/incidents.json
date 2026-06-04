@@ -319,7 +319,7 @@
     "trains_affected": 6,
     "max_delay_min": 36.5,
     "avg_delay_min": 24.1,
-    "on_time_pct": 86.3,
+    "on_time_pct": 90.0,
     "severity_score": 145,
     "root_cause_train": "133",
     "root_cause_station": "Tamien"
