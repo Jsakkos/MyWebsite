@@ -299,6 +299,19 @@
     "root_cause_station": "San Jose Diridon"
   },
   {
+    "id": "2026-06-12-system",
+    "date": "2026-06-12",
+    "tier": 2,
+    "summary": "System Disruption \u2014 5 trains delayed",
+    "trains_affected": 5,
+    "max_delay_min": 53.0,
+    "avg_delay_min": 36.6,
+    "on_time_pct": 92.6,
+    "severity_score": 183,
+    "root_cause_train": "167",
+    "root_cause_station": "San Jose Diridon"
+  },
+  {
     "id": "2025-10-31-system",
     "date": "2025-10-31",
     "tier": 2,
@@ -310,18 +323,5 @@
     "severity_score": 173,
     "root_cause_train": "138",
     "root_cause_station": "San Francisco"
-  },
-  {
-    "id": "2026-06-02-system",
-    "date": "2026-06-02",
-    "tier": 2,
-    "summary": "System Disruption \u2014 6 trains delayed",
-    "trains_affected": 6,
-    "max_delay_min": 36.5,
-    "avg_delay_min": 24.1,
-    "on_time_pct": 90.0,
-    "severity_score": 145,
-    "root_cause_train": "133",
-    "root_cause_station": "Tamien"
   }
 ]
