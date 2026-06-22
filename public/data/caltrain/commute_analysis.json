@@ -24,11 +24,11 @@
     "median_delay_min": 0.85
   },
   "Weekend": {
-    "total_trips": 122530,
-    "on_time_pct": 91.0,
+    "total_trips": 123963,
+    "on_time_pct": 91.1,
     "minor_pct": 7.5,
     "major_pct": 1.4,
-    "avg_delay_min": 1.63,
-    "median_delay_min": 0.75
+    "avg_delay_min": 1.62,
+    "median_delay_min": 0.73
   }
 }
