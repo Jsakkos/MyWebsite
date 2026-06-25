@@ -1,16 +1,16 @@
 {
-  "on_time_percentage": 92.56,
+  "on_time_percentage": 92.55,
   "minor_delay_percentage": 6.26,
   "major_delay_percentage": 1.18,
-  "total_arrivals": 554991,
+  "total_arrivals": 556963,
   "avg_delay_minutes": 1.53,
   "median_delay_minutes": 0.05,
-  "last_updated": "2026-06-24T00:04:48.554818",
+  "last_updated": "2026-06-25T00:04:38.409382",
   "date_range": {
     "start": "2025-08-10",
-    "end": "2026-06-23"
+    "end": "2026-06-24"
   },
-  "days_tracked": 318,
-  "rolling_7d_on_time": 90.44,
-  "rolling_30d_on_time": 91.84
+  "days_tracked": 319,
+  "rolling_7d_on_time": 90.35,
+  "rolling_30d_on_time": 91.76
 }
