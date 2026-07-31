@@ -234,6 +234,19 @@
     "root_cause_station": "Millbrae"
   },
   {
+    "id": "2026-07-29-system",
+    "date": "2026-07-29",
+    "tier": 2,
+    "summary": "System Disruption \u2014 7 trains delayed",
+    "trains_affected": 7,
+    "max_delay_min": 73.8,
+    "avg_delay_min": 35.0,
+    "on_time_pct": 91.1,
+    "severity_score": 245,
+    "root_cause_train": "162",
+    "root_cause_station": "Hillsdale"
+  },
+  {
     "id": "2026-01-10-system",
     "date": "2026-01-10",
     "tier": 2,
@@ -309,19 +322,6 @@
     "on_time_pct": 87.5,
     "severity_score": 186,
     "root_cause_train": "147",
-    "root_cause_station": "San Jose Diridon"
-  },
-  {
-    "id": "2026-06-12-system",
-    "date": "2026-06-12",
-    "tier": 2,
-    "summary": "System Disruption \u2014 5 trains delayed",
-    "trains_affected": 5,
-    "max_delay_min": 53.0,
-    "avg_delay_min": 36.6,
-    "on_time_pct": 92.6,
-    "severity_score": 183,
-    "root_cause_train": "167",
     "root_cause_station": "San Jose Diridon"
   }
 ]
