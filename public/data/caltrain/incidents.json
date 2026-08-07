@@ -260,6 +260,19 @@
     "root_cause_station": "San Francisco"
   },
   {
+    "id": "2026-08-05-system",
+    "date": "2026-08-05",
+    "tier": 2,
+    "summary": "System Disruption \u2014 9 trains delayed",
+    "trains_affected": 9,
+    "max_delay_min": 42.0,
+    "avg_delay_min": 25.8,
+    "on_time_pct": 87.9,
+    "severity_score": 232,
+    "root_cause_train": "140",
+    "root_cause_station": "San Jose Diridon"
+  },
+  {
     "id": "2026-05-18-system",
     "date": "2026-05-18",
     "tier": 2,
@@ -286,19 +299,6 @@
     "root_cause_station": "San Francisco"
   },
   {
-    "id": "2026-03-23-system",
-    "date": "2026-03-23",
-    "tier": 2,
-    "summary": "System Disruption \u2014 7 trains delayed",
-    "trains_affected": 7,
-    "max_delay_min": 34.9,
-    "avg_delay_min": 27.1,
-    "on_time_pct": 91.5,
-    "severity_score": 189,
-    "root_cause_train": "114",
-    "root_cause_station": "San Francisco"
-  },
-  {
     "id": "2026-03-16-system",
     "date": "2026-03-16",
     "tier": 2,
@@ -312,16 +312,16 @@
     "root_cause_station": "San Francisco"
   },
   {
-    "id": "2026-01-12-system",
-    "date": "2026-01-12",
+    "id": "2026-03-23-system",
+    "date": "2026-03-23",
     "tier": 2,
-    "summary": "System Disruption \u2014 5 trains delayed",
-    "trains_affected": 5,
-    "max_delay_min": 59.0,
-    "avg_delay_min": 37.2,
-    "on_time_pct": 87.5,
-    "severity_score": 186,
-    "root_cause_train": "147",
-    "root_cause_station": "San Jose Diridon"
+    "summary": "System Disruption \u2014 7 trains delayed",
+    "trains_affected": 7,
+    "max_delay_min": 34.9,
+    "avg_delay_min": 27.1,
+    "on_time_pct": 91.5,
+    "severity_score": 189,
+    "root_cause_train": "114",
+    "root_cause_station": "San Francisco"
   }
 ]
