@@ -1,6 +1,6 @@
 {
   "Other": {
-    "total_trips": 262491,
+    "total_trips": 262835,
     "on_time_pct": 93.9,
     "minor_pct": 5.0,
     "major_pct": 1.0,
@@ -16,7 +16,7 @@
     "median_delay_min": 0.0
   },
   "Evening": {
-    "total_trips": 137807,
+    "total_trips": 138128,
     "on_time_pct": 90.6,
     "minor_pct": 7.9,
     "major_pct": 1.4,
@@ -24,7 +24,7 @@
     "median_delay_min": 0.85
   },
   "Weekend": {
-    "total_trips": 141318,
+    "total_trips": 142063,
     "on_time_pct": 91.5,
     "minor_pct": 7.2,
     "major_pct": 1.3,
