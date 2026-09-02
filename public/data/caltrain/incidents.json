@@ -91,6 +91,19 @@
     "root_cause_station": "San Jose Diridon"
   },
   {
+    "id": "2026-08-31-system",
+    "date": "2026-08-31",
+    "tier": 2,
+    "summary": "System Disruption \u2014 24 trains delayed",
+    "trains_affected": 24,
+    "max_delay_min": 84.8,
+    "avg_delay_min": 31.3,
+    "on_time_pct": 80.5,
+    "severity_score": 750,
+    "root_cause_train": "503",
+    "root_cause_station": "San Jose Diridon"
+  },
+  {
     "id": "2026-02-10-system",
     "date": "2026-02-10",
     "tier": 2,
@@ -101,19 +114,6 @@
     "on_time_pct": 85.5,
     "severity_score": 743,
     "root_cause_train": "822",
-    "root_cause_station": "San Jose Diridon"
-  },
-  {
-    "id": "2026-08-31-system",
-    "date": "2026-08-31",
-    "tier": 2,
-    "summary": "System Disruption \u2014 21 trains delayed",
-    "trains_affected": 21,
-    "max_delay_min": 84.8,
-    "avg_delay_min": 35.0,
-    "on_time_pct": 69.5,
-    "severity_score": 735,
-    "root_cause_train": "503",
     "root_cause_station": "San Jose Diridon"
   },
   {
