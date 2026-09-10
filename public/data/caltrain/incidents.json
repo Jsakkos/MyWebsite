@@ -312,16 +312,16 @@
     "root_cause_station": "San Francisco"
   },
   {
-    "id": "2026-04-10-system",
-    "date": "2026-04-10",
+    "id": "2026-09-09-system",
+    "date": "2026-09-09",
     "tier": 2,
-    "summary": "System Disruption \u2014 6 trains delayed",
-    "trains_affected": 6,
-    "max_delay_min": 51.0,
-    "avg_delay_min": 36.6,
-    "on_time_pct": 93.1,
-    "severity_score": 220,
-    "root_cause_train": "156",
+    "summary": "System Disruption \u2014 7 trains delayed",
+    "trains_affected": 7,
+    "max_delay_min": 50.8,
+    "avg_delay_min": 32.2,
+    "on_time_pct": 77.6,
+    "severity_score": 225,
+    "root_cause_train": "130",
     "root_cause_station": "San Francisco"
   }
 ]
