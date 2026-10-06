@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { DailyPerformance } from "@/lib/api";
+import { parseLocalDate, toLocalDateKey } from "@/lib/utils";
 
 function getColor(pct: number): string {
   if (pct >= 95) return "#059669";
@@ -26,8 +27,8 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
 
     const lookup = new Map(data.map((d) => [d.date, d]));
     const sorted = [...data].sort((a, b) => a.date.localeCompare(b.date));
-    const startDate = new Date(sorted[0].date);
-    const endDate = new Date(sorted[sorted.length - 1].date);
+    const startDate = parseLocalDate(sorted[0].date);
+    const endDate = parseLocalDate(sorted[sorted.length - 1].date);
 
     // Align to start of week (Monday)
     const start = new Date(startDate);
@@ -41,7 +42,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
     const cursor = new Date(start);
     while (cursor <= endDate || currentWeek.length > 0) {
       const dayOfWeek = (cursor.getDay() + 6) % 7; // Mon=0
-      const dateStr = cursor.toISOString().split("T")[0];
+      const dateStr = toLocalDateKey(cursor);
       const dayData = lookup.get(dateStr) ?? null;
 
       if (dayOfWeek === 0 && currentWeek.length > 0) {
@@ -153,7 +154,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
             style={{ left: tooltip.x, top: tooltip.y - 70, transform: "translateX(-50%)" }}
           >
             <div className="font-semibold">
-              {new Date(tooltip.day.date).toLocaleDateString("en-US", {
+              {parseLocalDate(tooltip.day.date).toLocaleDateString("en-US", {
                 weekday: "short",
                 month: "short",
                 day: "numeric",
