@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import type { WeeklySummary, MonthlySummary } from "@/lib/api";
+import { parseLocalDate } from "@/lib/utils";
 
 interface TimeBreakdownProps {
   weekly: WeeklySummary[];
@@ -23,7 +24,7 @@ export function TimeBreakdown({ weekly, monthly }: TimeBreakdownProps) {
   const [tab, setTab] = useState<Tab>("monthly");
 
   const weeklyChart = weekly.map((w) => ({
-    label: new Date(w.week_start).toLocaleDateString("en-US", { month: "short", day: "numeric" }),
+    label: parseLocalDate(w.week_start).toLocaleDateString("en-US", { month: "short", day: "numeric" }),
     on_time_pct: w.on_time_pct,
     total_trips: w.total_trips,
     avg_delay_min: w.avg_delay_min,

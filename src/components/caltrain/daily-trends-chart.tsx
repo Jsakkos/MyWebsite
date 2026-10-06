@@ -12,6 +12,7 @@ import {
   Legend,
 } from "recharts";
 import type { DailyPerformance } from "@/lib/api";
+import { parseLocalDate } from "@/lib/utils";
 
 const RANGES = [
   { label: "7d", days: 7 },
@@ -31,7 +32,7 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
     if (range === Infinity) return data;
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - range);
-    return data.filter((d) => new Date(d.date) >= cutoff);
+    return data.filter((d) => parseLocalDate(d.date) >= cutoff);
   }, [data, range]);
 
   return (
@@ -76,7 +77,7 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
             <XAxis
               dataKey="date"
               tick={{ fontSize: 12 }}
-              tickFormatter={(d) => new Date(d).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+              tickFormatter={(d) => parseLocalDate(d).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
               stroke="#9ca3af"
             />
             <YAxis
@@ -94,7 +95,7 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
               }}
               formatter={(value, name) => [`${Number(value).toFixed(1)}%`, name]}
               labelFormatter={(label) =>
-                new Date(label).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })
+                parseLocalDate(label).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })
               }
             />
             <Legend />

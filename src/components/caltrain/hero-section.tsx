@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Train, Calendar, TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { parseLocalDate } from "@/lib/utils";
 
 function useCountUp(end: number, duration: number = 2000, decimals: number = 1) {
   const [value, setValue] = useState(0);
@@ -114,8 +115,8 @@ export function HeroSection({ onTimePct, totalArrivals, daysTracked, dateRange, 
             <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-blue-200" />
               <div className="text-sm">
-                <div className="font-semibold">{new Date(dateRange.start).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</div>
-                <div className="text-blue-300">to {new Date(dateRange.end).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</div>
+                <div className="font-semibold">{parseLocalDate(dateRange.start).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</div>
+                <div className="text-blue-300">to {parseLocalDate(dateRange.end).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</div>
               </div>
             </div>
           </div>
