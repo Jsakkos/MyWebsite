@@ -39,6 +39,19 @@
     "root_cause_station": "San Francisco"
   },
   {
+    "id": "2026-10-14-system",
+    "date": "2026-10-14",
+    "tier": 2,
+    "summary": "System Disruption \u2014 25 trains delayed",
+    "trains_affected": 25,
+    "max_delay_min": 81.7,
+    "avg_delay_min": 41.4,
+    "on_time_pct": 82.8,
+    "severity_score": 1036,
+    "root_cause_train": "412",
+    "root_cause_station": "San Francisco"
+  },
+  {
     "id": "2025-10-24-system",
     "date": "2025-10-24",
     "tier": 2,
@@ -218,19 +231,6 @@
     "on_time_pct": 81.1,
     "severity_score": 413,
     "root_cause_train": "632",
-    "root_cause_station": "San Francisco"
-  },
-  {
-    "id": "2026-10-14-system",
-    "date": "2026-10-14",
-    "tier": 2,
-    "summary": "System Disruption \u2014 11 trains delayed",
-    "trains_affected": 11,
-    "max_delay_min": 81.7,
-    "avg_delay_min": 36.6,
-    "on_time_pct": 92.0,
-    "severity_score": 402,
-    "root_cause_train": "412",
     "root_cause_station": "San Francisco"
   },
   {
