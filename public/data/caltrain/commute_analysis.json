@@ -1,10 +1,10 @@
 {
   "Weekend": {
-    "total_trips": 161628,
-    "on_time_pct": 92.0,
-    "minor_pct": 6.8,
+    "total_trips": 163062,
+    "on_time_pct": 92.1,
+    "minor_pct": 6.7,
     "major_pct": 1.2,
-    "avg_delay_min": 1.47,
+    "avg_delay_min": 1.46,
     "median_delay_min": 0.0
   },
   "Other": {
