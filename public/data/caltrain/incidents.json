@@ -299,6 +299,19 @@
     "root_cause_station": "Hillsdale"
   },
   {
+    "id": "2026-10-20-system",
+    "date": "2026-10-20",
+    "tier": 2,
+    "summary": "System Disruption \u2014 10 trains delayed",
+    "trains_affected": 10,
+    "max_delay_min": 91.4,
+    "avg_delay_min": 24.0,
+    "on_time_pct": 75.2,
+    "severity_score": 240,
+    "root_cause_train": "139",
+    "root_cause_station": "San Jose Diridon"
+  },
+  {
     "id": "2026-01-10-system",
     "date": "2026-01-10",
     "tier": 2,
@@ -309,19 +322,6 @@
     "on_time_pct": 87.5,
     "severity_score": 238,
     "root_cause_train": "638",
-    "root_cause_station": "San Francisco"
-  },
-  {
-    "id": "2026-05-18-system",
-    "date": "2026-05-18",
-    "tier": 2,
-    "summary": "System Disruption \u2014 11 trains delayed",
-    "trains_affected": 11,
-    "max_delay_min": 31.0,
-    "avg_delay_min": 20.4,
-    "on_time_pct": 91.8,
-    "severity_score": 224,
-    "root_cause_train": "420",
     "root_cause_station": "San Francisco"
   }
 ]
