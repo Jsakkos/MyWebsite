@@ -230,8 +230,8 @@
     "avg_delay_min": 45.0,
     "on_time_pct": 93.0,
     "severity_score": 450,
-    "root_cause_train": "659",
-    "root_cause_station": "San Jose Diridon"
+    "root_cause_train": "660",
+    "root_cause_station": "Millbrae"
   },
   {
     "id": "2026-03-14-system",
