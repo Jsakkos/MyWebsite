@@ -2,7 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { createElement, type ComponentType } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import type { StoriesData } from "@/lib/caltrain-stories-format";
+import type { ExampleDay, StoriesData } from "@/lib/caltrain-stories-format";
+import { PlayableMarey } from "@/components/caltrain/stories/playable-marey";
 import { HeadlineStrip } from "@/components/caltrain/stories/headline-strip";
 import { OpenerHeatmap } from "@/components/caltrain/stories/opener-heatmap";
 import { RecoveryFan } from "@/components/caltrain/stories/recovery-fan";
@@ -159,6 +160,61 @@ test("StopsTable keeps only the newest 12 rows", () => {
 test("StopsTable says so when no stops are detected", () => {
   const out = render(StopsTable, { data: { holds: true, events: [] } });
   expect(out).toContain("No line-wide stops detected yet.");
+});
+
+const exampleDay: ExampleDay = JSON.parse(
+  fs.readFileSync(
+    path.join(process.cwd(), "tests", "fixtures", "caltrain", "stories_example_day.json"),
+    "utf8",
+  ),
+);
+
+describe("PlayableMarey", () => {
+  const out = render(PlayableMarey, { day: exampleDay });
+  /** Each <svg role="img"> layout's markup (wide and narrow). */
+  const layouts = out.split(/(?=<svg role="img")/).slice(1);
+
+  test("draws one polyline per train in each layout, colored by delay band", () => {
+    expect(layouts.length).toBe(2);
+    for (const svg of layouts) {
+      expect(svg.match(/<polyline/g)?.length).toBe(exampleDay.trains.length);
+    }
+    expect(out).toContain('stroke="var(--major)"'); // 523, 24 min
+    expect(out).toContain('stroke="var(--ontime)"'); // 422, 2 min
+  });
+
+  test("shows the full diagram with the freeze shaded before Play", () => {
+    expect(out).toMatch(/<rect[^>]*fill="var\(--major\)"[^>]*fill-opacity="0\.1\d*"/);
+    // Every train is drawn in full: 523 has four points.
+    expect(out).toMatch(/<polyline points="(?:[\d.]+,[\d.]+ ){3}[\d.]+,[\d.]+"/);
+  });
+
+  test("has a Play button and a labelled time scrubber with a clock", () => {
+    expect(out).toMatch(/<button[^>]*type="button"[^>]*>(?:(?!<\/button>)[\s\S])*Play<\/button>/);
+    expect(out).toContain('type="range"');
+    expect(out).toContain('aria-label="Time"');
+    expect(out).toContain('step="1"');
+    expect(out).toContain("8:33 p.m."); // the clock shows the window end before Play
+  });
+
+  test("labels the SVG with a summary from the data", () => {
+    const label = ariaLabels(layouts[0])[0];
+    expect(label).toContain("3 trains");
+    expect(label).toContain("3:55 p.m.");
+    expect(label).toContain("4:33 p.m.");
+    expect(label).toContain("24 minutes");
+  });
+
+  test("uses no colors outside the theme tokens", () => {
+    const colors = [...out.matchAll(/(?:fill|stroke)="([^"]+)"/g)].map((m) => m[1]);
+    // currentColor is the Play button's icon, which follows the button's text color.
+    for (const c of colors) expect(c).toMatch(/^(var\(--[\w-]+\)|none|currentColor)$/);
+  });
+
+  test("renders without a freeze or trains", () => {
+    expect(() => render(PlayableMarey, { day: { ...exampleDay, freeze: null } })).not.toThrow();
+    expect(() => render(PlayableMarey, { day: { ...exampleDay, trains: [] } })).not.toThrow();
+  });
 });
 
 test("charts render without data", () => {
