@@ -56,29 +56,40 @@ export function performanceColor(pct: number): string {
   return WORST;
 }
 
-// Text on a ramp fill: light on the two darkest bands, near-black on the rest.
-// Both clear 4.5:1 against their band (tests/components/caltrain-palette.test.ts).
-const CELL_TEXT_LIGHT = "#ffffff";
-const CELL_TEXT_DARK = "#14120e";
-
-/** A text color that reads on performanceColor(pct), in either theme. */
-export function cellTextColor(pct: number): string {
-  const fill = performanceColor(pct);
-  return fill === RAMP[0][1] || fill === WORST ? CELL_TEXT_LIGHT : CELL_TEXT_DARK;
-}
-
 /**
- * Fill for a late share (the story charts). Late and on-time are complements
- * (late = more than 4 minutes behind), so this is the on-time ramp read from
- * the other end: 4% late gets the same green as 96% on time.
+ * Late-share ramp for the story charts: seven bands (--late-0 … --late-6 in
+ * globals.css) from pale and quiet to warm and salient, so a higher late share
+ * always draws the eye. Each break set has six inclusive lower bounds.
  */
-export function lateShareColor(latePct: number): string {
-  return performanceColor(100 - latePct);
+export const LATE_BREAKS = {
+  /** The opener heatmap: hour × day late shares sit in about 0–15%. */
+  opener: [3, 5, 7, 9, 11, 13],
+  /** The headway grid: a following train's late share spans about 10–90%. */
+  headway: [10, 20, 30, 40, 50, 60],
+} as const satisfies Record<string, readonly number[]>;
+
+export const LATE_BAND_COUNT = 7;
+
+/** The band (0–6) for a late share; breaks are inclusive lower bounds. */
+export function lateBand(latePct: number, breaks: readonly number[]): number {
+  let band = 0;
+  while (band < breaks.length && latePct >= breaks[band]) band++;
+  return band;
 }
 
-/** A text color that reads on lateShareColor(latePct). */
-export function lateShareTextColor(latePct: number): string {
-  return cellTextColor(100 - latePct);
+/** Fill for one band of the late ramp (0 = quietest). */
+export function lateBandColor(band: number): string {
+  return `var(--late-${band})`;
+}
+
+/** Fill for a late share. */
+export function lateColor(latePct: number, breaks: readonly number[]): string {
+  return lateBandColor(lateBand(latePct, breaks));
+}
+
+/** Text color that meets AA on lateColor(latePct, breaks), in either theme. */
+export function lateTextColor(latePct: number, breaks: readonly number[]): string {
+  return `var(--late-${lateBand(latePct, breaks)}-text)`;
 }
 
 export const tooltipStyle = {

@@ -7,6 +7,8 @@ import { ChartFrame } from "./chart-frame";
 const BAD_DAY = 15;
 const GOLDEN = 0.6180339887;
 
+// Dots are solid, with a paper-colored outline to separate overlaps: --field and
+// --major both clear 3:1 against paper in each theme (tests/styles/tokens.test.ts).
 const COLUMNS: { type: DayRow["type"]; label: string; plural: string; figure: string; color: string }[] = [
   { type: "weekday", label: "Weekdays", plural: "weekdays", figure: "weekday_late_pct", color: CHART.field },
   { type: "Sunday", label: "Sundays", plural: "Sundays", figure: "sun_late_pct", color: CHART.field },
@@ -85,7 +87,7 @@ function Strip({ data, figures, width, height }: Props & { width: number; height
         return (
           <g key={c.type}>
             {days.map((d, i) => (
-              <circle key={d.date} cx={cx + jitter(i) * colW * 0.55} cy={y(d.late_pct)} r={r} fill={c.color} fillOpacity={0.7}>
+              <circle key={d.date} cx={cx + jitter(i) * colW * 0.55} cy={y(d.late_pct)} r={r} fill={c.color} stroke={CHART.paper} strokeWidth={0.75}>
                 <title>{`${formatDate(d.date)}: ${trimNumber(d.late_pct)}% late (${d.n.toLocaleString("en-US")} arrivals)`}</title>
               </circle>
             ))}
@@ -116,7 +118,7 @@ export function DayStrip({ data, figures }: Props) {
     <ChartFrame
       title="Every day, one dot"
       summary={summarize(data, figures)}
-      caption={`Each dot is one day's share of arrivals more than 4 minutes late; the dark bar is the pooled share for that kind of day. Above the dashed line, more than ${BAD_DAY}% of arrivals were late. There are far fewer Saturdays and Sundays than weekdays, so read the gap as suggestive.`}
+      caption={`Each dot is one day's share of arrivals more than 4 minutes late; the solid bar is the pooled share for that kind of day. Above the dashed line, more than ${BAD_DAY}% of arrivals were late. There are far fewer Saturdays and Sundays than weekdays, so read the gap as suggestive.`}
       width={680}
       height={280}
       narrow={{ width: 320, height: 250, children: <Strip data={data} figures={figures} width={320} height={250} /> }}

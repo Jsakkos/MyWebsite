@@ -4,9 +4,10 @@ import { CHART } from "@/components/caltrain/palette";
 import { ChartFrame, LegendSwatch } from "./chart-frame";
 
 /**
- * Where "back on time" sits on the change-in-delay axis: a train that first
- * reaches 10 minutes late is on time again once it is within 4 minutes, a
- * change of about −6 minutes.
+ * A reference line, not a threshold: a train exactly 10 minutes late is back
+ * within 4 minutes of schedule after a change of −6. Trains that first hit
+ * 10 late may be 10–11 late, so the line is labelled as approximate, and the
+ * real back-on-time share (from the data) goes in the caption, not on the line.
  */
 const BACK_ON_TIME = -6;
 const K_MAX = 10;
@@ -49,7 +50,7 @@ function summarize(fan: FanRow[], figures: StoriesData["figures"]): string {
   }.`;
 }
 
-function Fan({ fan, width, height, backLabel }: { fan: FanRow[]; width: number; height: number; backLabel: string | null }) {
+function Fan({ fan, width, height }: { fan: FanRow[]; width: number; height: number }) {
   const wide = width > 400;
   const m = { left: wide ? 36 : 30, right: wide ? 16 : 8, top: 22, bottom: 38 };
   const all = fan.flatMap((r) => [r.p10, r.p90]);
@@ -136,7 +137,7 @@ function Fan({ fan, width, height, backLabel }: { fan: FanRow[]; width: number; 
         fill={CHART.major}
         className="font-sans"
       >
-        back on time{backLabel ? ` (${backLabel} make it)` : ""}
+        ≈ back on time, for a train 10 min late
       </text>
     </g>
   );
@@ -156,13 +157,15 @@ export function RecoveryFan({ data, figures }: Props) {
     <ChartFrame
       title="What happens after a train falls 10 minutes behind"
       summary={summarize(data.fan, figures)}
-      caption="Weekday trains that first reach 10 minutes late at a stop after their first. For each later stop, the change in delay since that moment: the line is the median train, the bands hold the middle half and the middle 8 in 10. Below the dashed line a train is back within 4 minutes of schedule."
+      caption={`Weekday trains that first reach 10 minutes late at a stop after their first. For each later stop, the change in delay since that moment: the line is the median train, the bands hold the middle half and the middle 8 in 10. The dashed line is approximate: it is where a train exactly 10 minutes late would be back within 4 minutes of schedule.${
+        backLabel ? ` Of these trains, ${backLabel} actually got back within 4 minutes before the end of the line.` : ""
+      }`}
       legend={legend}
       width={680}
       height={260}
-      narrow={{ width: 320, height: 230, children: <Fan fan={data.fan} width={320} height={230} backLabel={backLabel} /> }}
+      narrow={{ width: 320, height: 230, children: <Fan fan={data.fan} width={320} height={230} /> }}
     >
-      <Fan fan={data.fan} width={680} height={260} backLabel={backLabel} />
+      <Fan fan={data.fan} width={680} height={260} />
     </ChartFrame>
   );
 }

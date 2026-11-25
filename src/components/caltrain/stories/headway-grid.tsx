@@ -1,6 +1,6 @@
 import type { HeadwayRow, StoriesData } from "@/lib/caltrain-stories-format";
 import { trimNumber } from "@/lib/charts";
-import { CHART, lateShareColor, lateShareTextColor } from "@/components/caltrain/palette";
+import { CHART, LATE_BREAKS, lateColor, lateTextColor } from "@/components/caltrain/palette";
 import { ChartFrame } from "./chart-frame";
 
 const LEADERS: HeadwayRow["leader"][] = ["≤ 0", "0–4", "4–10", "10–20", "> 20"];
@@ -69,10 +69,12 @@ export function HeadwayGrid({ data }: { data: StoriesData["stories"]["express"] 
           const x = LABEL_W + j * cellW;
           const y = TOP + i * CELL_H;
           const cx = x + (cellW - GAP) / 2;
-          const ink = r ? lateShareTextColor(r.late_pct) : CHART.muted;
+          const ink = r ? lateTextColor(r.late_pct, LATE_BREAKS.headway) : CHART.muted;
           return (
             <g key={`${l}|${h}`} className="font-mono">
-              <rect x={x} y={y} width={cellW - GAP} height={CELL_H - GAP} fill={r ? lateShareColor(r.late_pct) : CHART.empty} />
+              <rect x={x} y={y} width={cellW - GAP} height={CELL_H - GAP} fill={r ? lateColor(r.late_pct, LATE_BREAKS.headway) : "none"}
+                stroke={r ? undefined : CHART.grid}
+              />
               {r ? (
                 <>
                   <text x={cx} y={y + 15} textAnchor="middle" fontSize={13} fontWeight={500} fill={ink}>

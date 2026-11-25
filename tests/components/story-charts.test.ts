@@ -56,10 +56,42 @@ test("OpenerHeatmap summary names the worst slot from the data", () => {
   expect(ariaLabels(out)[0]).toContain("13.2%");
 });
 
+/** The fill of the cell whose tooltip starts with `title`. */
+function cellFill(html: string, title: string): string | undefined {
+  const at = html.indexOf(`<title>${title}`);
+  const rect = html.lastIndexOf("<rect", at);
+  return html.slice(rect, at).match(/fill="([^"]+)"/)?.[1];
+}
+
+test("OpenerHeatmap draws the worst slot warmest and the best slot quietest", () => {
+  const out = render(OpenerHeatmap, { data: stories.opener });
+  expect(cellFill(out, "Saturday, noon hour")).toBe("var(--late-6)"); // 13.2%
+  expect(cellFill(out, "Sunday, 9 a.m. hour")).toBe("var(--late-1)"); // 3.7%
+  expect(cellFill(out, "Monday, 7 a.m. hour")).toBe("var(--late-2)"); // 6.1%: 5 ≤ x < 7
+  expect(cellFill(out, "Monday, 5 a.m. hour")).toBe("none"); // no data
+});
+
+test("OpenerHeatmap key shows only the bands the data reaches", () => {
+  const out = render(OpenerHeatmap, { data: stories.opener });
+  const key = out.slice(0, out.indexOf('role="img"'));
+  expect(key).not.toContain("var(--late-0)"); // the fixture's lowest is 3.7%
+  for (const band of [1, 2, 3, 4, 5, 6]) expect(key).toContain(`var(--late-${band})`);
+  const low = render(OpenerHeatmap, { data: { heatmap: [{ dow: 1, hour: 7, n: 10, late_pct: 2 }, { dow: 1, hour: 8, n: 10, late_pct: 6 }] } });
+  const lowKey = low.slice(0, low.indexOf('role="img"'));
+  expect(lowKey).toContain("var(--late-0)");
+  expect(lowKey).toContain("var(--late-2)");
+  expect(lowKey).not.toContain("var(--late-3)");
+});
+
 test("RecoveryFan marks the back-on-time line and summarises the change after 5 stops", () => {
   const out = render(RecoveryFan, { data: stories.recovery, figures });
-  expect(out).toContain("back on time");
+  // The line is an approximate reference, labelled as such; the real share is in the caption.
+  expect(out).toContain("≈ back on time, for a train 10 min late");
+  expect(out).not.toContain("make it");
   expect(out).toContain('stroke-dasharray');
+  const caption = out.slice(out.indexOf("<figcaption"));
+  expect(caption).toContain("approximate");
+  expect(caption).toContain("0.3% actually got back within 4 minutes");
   expect(ariaLabels(out)[0]).toContain("+1.2 minutes");
   expect(ariaLabels(out)[0]).toContain("0.3%");
 });
@@ -76,6 +108,10 @@ test("HeadwayGrid prints late share and run count in its cells", () => {
   const out = render(HeadwayGrid, { data: stories.express });
   expect(out).toContain("52.4%");
   expect(out).toContain("1,820");
+  // The headway break set: 52.4% is band 5, 4.4% band 0.
+  expect(out).toContain('fill="var(--late-5)"');
+  expect(out).toContain('fill="var(--late-0)"');
+  expect(out).toContain('fill="var(--late-5-text)"');
 });
 
 test("DayStrip draws one dot per day and a labelled 15% line", () => {
@@ -83,6 +119,8 @@ test("DayStrip draws one dot per day and a labelled 15% line", () => {
   // Each day appears twice: once in the wide and once in the narrow layout.
   expect(out.match(/<circle/g)?.length).toBe(stories.saturday.days.length * 2);
   expect(out).toContain("15%");
+  // Solid dots, so they keep their 3:1 contrast against the paper.
+  expect(out).not.toMatch(/<circle[^>]*fill-opacity/);
   // Deterministic: two renders are identical.
   expect(render(DayStrip, { data: stories.saturday, figures })).toBe(out);
 });

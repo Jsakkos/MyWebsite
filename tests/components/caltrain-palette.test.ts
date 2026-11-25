@@ -1,9 +1,15 @@
+import fs from "node:fs";
+import path from "node:path";
 import {
   CHART,
   COMMUTE_COLORS,
   DIRECTION_COLORS,
+  LATE_BAND_COUNT,
+  LATE_BREAKS,
   SERVICE_COLORS,
-  cellTextColor,
+  lateBand,
+  lateColor,
+  lateTextColor,
   performanceColor,
 } from "@/components/caltrain/palette";
 
@@ -37,10 +43,57 @@ function contrast(a: string, b: string): number {
   return (hi + 0.05) / (lo + 0.05);
 }
 
-test("text drawn on a heatmap cell meets WCAG AA against every ramp color", () => {
-  for (const pct of [100, 95, 90, 85, 80, 75, 70, 60, 0]) {
-    expect(contrast(performanceColor(pct), cellTextColor(pct))).toBeGreaterThanOrEqual(4.5);
+const css = fs.readFileSync(path.join(process.cwd(), "src/app/globals.css"), "utf8");
+
+/** Custom properties of one theme block, with var(--x) references resolved. */
+function theme(selector: string): Record<string, string> {
+  const start = css.indexOf(`${selector} {`);
+  const body = css.slice(start, css.indexOf("}", start));
+  const raw = Object.fromEntries(
+    [...body.matchAll(/--([\w-]+):\s*([^;]+);/g)].map((m) => [m[1], m[2].trim().toLowerCase()]),
+  );
+  const resolve = (v: string): string => {
+    const ref = v.match(/^var\(--([\w-]+)\)$/);
+    return ref ? resolve(raw[ref[1]]) : v;
+  };
+  return Object.fromEntries(Object.entries(raw).map(([k, v]) => [k, resolve(v)]));
+}
+
+const THEMES = { light: theme(":root"), dark: theme(".dark") };
+
+/** var(--late-3) -> "late-3" */
+const token = (v: string) => v.match(/^var\(--(.+)\)$/)?.[1] ?? v;
+
+test("late bands use inclusive lower bounds", () => {
+  expect(lateBand(0, LATE_BREAKS.opener)).toBe(0);
+  expect(lateBand(2.9, LATE_BREAKS.opener)).toBe(0);
+  expect(lateBand(3, LATE_BREAKS.opener)).toBe(1);
+  expect(lateBand(13.2, LATE_BREAKS.opener)).toBe(6);
+  expect(lateBand(52.4, LATE_BREAKS.headway)).toBe(5);
+  expect(lateBand(95, LATE_BREAKS.headway)).toBe(6);
+  for (const breaks of Object.values(LATE_BREAKS)) expect(breaks.length).toBe(LATE_BAND_COUNT - 1);
+});
+
+test.each(["light", "dark"] as const)("%s late ramp: cell text meets AA on every band of both break sets", (mode) => {
+  const t = THEMES[mode];
+  for (const breaks of Object.values(LATE_BREAKS)) {
+    for (const pct of [0, ...breaks]) {
+      const bg = t[token(lateColor(pct, breaks))];
+      const fg = t[token(lateTextColor(pct, breaks))];
+      expect(bg, `${mode} ${lateColor(pct, breaks)}`).toMatch(/^#[0-9a-f]{6}$/);
+      expect(fg, `${mode} ${lateTextColor(pct, breaks)}`).toMatch(/^#[0-9a-f]{6}$/);
+      expect(contrast(bg, fg), `${mode} band ${lateBand(pct, breaks)}`).toBeGreaterThanOrEqual(4.5);
+    }
   }
+});
+
+test.each(["light", "dark"] as const)("%s late ramp: a higher late share stands out more from the paper", (mode) => {
+  const t = THEMES[mode];
+  const vsPaper = Array.from({ length: LATE_BAND_COUNT }, (_, i) => contrast(t[`late-${i}`], t.paper));
+  for (let i = 1; i < vsPaper.length; i++) expect(vsPaper[i], `${mode} band ${i}`).toBeGreaterThan(vsPaper[i - 1]);
+  // The quiet end is still a visible tint, not the paper itself.
+  expect(t["late-0"]).not.toBe(t.paper);
+  expect(t["late-0"]).not.toBe(t["paper-2"]);
 });
 
 test("each service gets its own series color", () => {

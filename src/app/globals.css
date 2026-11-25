@@ -24,6 +24,22 @@
   --series-2: #7a5a9e;
   --series-3: #3f6f8f;
   --series-4: #2f6b4f;
+  /* Late-share ramp for the story charts: pale and quiet to warm and dark.
+     --late-N-text is the cell text color for band N (AA, tested). */
+  --late-0: #ece3cc;
+  --late-1: #efd9a0;
+  --late-2: #e0c27a;
+  --late-3: #d49a45;
+  --late-4: #c97a45;
+  --late-5: #b4432f;
+  --late-6: #8e3324;
+  --late-0-text: var(--ink);
+  --late-1-text: var(--ink);
+  --late-2-text: var(--ink);
+  --late-3-text: var(--ink);
+  --late-4-text: var(--ink);
+  --late-5-text: var(--paper);
+  --late-6-text: var(--paper);
 }
 
 .dark {
@@ -45,6 +61,22 @@
   --series-2: #b79ad6;
   --series-3: #8bb4d0;
   --series-4: #86c4a0;
+  /* On dark paper the ramp runs dim to bright, so a higher late share still
+     stands out more. */
+  --late-0: #2c271f;
+  --late-1: #4a3c24;
+  --late-2: #6e5426;
+  --late-3: #b86e3a;
+  --late-4: #d4795a;
+  --late-5: #e8907a;
+  --late-6: #f5b9a0;
+  --late-0-text: var(--ink);
+  --late-1-text: var(--ink);
+  --late-2-text: var(--ink);
+  --late-3-text: var(--paper);
+  --late-4-text: var(--paper);
+  --late-5-text: var(--paper);
+  --late-6-text: var(--paper);
 }
 
 @theme inline {

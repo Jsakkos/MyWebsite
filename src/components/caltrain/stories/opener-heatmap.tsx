@@ -1,6 +1,6 @@
 import type { HeatmapCell, StoriesData } from "@/lib/caltrain-stories-format";
 import { trimNumber } from "@/lib/charts";
-import { CHART, lateShareColor } from "@/components/caltrain/palette";
+import { CHART, LATE_BREAKS, lateBand, lateBandColor, lateColor } from "@/components/caltrain/palette";
 import { ChartFrame } from "./chart-frame";
 
 const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -8,8 +8,8 @@ const HOURS = Array.from({ length: 19 }, (_, i) => i + 5); // 5..23
 const HOUR_TICKS = [6, 9, 12, 15, 18, 21];
 const NARROW = 320;
 
-/** One representative late share per ramp band, lowest first, for the key. */
-const KEY = [0, 7, 12, 17, 22, 27, 35, 50];
+const BREAKS = LATE_BREAKS.opener;
+const SWATCH = 26;
 
 /** 12 -> "noon", 17 -> "5 p.m." */
 export function hourLabel(h: number): string {
@@ -60,7 +60,8 @@ function Grid({ cells, width }: { cells: Map<string, HeatmapCell>; width: number
               y={top + i * cellH}
               width={cellW - gap}
               height={cellH - gap}
-              fill={cell ? lateShareColor(cell.late_pct) : CHART.empty}
+              fill={cell ? lateColor(cell.late_pct, BREAKS) : "none"}
+              stroke={cell ? undefined : CHART.grid}
             >
               <title>
                 {cell
@@ -75,6 +76,36 @@ function Grid({ cells, width }: { cells: Map<string, HeatmapCell>; width: number
   );
 }
 
+/**
+ * The color key, covering only the bands the data reaches: one swatch per band,
+ * with the band boundaries (% late) under the joins.
+ */
+export function LateKey({ values }: { values: number[] }) {
+  if (values.length === 0) return null;
+  const lo = lateBand(Math.min(...values), BREAKS);
+  const hi = lateBand(Math.max(...values), BREAKS);
+  const bands = Array.from({ length: hi - lo + 1 }, (_, i) => lo + i);
+  const edges = bands.map((band, i) => ({ x: i * SWATCH, value: band === 0 ? 0 : BREAKS[band - 1] }));
+  if (hi < BREAKS.length) edges.push({ x: bands.length * SWATCH, value: BREAKS[hi] });
+  return (
+    <span className="inline-flex items-end gap-1.5">
+      <svg width={bands.length * SWATCH + 8} height="24" aria-hidden="true" className="overflow-visible">
+        {bands.map((band, i) => (
+          <rect key={band} x={i * SWATCH} width={SWATCH} height="10" fill={lateBandColor(band)} />
+        ))}
+        <g className="font-mono" fontSize="10" fill={CHART.muted}>
+          {edges.map((e, i) => (
+            <text key={e.x} x={e.x} y="22" textAnchor={i === 0 ? "start" : "middle"}>
+              {e.value}
+            </text>
+          ))}
+        </g>
+      </svg>
+      <span className="font-mono text-[10px] leading-none">% late</span>
+    </span>
+  );
+}
+
 function height(width: number): number {
   return 20 + 7 * (width > 400 ? 20 : 16);
 }
@@ -83,17 +114,11 @@ function height(width: number): number {
 export function OpenerHeatmap({ data }: { data: StoriesData["stories"]["opener"] }) {
   const cells = new Map(data.heatmap.map((c) => [`${c.dow}-${c.hour}`, c]));
   const legend = (
-    <span className="inline-flex flex-wrap items-center gap-x-1.5 gap-y-1">
-      <span className="font-mono">≤ 5%</span>
-      <svg width={KEY.length * 14} height="10" aria-hidden="true">
-        {KEY.map((late, i) => (
-          <rect key={late} x={i * 14} width="14" height="10" fill={lateShareColor(late)} />
-        ))}
-      </svg>
-      <span className="font-mono">&gt; 40% late</span>
-      <span className="ml-3 inline-flex items-center gap-1.5">
+    <span className="inline-flex flex-wrap items-center gap-x-3 gap-y-1">
+      <LateKey values={data.heatmap.map((c) => c.late_pct)} />
+      <span className="inline-flex items-center gap-1.5">
         <svg width="14" height="10" aria-hidden="true">
-          <rect x="0.5" y="0.5" width="13" height="9" fill={CHART.empty} stroke={CHART.grid} />
+          <rect x="0.5" y="0.5" width="13" height="9" fill="none" stroke={CHART.grid} />
         </svg>
         no data
       </span>
