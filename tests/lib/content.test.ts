@@ -14,6 +14,7 @@ test("profile validates and has the public-safe essentials", () => {
   );
   expect(p.basics.throughline).toContain(p.basics.accent);
   expect(p.pillars).toHaveLength(4);
+  expect(p.basics.story.length).toBeGreaterThanOrEqual(2);
   expect(p.publications).toHaveLength(15);
   expect(p.work[0].organization).toBe("Takara Bio USA, Inc.");
   expect(p.work[0].endDate).toBeUndefined();

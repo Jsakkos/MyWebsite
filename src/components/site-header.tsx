@@ -34,7 +34,7 @@ export function SiteHeader({ items }: { items: NavItem[] }) {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/75">
+    <header data-print-hide className="sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/75">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-6 px-6 py-4">
         <Link href="/" className="font-serif text-xl font-semibold tracking-tight text-ink">
           Jonathan Sakkos

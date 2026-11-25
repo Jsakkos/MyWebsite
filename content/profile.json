@@ -8,6 +8,11 @@
       "I'm a Staff Engineer in Spatial Genomics R&D at Takara Bio USA, where I lead engineering for spatial transcriptomics products from early research through manufacturing launch. The work doesn't fit neatly into one discipline, and that's the point: automated instruments, computer-vision pipelines, production fixtures, and the validation that lets operations own them.",
       "I got here the long way: designing wear parts for a steel foundry, a Ph.D. in mechanical engineering spent putting bacteria inside silica gels, and a postdoc engineering cyanobacteria. Most engineers own one layer. I like owning the whole chain, so nothing gets lost in the hand-offs."
     ],
+    "story": [
+      "My first engineering job was at Columbia Steel Casting in Portland, designing replacement wear parts for industrial scrap shredders. It taught me to follow a design all the way through: from the engineering request to the pattern shop, the foundry floor, and the customer.",
+      "In graduate school at the University of Minnesota I traded steel for living materials: porous silica gels that encapsulate bacteria so they can clean pollutants from water and run chemistry. A postdoc at Michigan State took me deeper into the biology, engineering cyanobacteria and modeling how microbial communities grow together, with the microscopy and image analysis to measure it.",
+      "In 2022 I joined Curio Bioscience to help turn its spatial transcriptomics workflows into manufacturing. Curio became part of Takara Bio in 2025, where I now lead engineering for spatial genomics products: the instruments, the image analysis, the fixtures, and the validation that hands them to operations."
+    ],
     "offTheClock": "Off the clock I build open-source tools like Engram, take photos, cook, run a self-hosted homelab, and commute by bike and Caltrain, which is how I ended up tracking every train on the line.",
     "location": "San Francisco, CA",
     "email": "jonathansakkos@gmail.com",

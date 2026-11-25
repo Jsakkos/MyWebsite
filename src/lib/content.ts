@@ -15,6 +15,7 @@ export const profileSchema = z.object({
     throughline: z.string().min(1),
     accent: z.string().min(1),
     intro: z.array(z.string().min(1)).min(1),
+    story: z.array(z.string().min(1)).min(2),
     offTheClock: z.string().min(1),
     location: z.string().min(1),
     email: z.string().email(),

@@ -102,8 +102,6 @@
 }
 
 @media print {
-  header,
-  footer,
   [data-print-hide] {
     display: none !important;
   }

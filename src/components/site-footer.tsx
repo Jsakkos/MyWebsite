@@ -7,7 +7,7 @@ export function SiteFooter() {
     ...basics.profiles.map((p) => ({ label: p.network, url: p.url })),
   ];
   return (
-    <footer className="mt-24 border-t border-rule">
+    <footer data-print-hide className="mt-24 border-t border-rule">
       <div className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-10 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <ul className="flex flex-wrap gap-x-5 gap-y-2">
           {links.map((l) => (
