@@ -11,6 +11,8 @@ const map: [string, string][] = [
   ["/about", "/work/"],
   ["/experience", "/work/"],
   ["/blog", "/notes/"],
+  // Posts retired in the rebuild; listed before the generic rule, which would 404.
+  ["/blog/welcome-to-my-new-site", "/notes/"],
   ["/blog/:slug*", "/notes/:slug*"],
   ["/files/SakkosCV.pdf", RESUME_PDF],
   ["/files/cv.pdf", RESUME_PDF],

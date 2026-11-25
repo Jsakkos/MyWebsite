@@ -24,6 +24,13 @@ test("hugo-era paths no longer point at retired pages", () => {
   expect(to("/post/:path*")).toBe("/notes/");
 });
 
+test("the retired welcome post lands on Notes, ahead of the generic blog rule", () => {
+  expect(to("/blog/welcome-to-my-new-site")).toBe("/notes/");
+  const specific = REDIRECTS.findIndex((r) => r.source === "/blog/welcome-to-my-new-site");
+  const generic = REDIRECTS.findIndex((r) => r.source === "/blog/:slug*");
+  expect(specific).toBeLessThan(generic);
+});
+
 test("all redirects are permanent", () => {
   expect(REDIRECTS.every((r) => r.permanent === true)).toBe(true);
 });
