@@ -1,68 +1,57 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Newsreader } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { NAV_ITEMS } from "@/lib/nav";
+import { SITE_NAME, SITE_URL, pageMetadata } from "@/lib/metadata";
 
-const inter = Inter({
+const newsreader = Newsreader({
   subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
+const base = pageMetadata({ path: "/" });
 export const metadata: Metadata = {
-  title: "Jonathan K. Sakkos - Senior Process Development Engineer",
-  description: "Senior Process Development Engineer at Curio Bioscience specializing in biotechnology, process automation, and biomaterials. Expert in scaling manufacturing processes for spatial biology platforms.",
-  keywords: ["biotech", "process development", "automation", "biotechnology", "engineering", "spatial biology", "curio bioscience", "synthetic biology", "biomaterials"],
-  authors: [{ name: "Jonathan K. Sakkos" }],
+  ...base,
+  metadataBase: new URL(SITE_URL),
+  title: { default: base.title as string, template: `%s · ${SITE_NAME}` },
+  authors: [{ name: "Jonathan K. Sakkos", url: SITE_URL }],
   creator: "Jonathan K. Sakkos",
-  publisher: "Jonathan K. Sakkos",
-  robots: "index, follow",
-  alternates: {
-    canonical: "https://www.jonathanksakkos.com",
-  },
-  openGraph: {
-    title: "Jonathan K. Sakkos - Senior Process Development Engineer",
-    description: "Senior Process Development Engineer at Curio Bioscience specializing in biotechnology, process automation, and biomaterials.",
-    url: "https://www.jonathanksakkos.com",
-    siteName: "Jonathan K. Sakkos",
-    type: "website",
-    locale: "en_US",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Jonathan K. Sakkos - Senior Process Development Engineer",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Jonathan K. Sakkos - Senior Process Development Engineer",
-    description: "Senior Process Development Engineer at Curio Bioscience",
-    images: ["/og-image.png"],
-  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased bg-white dark:bg-gray-900 transition-colors`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${newsreader.variable} ${inter.variable} ${plexMono.variable}`}
+    >
+      <body className="min-h-screen bg-paper text-ink">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-paper focus:px-3 focus:py-2 focus:text-ink"
+          >
+            Skip to content
+          </a>
           <div className="flex min-h-screen flex-col">
-            <Navigation />
-            <main className="flex-1">{children}</main>
-            <Footer />
+            <SiteHeader items={NAV_ITEMS} />
+            <main id="main" className="flex-1">
+              {children}
+            </main>
+            <SiteFooter />
           </div>
         </ThemeProvider>
       </body>

@@ -1,18 +1,21 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
+import { REDIRECTS } from "./src/lib/redirects";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   experimental: {
     mdxRs: true,
   },
-  // Use static export for Netlify deployment with hybrid mode for API routes
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   typescript: {
     ignoreBuildErrors: false,
+  },
+  async redirects() {
+    return REDIRECTS;
   },
 };
 
