@@ -181,3 +181,24 @@ test("daysStale counts whole local calendar days and never goes negative", () =>
   expect(daysStale("2026-11-25", new Date(2026, 10, 25, 23))).toBe(0);
   expect(daysStale("2026-11-30", new Date(2026, 10, 25, 9))).toBe(0);
 });
+
+test("an empty or malformed data_through returns null", () => {
+  for (const bad of ["", "2026-11", undefined]) {
+    const d = fixture();
+    d.data_through = bad;
+    expect(loadStories(tempFile(JSON.stringify(d)))).toBeNull();
+  }
+});
+
+test("the format module stays free of node imports, so client components can use it", () => {
+  const src = fs.readFileSync(path.join(process.cwd(), "src", "lib", "caltrain-stories-format.ts"), "utf8");
+  expect(src).not.toMatch(/node:fs|node:path|from\s+["'](fs|path)["']|require\(["'](fs|path)["']\)/);
+});
+
+test("caltrain-stories re-exports the format module", async () => {
+  const format = await import("@/lib/caltrain-stories-format");
+  const stories = await import("@/lib/caltrain-stories");
+  expect(stories.formatClock).toBe(format.formatClock);
+  expect(stories.daysStale).toBe(format.daysStale);
+  expect(stories.STORY_FIGURE_KEYS).toBe(format.STORY_FIGURE_KEYS);
+});
