@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "check:content": "node scripts/check-public-content.mjs"
+    "check:content": "node scripts/check-public-content.mjs",
+    "prebuild": "npm run check:content"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
