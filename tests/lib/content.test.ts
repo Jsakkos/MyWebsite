@@ -28,6 +28,7 @@ test("DOIs are bare and match Crossref-verified values", () => {
   expect(dois).toContain("10.1021/acsami.7b06791");
   expect(dois).toContain("10.1002/bit.25821");
   expect(dois).toContain("10.17912/micropub.biology.001097");
+  expect(dois).toContain("10.1021/acs.nanolett.9b03651");
 });
 
 test("recent publications are newest first", () => {
