@@ -4,11 +4,12 @@ import { getProfile } from "@/lib/content";
 export const SITE_URL = "https://www.jonathanksakkos.com";
 export const SITE_NAME = "Jonathan Sakkos";
 export const OG_IMAGE = "/og-image.png";
+export const DEFAULT_TITLE = `${SITE_NAME} · ${getProfile().basics.label}`;
 
 export function pageMetadata(opts: { title?: string; description?: string; path: string }): Metadata {
   const { basics } = getProfile();
   const description = opts.description ?? basics.throughline;
-  const title = opts.title ?? `${SITE_NAME} · ${basics.label}`;
+  const title = opts.title ?? DEFAULT_TITLE;
   const url = `${SITE_URL}${opts.path}`;
   return {
     title: opts.title ?? { absolute: title },

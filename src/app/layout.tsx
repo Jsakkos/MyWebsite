@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { NAV_ITEMS } from "@/lib/nav";
-import { SITE_NAME, SITE_URL, pageMetadata } from "@/lib/metadata";
+import { DEFAULT_TITLE, SITE_NAME, SITE_URL, pageMetadata } from "@/lib/metadata";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -26,7 +26,7 @@ const base = pageMetadata({ path: "/" });
 export const metadata: Metadata = {
   ...base,
   metadataBase: new URL(SITE_URL),
-  title: { default: base.title as string, template: `%s · ${SITE_NAME}` },
+  title: { default: DEFAULT_TITLE, template: `%s · ${SITE_NAME}` },
   authors: [{ name: "Jonathan K. Sakkos", url: SITE_URL }],
   creator: "Jonathan K. Sakkos",
 };
