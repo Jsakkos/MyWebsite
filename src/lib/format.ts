@@ -18,3 +18,9 @@ export function doiUrl(doi: string): string {
 export function splitAuthors(authors: string[]): { name: string; self: boolean }[] {
   return authors.map((name) => ({ name, self: /\bSakkos\b/.test(name) }));
 }
+
+/** "2026-11-25" → "Nov 25, 2026". */
+export function formatDate(day: string): string {
+  const [year, month, date] = day.split("-");
+  return `${MONTHS[Number(month) - 1]} ${Number(date)}, ${year}`;
+}

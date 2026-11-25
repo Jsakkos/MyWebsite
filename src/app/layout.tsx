@@ -4,7 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { NAV_ITEMS } from "@/lib/nav";
+import { navItemsFor } from "@/lib/nav";
+import { getAllNotes } from "@/lib/notes";
 import { DEFAULT_TITLE, SITE_NAME, SITE_URL, pageMetadata } from "@/lib/metadata";
 
 const newsreader = Newsreader({
@@ -47,7 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             Skip to content
           </a>
           <div className="flex min-h-screen flex-col">
-            <SiteHeader items={NAV_ITEMS} />
+            <SiteHeader items={navItemsFor(getAllNotes().length > 0)} />
             <main id="main" className="flex-1">
               {children}
             </main>

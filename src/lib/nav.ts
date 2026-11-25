@@ -11,7 +11,12 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Contact", href: "/contact/" },
 ];
 
-const withSlash = (p: string) => (p.endsWith("/") ? p : `${p}/`);
+/** Notes only appears once at least one note is published, so the section never shows empty. */
+export function navItemsFor(hasNotes: boolean): NavItem[] {
+  return hasNotes ? NAV_ITEMS : NAV_ITEMS.filter((i) => i.href !== "/notes/");
+}
+
+const withSlash =(p: string) => (p.endsWith("/") ? p : `${p}/`);
 
 export function isActivePath(pathname: string, href: string): boolean {
   const current = withSlash(pathname);

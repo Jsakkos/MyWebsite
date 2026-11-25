@@ -1,4 +1,4 @@
-import { doiUrl, formatDateRange, formatYearMonth, splitAuthors } from "@/lib/format";
+import { doiUrl, formatDate, formatDateRange, formatYearMonth, splitAuthors } from "@/lib/format";
 
 test("date ranges use short months and an en dash", () => {
   expect(formatDateRange("2025-01")).toBe("Jan 2025 – present");
@@ -8,6 +8,11 @@ test("date ranges use short months and an en dash", () => {
 test("year-month formats without timezone drift", () => {
   expect(formatYearMonth("2025-08")).toBe("Aug 2025");
   expect(formatYearMonth("2025-08-10")).toBe("Aug 2025");
+});
+
+test("full dates format without timezone drift", () => {
+  expect(formatDate("2026-11-25")).toBe("Nov 25, 2026");
+  expect(formatDate("2026-01-01")).toBe("Jan 1, 2026");
 });
 
 test("doiUrl normalizes bare, prefixed and full DOIs", () => {
