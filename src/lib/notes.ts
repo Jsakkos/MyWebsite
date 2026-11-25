@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 
 export interface NoteMeta {
   slug: string;
@@ -66,4 +68,14 @@ export function getNote(slug: string, opts: Options = {}): Note | null {
   if (!/^[a-z0-9-]+$/.test(slug) || !fs.existsSync(path.join(dir, file))) return null;
   const note = readNote(dir, file);
   return note.draft && !showDrafts(opts.includeDrafts) ? null : note;
+}
+
+/** Metadata for /notes/. While nothing is published, keep the empty page out of search results. */
+export function notesIndexMetadata(publishedCount: number): Metadata {
+  const base = pageMetadata({
+    title: "Notes",
+    description: "Occasional write-ups on projects, data, and building things.",
+    path: "/notes/",
+  });
+  return publishedCount > 0 ? base : { ...base, robots: { index: false, follow: true } };
 }

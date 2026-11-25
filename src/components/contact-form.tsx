@@ -6,7 +6,7 @@ import { submitContact } from "@/lib/contact";
 type Status = { state: "idle" } | { state: "sending" } | { state: "sent" } | { state: "error"; message: string };
 
 const field =
-  "mt-1.5 block w-full rounded-md border border-rule bg-paper px-3 py-2 text-ink placeholder:text-muted focus:border-accent focus:outline-none";
+  "mt-1.5 block w-full rounded-md border border-field bg-paper px-3 py-2 text-ink placeholder:text-muted focus:border-accent focus:outline-none";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>({ state: "idle" });

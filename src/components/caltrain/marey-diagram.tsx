@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useRef, useState } from "react";
 import type { IncidentDetail, TrainTrajectory } from "@/lib/api";
+import { DIRECTION_COLORS } from "@/components/caltrain/palette";
 
 interface MareyDiagramProps {
   detail: IncidentDetail;
@@ -238,9 +239,7 @@ export function MareyDiagram({ detail }: MareyDiagramProps) {
             ? "var(--major)"
             : t.is_cascading
             ? "var(--minor)"
-            : t.direction === "SB"
-            ? "var(--series-3)"
-            : "var(--series-3)";
+            : DIRECTION_COLORS[t.direction === "SB" ? "SB" : "NB"];
           const strokeWidth = isRoot ? 2.5 : t.is_cascading ? 1.8 : 1;
           const opacity = isRoot ? 0.9 : t.is_cascading ? 0.6 : 0.25;
 
@@ -344,17 +343,20 @@ export function MareyDiagram({ detail }: MareyDiagramProps) {
 
         {/* Legend */}
         <g transform={`translate(${margin.left}, ${height - 12})`}>
-          <line x1={0} y1={0} x2={20} y2={0} stroke="var(--series-3)" strokeWidth={1.5} />
-          <text x={24} y={3} className="fill-muted" fontSize={9}>Normal</text>
+          <line x1={0} y1={0} x2={20} y2={0} stroke={DIRECTION_COLORS.SB} strokeWidth={1.5} />
+          <text x={24} y={3} className="fill-muted" fontSize={9}>Southbound</text>
 
-          <line x1={80} y1={0} x2={100} y2={0} stroke="var(--major)" strokeWidth={2.5} />
-          <circle cx={90} cy={0} r={2} fill="var(--major)" />
-          <text x={104} y={3} className="fill-muted" fontSize={9}>Primary delay</text>
+          <line x1={90} y1={0} x2={110} y2={0} stroke={DIRECTION_COLORS.NB} strokeWidth={1.5} />
+          <text x={114} y={3} className="fill-muted" fontSize={9}>Northbound</text>
 
-          <line x1={200} y1={0} x2={220} y2={0} stroke="var(--minor)" strokeWidth={1.8} />
-          <text x={224} y={3} className="fill-muted" fontSize={9}>Cascading</text>
+          <line x1={180} y1={0} x2={200} y2={0} stroke="var(--major)" strokeWidth={2.5} />
+          <circle cx={190} cy={0} r={2} fill="var(--major)" />
+          <text x={204} y={3} className="fill-muted" fontSize={9}>Primary delay</text>
 
-          <text x={320} y={3} className="fill-muted" fontSize={8}>Flat sections = stopped train</text>
+          <line x1={290} y1={0} x2={310} y2={0} stroke="var(--minor)" strokeWidth={1.8} />
+          <text x={314} y={3} className="fill-muted" fontSize={9}>Cascading</text>
+
+          <text x={390} y={3} className="fill-muted" fontSize={8}>Flat sections = stopped train</text>
         </g>
       </svg>
     </div>

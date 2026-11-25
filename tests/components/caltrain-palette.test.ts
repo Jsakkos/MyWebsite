@@ -1,4 +1,4 @@
-import { CHART, COMMUTE_COLORS, performanceColor } from "@/components/caltrain/palette";
+import { CHART, COMMUTE_COLORS, DIRECTION_COLORS, performanceColor } from "@/components/caltrain/palette";
 
 test("performance ramp has eight bands with inclusive lower bounds", () => {
   expect(performanceColor(97)).toBe(performanceColor(95));
@@ -13,4 +13,8 @@ test("chart colors come from theme tokens so they follow light and dark mode", (
 
 test("commute periods get four distinct colors", () => {
   expect(new Set(Object.values(COMMUTE_COLORS)).size).toBe(4);
+});
+
+test("northbound and southbound trains get different colors in the Marey chart", () => {
+  expect(DIRECTION_COLORS.NB).not.toBe(DIRECTION_COLORS.SB);
 });

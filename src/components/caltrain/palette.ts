@@ -20,6 +20,12 @@ export const COMMUTE_COLORS: Record<"Morning" | "Evening" | "Other" | "Weekend",
   Weekend: "var(--series-4)",
 };
 
+/** Normal (unaffected) train paths in the Marey diagram, by direction. */
+export const DIRECTION_COLORS: Record<"NB" | "SB", string> = {
+  SB: "var(--series-3)",
+  NB: "var(--series-2)",
+};
+
 // Mid-tone fills that read on both the cream and the dark paper.
 const RAMP: [number, string][] = [
   [95, "#2f6b4f"],

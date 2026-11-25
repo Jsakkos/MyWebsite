@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal website of Jonathan K. Sakkos (jonathanksakkos.com), built with Next.js 16 (App Router), TypeScript, and Tailwind CSS v4. Visual direction: "Field notes" (cream paper, Newsreader serif, cyanobacteria green). It serves hiring managers, collaborators, and Jonathan himself, and hosts the Caltrain performance dashboard.
+Personal website of Jonathan K. Sakkos (jonathanksakkos.com), built with Next.js 16 (App Router), TypeScript, and Tailwind CSS v4. Visual direction: "Field notes" (cream paper, Newsreader serif, cyanobacteria green). It serves hiring managers, collaborators, and Jonathan, and hosts the Caltrain performance dashboard.
 
 **This repo is public.** Anything committed is public, including comments, tests and commit messages.
 
@@ -29,7 +29,7 @@ Personal website of Jonathan K. Sakkos (jonathanksakkos.com), built with Next.js
 
 ## Content rules
 
-- Career facts come from Jonathan's Master Resume (kept in his private notes; read-only from here). Regenerate `content/profile.json` from it by hand, applying the public-safe rules: no internal project codes or document numbers, customer or vendor names, dollar figures, review content, private repo names, family or pet names, or homelab hostnames. Internal metrics are written qualitatively ("multi-fold", "several times faster").
+- Career facts come from Jonathan's Master Resume (kept in their private notes; read-only from here). Regenerate `content/profile.json` from it by hand, applying the public-safe rules: no internal project codes or document numbers, customer or vendor names, dollar figures, review content, private repo names, family or pet names, or homelab hostnames. Internal metrics are written qualitatively ("multi-fold", "several times faster").
 - Prose that appears on the site belongs in `content/` (profile fields or MDX), where the confidentiality check scans it.
 - Never create `public/resume.json`; the check fails if it exists.
 - The confidentiality check reads named terms from a local, gitignored `.content-denylist` (one per line). Never commit that file or write its terms anywhere in the repo.

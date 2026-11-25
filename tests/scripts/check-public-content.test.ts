@@ -58,3 +58,40 @@ test("loadNamedTerms ignores comments and blanks, returns null when missing", ()
   expect(loadNamedTerms(path.join(root, ".content-denylist"))).toEqual(["Acme Labs", "Foo Co"]);
   expect(loadNamedTerms(path.join(root, "nope"))).toBeNull();
 });
+
+test("code patterns tolerate separators and longer numbers", () => {
+  const samples = ["PLC-1234", "PLC_1234", "PLC 12345", "PMT-0042", "QR 123", "QR#77", "two CAPAs open", "a Capa note"];
+  for (const s of samples) expect(findViolations(s, "x.md", []), s).toHaveLength(1);
+});
+
+test("named terms match across double spaces, hyphens, non-breaking spaces and line breaks", () => {
+  const named = ["Acme Labs"];
+  for (const s of ["Acme  Labs", "Acme-Labs", "Acme\u00a0Labs", "worked with Acme\nLabs on tiles"]) {
+    expect(findViolations(s, "x.mdx", named), JSON.stringify(s)).toHaveLength(1);
+  }
+  expect(findViolations("line one\nworked with Acme\nLabs", "x", named)[0].line).toBe(2);
+});
+
+test("every tracked text file is scanned, not just content/", () => {
+  const root = tempRepo({
+    ".content-denylist": "Acme Labs\n",
+    "docs/spec.md": "Customer: Acme Labs",
+    "src/app/page.tsx": "<p>Built for Acme Labs</p>",
+    "README.md": "Saved $4K",
+    "public/files/resume.pdf": "Acme Labs",
+  });
+  const files = scanRepo(root)
+    .violations.map((v: { file: string }) => v.file.split(path.sep).join("/"))
+    .sort();
+  expect(files).toEqual(["README.md", "docs/spec.md", "src/app/page.tsx"]);
+});
+
+test("a file can opt out of generic patterns for fake examples, but never of named terms", () => {
+  const root = tempRepo({
+    ".content-denylist": "Acme Labs\n",
+    "docs/plan.md": "<!-- content-check: allow-examples -->\nexample: PLC 1234 and $99K\nbut not Acme Labs",
+  });
+  const v = scanRepo(root).violations;
+  expect(v).toHaveLength(1);
+  expect(v[0].rule).toBe("denylisted term");
+});

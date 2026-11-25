@@ -33,6 +33,18 @@ const pairs = [
   ["muted", "paper-2"],
   ["accent", "paper-2"],
   ["chart-axis", "paper"],
+  ["ontime", "paper"],
+  ["minor", "paper"],
+  ["major", "paper"],
+  ["ontime", "paper-2"],
+  ["minor", "paper-2"],
+  ["major", "paper-2"],
+] as const;
+
+// Non-text UI (form field borders) needs 3:1 under WCAG 1.4.11.
+const uiPairs = [
+  ["field", "paper"],
+  ["field", "paper-2"],
 ] as const;
 
 test.each(["light", "dark"] as const)("%s tokens pass WCAG AA for text", (mode) => {
@@ -55,4 +67,23 @@ test("light tokens match the spec", () => {
 
 test("both themes define the same tokens", () => {
   expect(Object.keys(tokens.dark).sort()).toEqual(Object.keys(tokens.light).sort());
+});
+
+test.each(["light", "dark"] as const)("%s form field borders are visible (3:1)", (mode) => {
+  for (const [fg, bg] of uiPairs) {
+    const ratio = contrast(tokens[mode][fg], tokens[mode][bg]);
+    expect(ratio, `${mode} ${fg} on ${bg} = ${ratio.toFixed(2)}`).toBeGreaterThanOrEqual(3);
+  }
+});
+
+test("printing uses dark-on-white tokens even when the dark theme is active", () => {
+  const print = css.slice(css.indexOf("@media print"));
+  expect(print).toMatch(/:root,\s*\.dark\s*\{/);
+  const vars = Object.fromEntries(
+    [...print.matchAll(/--([\w-]+):\s*(#[0-9a-fA-F]{6})\s*;/g)].map((m) => [m[1], m[2].toLowerCase()]),
+  );
+  expect(vars.paper).toBe("#ffffff");
+  for (const t of ["ink", "ink-2", "muted", "accent"]) {
+    expect(contrast(vars[t], "#ffffff"), t).toBeGreaterThanOrEqual(4.5);
+  }
 });

@@ -1,5 +1,5 @@
 import path from "node:path";
-import { getAllNotes, getNote } from "@/lib/notes";
+import { getAllNotes, getNote, notesIndexMetadata } from "@/lib/notes";
 import { NAV_ITEMS, navItemsFor } from "@/lib/nav";
 
 const dir = path.join(process.cwd(), "tests/fixtures/notes");
@@ -32,4 +32,10 @@ test("a note without a title fails loudly", () => {
 test("Notes leaves the nav when nothing is published", () => {
   expect(navItemsFor(false).map((i) => i.label)).toEqual(["Work", "Projects", "Papers", "Contact"]);
   expect(navItemsFor(true)).toEqual(NAV_ITEMS);
+});
+
+test("the Notes index asks search engines to skip it while it's empty", () => {
+  expect(notesIndexMetadata(0).robots).toEqual({ index: false, follow: true });
+  expect(notesIndexMetadata(1).robots).toBeUndefined();
+  expect(notesIndexMetadata(1).alternates?.canonical).toBe("https://www.jonathanksakkos.com/notes/");
 });

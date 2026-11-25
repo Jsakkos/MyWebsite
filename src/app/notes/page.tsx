@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllNotes } from "@/lib/notes";
+import { getAllNotes, notesIndexMetadata } from "@/lib/notes";
 import { formatDate } from "@/lib/format";
-import { pageMetadata } from "@/lib/metadata";
 import { PageIntro, TextLink } from "@/components/ui";
 
-export const metadata: Metadata = pageMetadata({
-  title: "Notes",
-  description: "Occasional write-ups on projects, data, and building things.",
-  path: "/notes/",
-});
+export function generateMetadata(): Metadata {
+  return notesIndexMetadata(getAllNotes().length);
+}
 
 export default function NotesPage() {
   const notes = getAllNotes({ includeDrafts: true });

@@ -15,8 +15,9 @@
   --accent: #2f6b4f;
   --accent-strong: #24543e;
   --ontime: #2f6b4f;
-  --minor: #b07a1c;
+  --minor: #875a10;
   --major: #b4432f;
+  --field: #8f8676;
   --chart-grid: #e8e1d2;
   --chart-axis: #6b6458;
   --series-1: #b07a1c;
@@ -37,6 +38,7 @@
   --ontime: #86c4a0;
   --minor: #e3b65e;
   --major: #ef8f7b;
+  --field: #776d5c;
   --chart-grid: #2e2922;
   --chart-axis: #a89f8f;
   --series-1: #e3b65e;
@@ -57,6 +59,7 @@
   --color-ontime: var(--ontime);
   --color-minor: var(--minor);
   --color-major: var(--major);
+  --color-field: var(--field);
 
   --font-serif: var(--font-newsreader), Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -110,6 +113,19 @@
 }
 
 @media print {
+  /* Print dark-on-white whatever theme is active. */
+  :root,
+  .dark {
+    --paper: #ffffff;
+    --paper-2: #ffffff;
+    --ink: #000000;
+    --ink-2: #1f1d1a;
+    --muted: #4a463f;
+    --rule: #cccccc;
+    --accent: #1f5a40;
+    --accent-strong: #1f5a40;
+  }
+
   [data-print-hide] {
     display: none !important;
   }
