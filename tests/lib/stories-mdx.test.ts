@@ -61,12 +61,19 @@ describe("content/caltrain/stories.mdx", () => {
     for (const n of [1, 2, 3, 4]) expect(html).toContain(`id="story-${n}"`);
     expect(html).toContain('id="trust"');
     expect(html).toContain("train by train"); // the playable diagram
+    expect(html).toContain("Press Play");
   });
 
   test("compiles and renders without the example day", async () => {
     const html = await render(mdx(), null);
     expect(html).toContain('id="story-3"');
     expect(html).not.toContain("train by train");
+    // The lead-in that tells the reader to press Play goes with the diagram.
+    expect(html).not.toContain("Press Play");
+  });
+
+  test("states the 15-minute line as strictly more than 15", () => {
+    expect(mdx()).not.toMatch(/15 or more minutes|15 minutes or more|≥ ?15/);
   });
 });
 
@@ -108,8 +115,42 @@ describe("storyComponents", () => {
     expect(html).toMatch(/href="\/projects\/caltrain-tracker\/dashboard\/?#incidents"/);
   });
 
-  test("AfternoonDiagram renders nothing without an example day", async () => {
-    expect(await render("<AfternoonDiagram />", null)).toBe("");
+  const withLeadIn = "<AfternoonDiagram>\n\nPress Play.\n\n</AfternoonDiagram>";
+
+  test("AfternoonDiagram renders nothing, not even its lead-in, without an example day", async () => {
+    expect(await render(withLeadIn, null)).toBe("");
+  });
+
+  test("AfternoonDiagram renders its lead-in and the diagram with an example day", async () => {
+    const html = await render(withLeadIn, day);
+    expect(html).toContain("<p>Press Play.</p>");
+    expect(html).toContain("train by train");
+    expect(html.indexOf("Press Play.")).toBeLessThan(html.indexOf("train by train"));
+  });
+
+  test("Fig renders text figures in the body font, numbers and times in mono", async () => {
+    const text = await render('<Fig k="worst_train_last_stop" />', null);
+    expect(text).toContain("22nd Street");
+    expect(text).not.toContain("font-mono");
+    expect(await render('<Fig k="worst_train_departs" />', null)).toContain("font-mono");
+  });
+
+  test("Fig lower lowercases a text figure for mid-sentence use", async () => {
+    expect(await render('<Fig k="worst_train_service" lower />', null)).toContain(">express<");
+  });
+
+  test("Fig signed shows the direction of a change, and a bare zero", async () => {
+    expect(await render('<Fig k="recovery_median_change_5" signed />', null)).toContain("+1.2 minutes");
+    const zero: StoriesData = {
+      ...data,
+      figures: { ...data.figures, recovery_median_change_5: { value: 0, unit: "minutes" } },
+    };
+    expect(await render('<Fig k="recovery_median_change_5" signed />', null, zero)).toContain(">0 minutes<");
+    const down: StoriesData = {
+      ...data,
+      figures: { ...data.figures, recovery_median_change_5: { value: -2, unit: "minutes" } },
+    };
+    expect(await render('<Fig k="recovery_median_change_5" signed />', null, down)).toContain("−2 minutes");
   });
 
   test("renders a plain element tree", () => {

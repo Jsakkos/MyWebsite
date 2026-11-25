@@ -417,8 +417,8 @@ export function PlayableMarey({
 
   const legend = (
     <>
-      <LegendSwatch color={CHART.ontime} label="worst delay ≤ 4 min" shape="line" />
-      <LegendSwatch color={CHART.minor} label="4–15 min" shape="line" />
+      <LegendSwatch color={CHART.ontime} label="worst delay 4 min or less" shape="line" />
+      <LegendSwatch color={CHART.minor} label="over 4, up to 15 min" shape="line" />
       <LegendSwatch color={CHART.major} label="over 15 min" shape="line" />
       {day.freeze ? <LegendSwatch color={CHART.major} opacity={FREEZE_OPACITY} label="whole line stopped" /> : null}
     </>

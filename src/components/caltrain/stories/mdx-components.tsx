@@ -1,5 +1,6 @@
 import type { ComponentType, ReactNode } from "react";
 import {
+  DASHBOARD_PATH,
   STORY_FIGURE_KEYS,
   formatFigure,
   type ExampleDay,
@@ -16,8 +17,6 @@ import { HeadwayGrid } from "@/components/caltrain/stories/headway-grid";
 import { DayStrip } from "@/components/caltrain/stories/day-strip";
 import { StopsTable } from "@/components/caltrain/stories/stops-table";
 import { PlayableMarey } from "@/components/caltrain/stories/playable-marey";
-
-const DASHBOARD = "/projects/caltrain-tracker/dashboard/";
 
 /** Dashboard sections a story can send the reader to, with the link's wording. */
 const CHECK_LABELS = {
@@ -42,10 +41,25 @@ export type DashboardSection = keyof typeof CHECK_LABELS;
 export function storyComponents(data: StoriesData, day: ExampleDay | null): Record<string, ComponentType<any>> {
   const { figures, stories } = data;
 
-  function Fig({ k }: { k: string }) {
+  /**
+   * One figure, formatted. Numbers and times are set in mono; names (`text`
+   * figures) stay in the body font. `lower` lowercases a name for mid-sentence
+   * use ("the 5:22 p.m. northbound express"); `signed` marks a change's
+   * direction ("+1.2 minutes", "−2 minutes", a bare "0 minutes").
+   */
+  function Fig({ k, lower = false, signed = false }: { k: string; lower?: boolean; signed?: boolean }) {
     const figure = STORY_FIGURE_KEYS.includes(k) ? figures[k] : undefined;
     if (!figure) throw new Error(`Unknown story figure "${k}" in stories.mdx`);
-    return <span className="font-mono text-[0.9em] text-ink">{formatFigure(figure)}</span>;
+    if (figure.unit === "text") {
+      const text = formatFigure(figure);
+      return <span className="text-ink">{lower ? text.toLowerCase() : text}</span>;
+    }
+    let shown = formatFigure(figure);
+    if (signed && typeof figure.value === "number") {
+      if (figure.value > 0) shown = `+${shown}`;
+      else if (figure.value < 0) shown = shown.replace(/^-/, "−");
+    }
+    return <span className="font-mono text-[0.9em] text-ink">{shown}</span>;
   }
 
   function ClaimNote({ story }: { story: StoryId }) {
@@ -74,7 +88,7 @@ export function storyComponents(data: StoriesData, day: ExampleDay | null): Reco
   function CheckYourTrain({ to, children }: { to: DashboardSection; children?: ReactNode }) {
     return (
       <p className="not-prose mt-6 font-sans text-base">
-        <TextLink href={`${DASHBOARD}#${to}`}>
+        <TextLink href={`${DASHBOARD_PATH}#${to}`}>
           {children ?? CHECK_LABELS[to]}
           <span aria-hidden="true"> →</span>
         </TextLink>
@@ -114,8 +128,15 @@ export function storyComponents(data: StoriesData, day: ExampleDay | null): Reco
   function StoriesStopsTable() {
     return <StopsTable data={stories.afternoons} />;
   }
-  function AfternoonDiagram() {
-    return day ? <PlayableMarey day={day} /> : null;
+  /** The playable diagram, after its lead-in (`children`); neither renders without the example day. */
+  function AfternoonDiagram({ children }: { children?: ReactNode }) {
+    if (!day) return null;
+    return (
+      <>
+        {children}
+        <PlayableMarey day={day} />
+      </>
+    );
   }
 
   return {

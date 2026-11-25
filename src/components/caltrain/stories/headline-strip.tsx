@@ -25,7 +25,7 @@ function entries(figures: Figures): { figure: string; caption: ReactNode }[] {
     },
     {
       figure: f("stops_count"),
-      caption: `line-wide stops hold ${f("stops_late15_share_pct")} of arrivals 15 or more minutes late`,
+      caption: `line-wide stops and the hours after them hold ${f("stops_late15_share_pct")} of arrivals more than 15 minutes late`,
     },
     {
       figure: f("sat_late_pct"),

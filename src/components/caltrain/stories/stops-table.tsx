@@ -41,7 +41,7 @@ export function StopsTable({ data }: { data: StoriesData["stories"]["afternoons"
                   Held, min
                 </th>
                 <th scope="col" className={`${th} text-right`}>
-                  Trains ≥ 15 min late
+                  Trains over 15 min late
                 </th>
                 <th scope="col" className={`${th} pr-0 text-right`}>
                   Cancelled

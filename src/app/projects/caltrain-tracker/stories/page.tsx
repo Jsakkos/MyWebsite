@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { STORIES_PATH, loadExampleDay, loadStories } from "@/lib/caltrain-stories";
+import { DASHBOARD_PATH, STORIES_PATH, loadExampleDay, loadStories } from "@/lib/caltrain-stories";
 import { formatDate } from "@/lib/format";
 import { pageMetadata } from "@/lib/metadata";
 import { Label, PageIntro, TextLink } from "@/components/ui";
@@ -11,13 +11,12 @@ import { storyComponents } from "@/components/caltrain/stories/mdx-components";
 
 const TITLE = "How Caltrain runs late";
 const KICKER = "Caltrain · stories from the data";
-const DASHBOARD = "/projects/caltrain-tracker/dashboard/";
 const STORIES_MDX = path.join(process.cwd(), "content", "caltrain", "stories.mdx");
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
   description:
-    "Four stories from logging every Caltrain once a minute: late trains stay late, the northbound expresses are the least reliable, a few bad afternoons hold much of the worst delay, and Saturday is the worst day to ride.",
+    "What logging every Caltrain once a minute shows about late trains: whether they catch up, which trains run late most often, what a few bad afternoons do to the line, and why Saturday may be the worst day to ride.",
   path: STORIES_PATH,
 });
 
@@ -29,7 +28,7 @@ export default function CaltrainStoriesPage() {
       <article className="mx-auto max-w-3xl px-6">
         <PageIntro label={KICKER} title={TITLE}>
           <p>
-            The stories are being refreshed. The <TextLink href={DASHBOARD}>dashboard</TextLink> has the latest
+            The stories are being refreshed. The <TextLink href={DASHBOARD_PATH}>dashboard</TextLink> has the latest
             numbers.
           </p>
         </PageIntro>

@@ -12,7 +12,7 @@ First, the shape of an ordinary week. Each square is one hour of one day of the 
 
 When my train is running late, I tend to assume it'll make some of the time back before my stop. The data says it won't. I followed every weekday train that fell 10 or more minutes behind schedule, <Fig k="recovery_trips" /> trips so far, and watched what its delay did over the next ten stops.
 
-Five stops later, the typical train was no closer to schedule: the median change in its delay was <Fig k="recovery_median_change_5" />. <Fig k="recovery_worse_5_pct" /> of trains were at least 2 minutes further behind, and <Fig k="recovery_better_5_pct" /> had made up 2 minutes or more. Ten stops on, just <Fig k="recovery_back_on_time_pct" /> were back within 4 minutes of schedule.
+Five stops later, the typical train was no closer to schedule: the median change in its delay was <Fig k="recovery_median_change_5" signed />, where a plus means further behind. <Fig k="recovery_worse_5_pct" /> of trains were at least 2 minutes further behind, and <Fig k="recovery_better_5_pct" /> had made up 2 minutes or more. Ten stops on, just <Fig k="recovery_back_on_time_pct" /> were back within 4 minutes of schedule.
 
 So if your train is 10 minutes late at Millbrae, plan on it being about 10 minutes late at Palo Alto, or a little worse. This doesn't say whether a late train *could* make up the time, only that in practice it doesn't.
 
@@ -26,17 +26,17 @@ So if your train is 10 minutes late at Millbrae, plan on it being about 10 minut
 
 <ClaimNote story="express" />
 
-The expresses are the trains everyone wants: fewer stops, a quicker ride. Northbound, they're also the least reliable trains on the line.
+The expresses are the quick way up and down the Peninsula: fewer stops, a shorter ride. Northbound, they're also the least reliable trains on the line.
 
-The least reliable of all is train <Fig k="worst_train" />, the <Fig k="worst_train_departs" /> <Fig k="worst_train_direction" /> <Fig k="worst_train_service" />. On <Fig k="worst_train_late_pct" /> of its weekday runs it's more than 4 minutes late at <Fig k="worst_train_last_stop" />, the last stop I see it reach. It has company: <Fig k="nb_in_worst_25" /> of the 25 least reliable weekday trains run northbound.
+The least reliable of all is train <Fig k="worst_train" />, the <Fig k="worst_train_departs" /> <Fig k="worst_train_direction" /> <Fig k="worst_train_service" lower />. On <Fig k="worst_train_late_pct" /> of its weekday runs it's more than 4 minutes late at <Fig k="worst_train_last_stop" />, the last stop I see it reach. It has company: <Fig k="nb_in_worst_25" /> of the 25 least reliable weekday trains run northbound.
 
 Taken as a group, across every stop and every hour of a weekday, northbound expresses are late <Fig k="express_nb_late_pct" /> of the time. Southbound expresses are late <Fig k="express_sb_late_pct" /> of the time, and locals <Fig k="local_nb_late_pct" /> northbound and <Fig k="local_sb_late_pct" /> southbound.
 
 <LeagueTable />
 
-Part of the reason is mechanical. An express usually can't overtake the local running ahead of it, so when that local is late, the express tends to be late too. When the train ahead is running 10 to 20 minutes late, the next train is late <Fig k="headway_close_late_pct" /> of the time if it's scheduled within 10 minutes behind, and <Fig k="headway_far_late_pct" /> of the time if it's scheduled 21 to 30 minutes behind. Expresses are usually the trains scheduled closest behind another one.
+My guess is that part of it is mechanical: an express usually can't overtake the local running ahead of it, so when that local is late, the express tends to be late too. The numbers fit that guess. When the train ahead is running 10 to 20 minutes late, the next train is late <Fig k="headway_close_late_pct" /> of the time if it's scheduled within 10 minutes behind, and <Fig k="headway_far_late_pct" /> of the time if it's scheduled 21 to 30 minutes behind. Expresses are usually the trains scheduled closest behind another one.
 
-That's a pattern, not proof. Whatever slows the whole line also makes neighboring trains late together. But the way it depends on the gap between the two trains is hard to explain any other way.
+That's a pattern, not proof: whatever slows the whole line also makes neighboring trains late together. But the way it depends on the gap between the two trains is hard to explain any other way.
 
 <HeadwayGrid />
 
@@ -54,13 +54,15 @@ Most delay is small and scattered. The worst of it isn't. The ten worst days in 
 
 Every so often, the whole line stops at once: trains stand still at the same minute, wherever they happen to be. I've found <Fig k="stops_count" /> of these line-wide stops so far, about one every <Fig k="stops_every_weeks" />. They're rare, but the stops and the hours after them hold <Fig k="stops_late15_share_pct" /> of every arrival more than 15 minutes late.
 
+<AfternoonDiagram>
+
 Here's what one looks like. On the afternoon of Thursday, November 6, 2025, the line stopped. Within minutes, trains were parked across a stretch of the line in both directions, and every train that entered that stretch afterwards left it far behind schedule. Press Play to watch it unfold.
 
-<AfternoonDiagram />
+</AfternoonDiagram>
 
 The damage lasts well past the stop itself. Trains keep running late for hours afterwards; typically it takes <Fig k="stops_hours_to_normal_median" /> for the line to get back to normal. The longest stop I've detected held trains for <Fig k="stops_longest_hold_minutes" />.
 
-The feed tells me where trains are, never why they stopped, so the cause of most of these is inferred from the shape of the data. My best inference is that most are strikes, when a train hits a person or a vehicle and the line has to stop. Three of them match public reports, so those I can name as confirmed: on October 24, 2025, Caltrain posted major delays for all trains; on February 3, 2026, a person was struck and killed by a train near Palo Alto; and on September 2, 2026, a train struck a vehicle near Burlingame. The rest are most likely similar, but that's an inference, not a fact. It's worth keeping in mind the next time a train sits still for an hour: sometimes the reason is far worse than a late commute.
+The feed tells me where trains are, never why they stopped, so the cause of most of these is inferred from the shape of the data. My best inference is that most are strikes, when a train hits a person or a vehicle and the line has to stop. Three of them match public reports, so I know those happened, and two of the reports give a cause. On October 24, 2025, Caltrain posted major delays for all trains, without a public cause. On February 3, 2026, a person was struck and killed by a train near Palo Alto. On September 2, 2026, a train struck a vehicle near Burlingame. The rest are most likely similar, but that's an inference, not a fact.
 
 Cancellations are the other cost. On days when three or more scheduled trips never ran, <Fig k="cancel_express_pct" /> of scheduled expresses never ran, against <Fig k="cancel_local_pct" /> of locals. Not all of those days are incidents; some look more like a shortage of trains.
 
@@ -76,7 +78,7 @@ Cancellations are the other cost. On days when three or more scheduled trips nev
 
 This one surprised me most, and it's also the one I'm least sure of.
 
-Pooled together, <Fig k="sat_late_pct" /> of Saturday arrivals are late, against <Fig k="weekday_late_pct" /> on weekdays and <Fig k="sun_late_pct" /> on Sundays. Most Saturdays look like any other day. What sets Saturday apart is its bad days: <Fig k="sat_bad_day_pct" /> of Saturdays had more than 15% of their arrivals late, against <Fig k="weekday_bad_day_pct" /> of weekdays.
+Pooled together, <Fig k="sat_late_pct" /> of Saturday arrivals are late, against <Fig k="weekday_late_pct" /> on weekdays and <Fig k="sun_late_pct" /> on Sundays. The typical Saturday is only slightly worse than a typical weekday. What sets Saturday apart is its bad days: <Fig k="sat_bad_day_pct" /> of Saturdays had more than 15% of their arrivals late, against <Fig k="weekday_bad_day_pct" /> of weekdays.
 
 I don't know why. It could be weekend track work: when I looked closely, Saturday delay built up through the afternoon and hit both directions, which is what you'd expect from work that slows the whole line. But I haven't matched it against Caltrain's work schedule, so that's a guess.
 
@@ -92,17 +94,17 @@ It also rests on just <Fig k="saturdays" /> Saturdays, so a few more bad ones, o
 
 Every number on this page comes from the tracker's nightly build, so they move a little from day to day. Here's what's behind them, and where they stop being reliable.
 
-**How precise.** The 511 feed reports each train's position once a minute, and some positions are stale, so each arrival time is good to about a minute. That's why "late" means more than 4 minutes behind schedule: comfortably above the noise.
+The tracker asks 511 where every train is once a minute, and some of the positions it gets back are stale, so each arrival time is good to about a minute. A train counts as late when it arrives more than 4 minutes behind schedule, which sits well above that one-minute noise; 4 minutes or less is on time.
 
-**Checked against 511's own record.** In October 2026 I compared my arrival times with 511's own independent record of when trains reached each stop. They agreed closely: a correlation of r = 0.96, with 97% of arrivals within two minutes of 511's. Those two figures are from that analysis; unlike everything else here, they aren't recomputed nightly.
+In October 2026 I compared my arrival times with 511's own independent record of when trains reached each stop. They agreed closely: a correlation of r = 0.96, with 97% of arrivals within two minutes of 511's. Those two figures are from that analysis; unlike everything else here, they aren't recomputed nightly.
 
-**What's left out.** Each train's first stop, because a train waiting at its origin platform looks on time whatever happens next. Calls scheduled after midnight, because 511 drops every train from the feed at midnight. And days when the feed went stale, with too few positions changing from one minute to the next to trust; those days drop out of every figure. A line-wide stop on one of those days is invisible to me, and so is one that only holds trains at the terminals.
+Some arrivals are left out of every figure. Each train's first stop is out, because a train waiting at its origin platform looks on time whatever happens next. So are calls scheduled after midnight, because 511 drops every train from the feed at midnight. An arrival only counts if the train's closest position was within 1 km of the platform, and only for real train numbers. And whole days drop out when the feed's positions were stale or mislocated: too few of them changed from one minute to the next, or too few arrivals could be placed near their platform. A line-wide stop on one of those days is invisible to me, and so is one that only holds trains at the terminals.
 
-**"The end of the line."** The feed loses each train before it reaches its final station, so I never see the last arrival. When I say "the end of the line" or "the last stop I see it reach", I mean the last stop I can see, usually the one before the terminal.
+The feed loses each train before it reaches its final station, so I never see the last arrival. When I say "the end of the line" or "the last stop I see it reach", I mean the last stop I can see, usually the one before the terminal.
 
-**Causes.** Apart from the three public reports named in story three, the cause of every line-wide stop is inferred from the shape of the data, not known.
+Three of the line-wide stops in story three are confirmed by public reports to have happened, and two of those reports give a cause. For every other stop, the cause is inferred from the shape of the data, not known.
 
-**Why this isn't Caltrain's number.** Caltrain counts its on-time figure at each train's final stop. I can't see that stop, so I count every stop along the way instead. That's closer to what a rider waiting on a platform feels, but it's a different measure, so my figures and Caltrain's aren't directly comparable.
+This also isn't Caltrain's own on-time figure. Caltrain counts it at each train's final stop. I can't see that stop, so I count every stop along the way instead. That's closer to what a rider waiting on a platform feels, but it's a different measure, so my figures and Caltrain's aren't directly comparable.
 
 The code and the analysis are [on GitHub](https://github.com/Jsakkos/caltrain-tracker).
 

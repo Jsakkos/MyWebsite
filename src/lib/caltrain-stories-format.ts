@@ -158,6 +158,7 @@ export const STORY_FIGURE_KEYS: readonly string[] = [
 ];
 
 export const STORIES_PATH = "/projects/caltrain-tracker/stories/";
+export const DASHBOARD_PATH = "/projects/caltrain-tracker/dashboard/";
 
 /** "17:22" -> "5:22 p.m." */
 export function formatClock(hhmm: string): string {

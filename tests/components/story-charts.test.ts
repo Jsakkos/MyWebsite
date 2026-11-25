@@ -134,6 +134,9 @@ test("HeadlineStrip links its four figures to the four stories", () => {
   expect(out).toContain("10.7%");
   expect(out).toContain("27.3%");
   expect(out).toContain("5:22 p.m.");
+  // late15 is strictly more than 15 minutes, counted over each stop and the hours after it.
+  expect(out).toContain("line-wide stops and the hours after them hold 27.3% of arrivals more than 15 minutes late");
+  expect(out).not.toContain("15 or more");
 });
 
 test("StopsTable is an accessible table of the newest stops", () => {
