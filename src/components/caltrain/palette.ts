@@ -10,8 +10,20 @@ export const CHART = {
   tooltipBg: "var(--paper)",
   tooltipBorder: "var(--rule)",
   text: "var(--ink)",
+  textSoft: "var(--ink-2)",
+  muted: "var(--muted)",
+  accent: "var(--accent)",
+  field: "var(--field)",
+  paper: "var(--paper)",
   empty: "var(--paper-2)",
 } as const;
+
+/** Bars and marks by service type (the story charts). */
+export const SERVICE_COLORS: Record<"Express" | "Limited" | "Local", string> = {
+  Express: "var(--series-1)",
+  Limited: "var(--series-2)",
+  Local: "var(--series-3)",
+};
 
 export const COMMUTE_COLORS: Record<"Morning" | "Evening" | "Other" | "Weekend", string> = {
   Morning: "var(--series-1)",
@@ -42,6 +54,31 @@ const WORST = "#b4432f";
 export function performanceColor(pct: number): string {
   for (const [min, color] of RAMP) if (pct >= min) return color;
   return WORST;
+}
+
+// Text on a ramp fill: light on the two darkest bands, near-black on the rest.
+// Both clear 4.5:1 against their band (tests/components/caltrain-palette.test.ts).
+const CELL_TEXT_LIGHT = "#ffffff";
+const CELL_TEXT_DARK = "#14120e";
+
+/** A text color that reads on performanceColor(pct), in either theme. */
+export function cellTextColor(pct: number): string {
+  const fill = performanceColor(pct);
+  return fill === RAMP[0][1] || fill === WORST ? CELL_TEXT_LIGHT : CELL_TEXT_DARK;
+}
+
+/**
+ * Fill for a late share (the story charts). Late and on-time are complements
+ * (late = more than 4 minutes behind), so this is the on-time ramp read from
+ * the other end: 4% late gets the same green as 96% on time.
+ */
+export function lateShareColor(latePct: number): string {
+  return performanceColor(100 - latePct);
+}
+
+/** A text color that reads on lateShareColor(latePct). */
+export function lateShareTextColor(latePct: number): string {
+  return cellTextColor(100 - latePct);
 }
 
 export const tooltipStyle = {
