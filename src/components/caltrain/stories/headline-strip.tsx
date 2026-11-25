@@ -17,7 +17,7 @@ function entries(figures: Figures): { figure: string; caption: ReactNode }[] {
   return [
     {
       figure: f("recovery_back_on_time_pct"),
-      caption: "of trains that fall 10 minutes behind get back on time",
+      caption: "of trains that fall 10 minutes behind are back on time ten stops later",
     },
     {
       figure: f("worst_train_late_pct"),

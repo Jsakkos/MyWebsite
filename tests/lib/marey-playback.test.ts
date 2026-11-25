@@ -129,7 +129,8 @@ describe("mareySummary", () => {
   test("names the train count, the freeze and the worst delay", () => {
     const s = mareySummary(day);
     expect(s).toContain("3 trains");
-    expect(s).toContain("6 November 2025");
+    expect(s).toContain("Nov 6, 2025");
+    expect(s).not.toContain("November");
     expect(s).toContain("3:55 p.m.");
     expect(s).toContain("4:33 p.m.");
     expect(s).toContain("24 minutes");

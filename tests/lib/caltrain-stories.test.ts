@@ -190,6 +190,33 @@ test("an empty or malformed data_through returns null", () => {
   }
 });
 
+test("a missing or malformed generated_at returns null", () => {
+  for (const bad of ["", "yesterday", "2026-11-26", "26/11/2026T02:00", 1764122441, undefined]) {
+    const d = fixture();
+    d.generated_at = bad;
+    expect(loadStories(tempFile(JSON.stringify(d)))).toBeNull();
+  }
+});
+
+test("an ISO date-time generated_at loads", () => {
+  for (const ok of ["2026-11-26T02:00:41", "2026-11-26T02:00:41.123-08:00", "2026-11-26T02:00"]) {
+    const d = fixture();
+    d.generated_at = ok;
+    expect(loadStories(tempFile(JSON.stringify(d)))).not.toBeNull();
+  }
+});
+
+test("a time figure must be HH:MM", () => {
+  for (const bad of ["", "5:22", "17:22:00", "noon"]) {
+    const d = fixture();
+    d.figures.worst_train_departs = { value: bad, unit: "time" };
+    expect(loadStories(tempFile(JSON.stringify(d)))).toBeNull();
+  }
+  const d = fixture();
+  d.figures.worst_train_departs = { value: "07:05", unit: "time" };
+  expect(loadStories(tempFile(JSON.stringify(d)))).not.toBeNull();
+});
+
 test("the format module stays free of node imports, so client components can use it", () => {
   const src = fs.readFileSync(path.join(process.cwd(), "src", "lib", "caltrain-stories-format.ts"), "utf8");
   expect(src).not.toMatch(/node:fs|node:path|from\s+["'](fs|path)["']|require\(["'](fs|path)["']\)/);

@@ -132,7 +132,7 @@ export function LeagueTable({ data }: { data: StoriesData["stories"]["express"] 
     <ChartFrame
       title="The least reliable weekday trains"
       summary={summarize(rows)}
-      caption="Share of each train's weekday runs that arrive more than 4 minutes late at the last stop we see it reach. The whiskers are 95% (Wilson) intervals: the fewer the runs, the wider they are."
+      caption="Share of each train's weekday runs that arrive more than 4 minutes late at the last stop we see it reach. A train needs at least 80 weekday runs to be ranked. The whiskers are 95% (Wilson) intervals: the fewer the runs, the wider they are."
       legend={legend}
       width={680}
       height={wideH}

@@ -129,7 +129,7 @@ export function OpenerHeatmap({ data }: { data: StoriesData["stories"]["opener"]
     <ChartFrame
       title="When trains run late"
       summary={summarize(data.heatmap)}
-      caption="Share of arrivals more than 4 minutes late, by day of week and scheduled hour, across every clean day in the data. Each column is one hour of departures."
+      caption="Share of arrivals more than 4 minutes late, by day of week and scheduled hour, across every clean day in the data. Each column is one scheduled hour at each stop."
       legend={legend}
       width={680}
       height={height(680)}

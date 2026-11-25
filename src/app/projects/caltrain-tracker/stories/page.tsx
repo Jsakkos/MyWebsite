@@ -53,7 +53,8 @@ export default function CaltrainStoriesPage() {
           <TextLink href="#trust">how much to trust these numbers</TextLink>
         </p>
         <div className="mt-3">
-          <StaleNotice dataThrough={data.data_through} />
+          {/* Keyed to the nightly build, not data_through: runs of bad-feed days hold data_through back while the tracker keeps reporting. */}
+          <StaleNotice lastReported={data.generated_at.slice(0, 10)} />
         </div>
       </header>
 

@@ -94,7 +94,10 @@ test("RecoveryFan marks the back-on-time line and summarises the change after 5 
   expect(out).toContain('stroke-dasharray');
   const caption = out.slice(out.indexOf("<figcaption"));
   expect(caption).toContain("approximate");
-  expect(caption).toContain("0.3% actually got back within 4 minutes");
+  expect(caption).toContain("0.3% were back within 4 minutes of schedule ten stops later");
+  expect(out).not.toContain("end of the line");
+  expect(out).not.toContain("get back on time");
+  expect(ariaLabels(out)[0]).toContain("0.3% are back on time ten stops later");
   expect(ariaLabels(out)[0]).toContain("+1.2 minutes");
   expect(ariaLabels(out)[0]).toContain("0.3%");
 });
@@ -139,6 +142,20 @@ test("HeadlineStrip links its four figures to the four stories", () => {
   // late15 is strictly more than 15 minutes, counted over each stop and the hours after it.
   expect(out).toContain("line-wide stops and the hours after them hold 27.3% of arrivals more than 15 minutes late");
   expect(out).not.toContain("15 or more");
+  // The back-on-time share is measured at exactly ten stops on, not anywhere before the end of the line.
+  expect(out).toContain("of trains that fall 10 minutes behind are back on time ten stops later");
+  expect(out).not.toContain("get back on time");
+});
+
+test("OpenerHeatmap's columns are scheduled hours at each stop", () => {
+  const out = render(OpenerHeatmap, { data: stories.opener });
+  expect(out).toContain("Each column is one scheduled hour at each stop.");
+  expect(out).not.toContain("hour of departures");
+});
+
+test("LeagueTable says how many runs a train needs to be ranked", () => {
+  const out = render(LeagueTable, { data: stories.express });
+  expect(out).toContain("at least 80 weekday runs");
 });
 
 test("StopsTable is an accessible table of the newest stops", () => {

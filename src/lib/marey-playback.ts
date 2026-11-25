@@ -2,6 +2,7 @@
 // so the client component can import them.
 import { formatClock, type ExampleDay } from "@/lib/caltrain-stories-format";
 import { minutesOfDay, trimNumber } from "@/lib/charts";
+import { formatDate } from "@/lib/format";
 
 /** How long Play takes to sweep the whole window. */
 export const PLAYBACK_MS = 20_000;
@@ -112,15 +113,9 @@ export function formatMinuteClock(minutes: number): string {
   return formatClock(`${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`);
 }
 
-const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
-];
-
-/** "2025-11-06" -> "6 November 2025" */
+/** "2025-11-06" -> "Nov 6, 2025", the site's date style. */
 export function formatDayDate(date: string): string {
-  const [y, m, d] = date.split("-").map(Number);
-  return `${d} ${MONTHS[m - 1]} ${y}`;
+  return formatDate(date);
 }
 
 /** One sentence from the data for the SVG's text alternative. */

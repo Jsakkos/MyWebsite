@@ -27,6 +27,9 @@ function checkStories(s: unknown): void {
   if (typeof s.data_through !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(s.data_through)) {
     throw new Error("data_through is not a YYYY-MM-DD date");
   }
+  if (typeof s.generated_at !== "string" || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(s.generated_at)) {
+    throw new Error("generated_at is not an ISO date-time");
+  }
   if (!isObject(s.figures)) throw new Error("figures is missing");
   for (const key of STORY_FIGURE_KEYS) {
     const f = s.figures[key];
@@ -34,7 +37,9 @@ function checkStories(s: unknown): void {
     if (typeof f.unit !== "string" || !UNITS.includes(f.unit)) {
       throw new Error(`figure ${key} has unknown unit ${String(f.unit)}`);
     }
-    if (f.unit === "text" || f.unit === "time") {
+    if (f.unit === "time") {
+      if (typeof f.value !== "string" || !/^\d{2}:\d{2}$/.test(f.value)) throw new Error(`figure ${key} is not an HH:MM time`);
+    } else if (f.unit === "text") {
       if (typeof f.value !== "string") throw new Error(`figure ${key} is not a string`);
     } else if (typeof f.value !== "number" || !Number.isFinite(f.value)) {
       throw new Error(`figure ${key} is not a finite number`);

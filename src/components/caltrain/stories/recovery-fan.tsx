@@ -33,8 +33,9 @@ function rows(fan: FanRow[]): FanRow[] {
 function backOnTimeLabel(fan: FanRow[], figures: StoriesData["figures"]): string | null {
   const fig = figures.recovery_back_on_time_pct;
   if (fig) return formatFigure(fig);
-  const last = fan.at(-1);
-  return last ? `${trimNumber(last.back_on_time_pct)}%` : null;
+  // The figure is measured at exactly ten stops on; without it, use that row or say nothing.
+  const at10 = fan.find((r) => r.k === K_MAX);
+  return at10 ? `${trimNumber(at10.back_on_time_pct)}%` : null;
 }
 
 function summarize(fan: FanRow[], figures: StoriesData["figures"]): string {
@@ -46,7 +47,7 @@ function summarize(fan: FanRow[], figures: StoriesData["figures"]): string {
     at5.median === 0 ? "not changed at the median" : `changed by a median of ${signed(at5.median)} minutes`;
   const back = backOnTimeLabel(fan, figures);
   return `${stops} after a train first runs 10 minutes late, its delay has ${change}${
-    back ? `; ${back} get back on time before the end of the line` : ""
+    back ? `; ${back} are back on time ten stops later` : ""
   }.`;
 }
 
@@ -158,7 +159,7 @@ export function RecoveryFan({ data, figures }: Props) {
       title="What happens after a train falls 10 minutes behind"
       summary={summarize(data.fan, figures)}
       caption={`Weekday trains that first reach 10 minutes late at a stop after their first. For each later stop, the change in delay since that moment: the line is the median train, the bands hold the middle half and the middle 8 in 10. The dashed line is approximate: it is where a train exactly 10 minutes late would be back within 4 minutes of schedule.${
-        backLabel ? ` Of these trains, ${backLabel} actually got back within 4 minutes before the end of the line.` : ""
+        backLabel ? ` Of these trains, ${backLabel} were back within 4 minutes of schedule ten stops later.` : ""
       }`}
       legend={legend}
       width={680}
