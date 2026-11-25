@@ -26,6 +26,7 @@ import {
   TimeBreakdown,
   IncidentAnalysis,
 } from "@/components/caltrain";
+import { headline } from "@/lib/caltrain-headline";
 
 function LoadingSkeleton() {
   return (
@@ -53,6 +54,9 @@ export default function CaltrainDashboardPage() {
   const { data: incidents } = useCaltrainIncidents();
   const { data: trajectories } = useCaltrainIncidentTrajectories();
 
+  const head = stats ? headline(stats) : null;
+  const figures = stats ? (head?.cleaned && stats.clean ? stats.clean : stats) : null;
+
   return (
     <div className="min-h-screen">
       <div className="mx-auto max-w-5xl px-6 py-8">
@@ -78,7 +82,7 @@ export default function CaltrainDashboardPage() {
 
         {statsLoading ? (
           <LoadingSkeleton />
-        ) : !stats ? (
+        ) : !stats || !head || !figures ? (
           <div className="rounded-md border border-rule bg-paper p-12 text-center">
             <Database className="mx-auto h-12 w-12 text-muted" />
             <h2 className="mt-4 font-serif text-xl text-ink">
@@ -92,22 +96,23 @@ export default function CaltrainDashboardPage() {
           <div className="space-y-10">
             {/* Hero */}
             <HeroSection
-              onTimePct={stats.on_time_percentage}
-              totalArrivals={stats.total_arrivals}
-              daysTracked={stats.days_tracked}
+              onTimePct={head.onTimePct}
+              totalArrivals={head.totalArrivals}
+              daysTracked={head.daysTracked}
               dateRange={stats.date_range}
-              rolling7d={stats.rolling_7d_on_time}
-              rolling30d={stats.rolling_30d_on_time}
+              rolling7d={head.rolling7d}
+              rolling30d={head.rolling30d}
+              label={head.label}
             />
 
             {/* Performance Overview */}
             <PerformanceOverview
-              onTimePct={stats.on_time_percentage}
-              minorPct={stats.minor_delay_percentage}
-              majorPct={stats.major_delay_percentage}
-              avgDelay={stats.avg_delay_minutes}
-              medianDelay={stats.median_delay_minutes}
-              totalArrivals={stats.total_arrivals}
+              onTimePct={head.onTimePct}
+              minorPct={figures.minor_delay_percentage}
+              majorPct={figures.major_delay_percentage}
+              avgDelay={figures.avg_delay_minutes}
+              medianDelay={figures.median_delay_minutes}
+              totalArrivals={head.totalArrivals}
             />
 
             {/* Daily Trends */}

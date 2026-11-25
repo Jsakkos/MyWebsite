@@ -27,12 +27,13 @@ interface HeroSectionProps {
   dateRange: { start: string; end: string };
   rolling7d: number;
   rolling30d: number;
+  label?: string;
 }
 
 const formatDay = (day: string) =>
   parseLocalDate(day).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
-export function HeroSection({ onTimePct, totalArrivals, daysTracked, dateRange, rolling7d, rolling30d }: HeroSectionProps) {
+export function HeroSection({ onTimePct, totalArrivals, daysTracked, dateRange, rolling7d, rolling30d, label = "all stops, unadjusted" }: HeroSectionProps) {
   return (
     <section className="rounded-lg bg-paper-2 p-6 sm:p-10">
       <p className="font-serif text-base italic text-accent">Caltrain performance</p>
@@ -45,7 +46,7 @@ export function HeroSection({ onTimePct, totalArrivals, daysTracked, dateRange, 
         </p>
         <div className="pb-1">
           <p className="text-ink">on time</p>
-          <p className="text-sm text-muted">all stops, unadjusted</p>
+          <p className="text-sm text-muted">{label}</p>
         </div>
       </div>
       <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">

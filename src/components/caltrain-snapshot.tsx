@@ -1,4 +1,7 @@
 import { getCaltrainSnapshot } from "@/lib/caltrain-snapshot";
+import { STORIES_PATH } from "@/lib/caltrain-stories-format";
+import { storiesAvailable } from "@/lib/caltrain-stories";
+import { TextLink } from "@/components/ui";
 
 export function CaltrainSnapshot({ variant }: { variant: "card" | "inline" }) {
   const s = getCaltrainSnapshot();
@@ -23,6 +26,11 @@ export function CaltrainSnapshot({ variant }: { variant: "card" | "inline" }) {
       <p className="mt-1 text-sm text-muted">
         <span className="font-mono">{s.arrivals}</span> arrivals logged over {s.days} days, since {s.since}
       </p>
+      {storiesAvailable() && (
+        <p className="mt-2 text-sm">
+          <TextLink href={STORIES_PATH}>Read the stories</TextLink>
+        </p>
+      )}
     </div>
   );
 }

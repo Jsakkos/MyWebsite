@@ -15,7 +15,8 @@ test("formats the real stats file", () => {
   expect(s.arrivals).toMatch(/^\d{1,3}(,\d{3})+$/);
   expect(s.days).toBeGreaterThan(0);
   expect(s.since).toMatch(/^[A-Z][a-z]{2} \d{4}$/);
-  expect(s.label).toBe("all stops, unadjusted");
+  expect(["all stops, unadjusted", "within 4 minutes of schedule"]).toContain(s.label);
+  expect(typeof s.cleaned).toBe("boolean");
 });
 
 test("formats known values exactly", () => {
@@ -33,6 +34,33 @@ test("formats known values exactly", () => {
     days: 451,
     since: "Aug 2025",
     label: "all stops, unadjusted",
+    cleaned: false,
+  });
+});
+
+test("uses the clean block when the export has one", () => {
+  const file = tempFile(
+    JSON.stringify({
+      on_time_percentage: 93.36,
+      total_arrivals: 771334,
+      days_tracked: 451,
+      date_range: { start: "2025-08-10", end: "2026-11-24" },
+      clean: {
+        on_time_percentage: 92.8,
+        total_arrivals: 650000,
+        days_tracked: 430,
+        rolling_7d_on_time: 91.5,
+        rolling_30d_on_time: 92.2,
+      },
+    }),
+  );
+  expect(getCaltrainSnapshot(file)).toEqual({
+    onTimePct: "92.8%",
+    arrivals: "650,000",
+    days: 430,
+    since: "Aug 2025",
+    label: "within 4 minutes of schedule",
+    cleaned: true,
   });
 });
 

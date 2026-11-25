@@ -5,6 +5,20 @@ const CALTRAIN_API_BASE = process.env.NEXT_PUBLIC_CALTRAIN_API_URL || '';
 
 // --- Core Types ---
 
+/** Cleaned figures from the nightly export; absent until the tracker pipeline publishes them. */
+export interface CleanStats {
+  on_time_percentage: number;
+  minor_delay_percentage: number;
+  major_delay_percentage: number;
+  total_arrivals: number;
+  avg_delay_minutes: number;
+  median_delay_minutes: number;
+  days_tracked: number;
+  bad_feed_days: number;
+  rolling_7d_on_time: number;
+  rolling_30d_on_time: number;
+}
+
 export interface CaltrainStats {
   on_time_percentage: number;
   minor_delay_percentage: number;
@@ -20,6 +34,7 @@ export interface CaltrainStats {
   days_tracked: number;
   rolling_7d_on_time: number;
   rolling_30d_on_time: number;
+  clean?: CleanStats;
 }
 
 export interface DailyPerformance {

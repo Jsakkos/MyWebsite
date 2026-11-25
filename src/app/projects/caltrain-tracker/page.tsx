@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import { CaltrainSnapshot } from "@/components/caltrain-snapshot";
+import { getCaltrainSnapshot } from "@/lib/caltrain-snapshot";
+import { STORIES_PATH } from "@/lib/caltrain-stories-format";
+import { storiesAvailable } from "@/lib/caltrain-stories";
 import { Label, PageIntro, SectionHeading, TextLink } from "@/components/ui";
 
 export const metadata: Metadata = pageMetadata({
@@ -26,6 +29,8 @@ const STEPS = [
 ];
 
 export default function CaltrainTrackerPage() {
+  const cleaned = getCaltrainSnapshot()?.cleaned ?? false;
+  const hasStories = storiesAvailable();
   return (
     <article className="mx-auto max-w-3xl px-6">
       <PageIntro label="Project" title="Caltrain Performance Tracker">
@@ -65,7 +70,8 @@ export default function CaltrainTrackerPage() {
         </p>
         <p>
           <span className="text-ink">On time.</span> A train is on time at a stop if it arrives no more than 4
-          minutes behind schedule. Minor delays are 5 to 14 minutes; major delays are 15 minutes or more. The commute
+          minutes behind schedule. The headline figure leaves out each train&apos;s first stop, calls after midnight
+          and days when the real-time feed went stale. Minor delays are 5 to 14 minutes; major delays are 15 minutes or more. The commute
           windows are 6 to 9 a.m. and 3:30 to 7:30 p.m. on weekdays.
         </p>
         <p>
@@ -78,25 +84,49 @@ export default function CaltrainTrackerPage() {
       <section aria-labelledby="caveat" className="mt-14">
         <SectionHeading id="caveat">A caveat about the headline number</SectionHeading>
         <div className="mt-4 space-y-4 text-ink-2">
-          <p>
-            The on-time figure on the dashboard counts every stop, including the terminal stations. Trains parked
-            at San Francisco or San Jose before departure register as arriving on time, and they make up about 11%
-            of all arrivals. Early arrivals also count as zero delay. Together these push the published figure up,
-            which is why I label it &ldquo;all stops, unadjusted.&rdquo;
-          </p>
-          <p>
-            A cleaner measure leaves out terminal stops and the days when the real-time feed went stale. It&apos;s
-            part of the next phase.
-          </p>
+          {cleaned ? (
+            <>
+              <p>
+                The on-time figure counts arrivals within 4 minutes of schedule. It leaves out each train&apos;s
+                first stop, where a train parked before departure registers as on time. It also leaves out calls
+                after midnight and the days when the real-time feed went stale.
+              </p>
+              <p>
+                Caltrain counts its own figure at each train&apos;s final stop, so the two aren&apos;t directly
+                comparable. Mine is a stricter, stop-by-stop view of the whole line.
+              </p>
+            </>
+          ) : (
+            <>
+              <p>
+                The on-time figure on the dashboard counts every stop, including the terminal stations. Trains
+                parked at San Francisco or San Jose before departure register as arriving on time, and they make up
+                about 11% of all arrivals. Early arrivals also count as zero delay. Together these push the
+                published figure up, which is why I label it &ldquo;all stops, unadjusted.&rdquo;
+              </p>
+              <p>
+                A cleaner measure leaves out terminal stops and the days when the real-time feed went stale.
+                It&apos;s part of the next phase.
+              </p>
+            </>
+          )}
         </div>
       </section>
 
       <section aria-labelledby="next" className="mt-14">
-        <SectionHeading id="next">Next: stories from the data</SectionHeading>
-        <p className="mt-4 text-ink-2">
-          More than a year of data has turned up some patterns worth telling properly, like how a train that falls
-          ten minutes behind tends to stay behind to the end of the line. Those stories are coming here.
-        </p>
+        <SectionHeading id="next">Stories from the data</SectionHeading>
+        {hasStories ? (
+          <p className="mt-4 text-ink-2">
+            More than a year of data has turned up some patterns worth telling properly, like how a train that falls
+            ten minutes behind tends to stay behind to the end of the line.{" "}
+            <TextLink href={STORIES_PATH}>Read the stories</TextLink>.
+          </p>
+        ) : (
+          <p className="mt-4 text-ink-2">
+            More than a year of data has turned up some patterns worth telling properly, like how a train that falls
+            ten minutes behind tends to stay behind to the end of the line. Those stories are coming here.
+          </p>
+        )}
       </section>
     </article>
   );
