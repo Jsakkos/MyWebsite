@@ -70,9 +70,38 @@ export function clipTrajectory(
 }
 
 /** The clock minute `elapsedMs` into a playback of the window [start, end]. */
-export function playbackMinute(elapsedMs: number, start: number, end: number): number {
-  const f = Math.min(1, Math.max(0, elapsedMs / PLAYBACK_MS));
+export function playbackMinute(
+  elapsedMs: number,
+  start: number,
+  end: number,
+  durationMs: number = PLAYBACK_MS,
+): number {
+  const f = Math.min(1, Math.max(0, elapsedMs / durationMs));
   return start + f * (end - start);
+}
+
+/**
+ * The inverse of playbackMinute: how far into a playback of [start, end] the
+ * clock reads `minute`. Clamped to [0, durationMs]; a zero-width window is 0.
+ */
+export function elapsedForMinute(
+  minute: number,
+  start: number,
+  end: number,
+  durationMs: number = PLAYBACK_MS,
+): number {
+  const span = end - start;
+  if (span <= 0) return 0;
+  const f = Math.min(1, Math.max(0, (minute - start) / span));
+  return f * durationMs;
+}
+
+/**
+ * Where Play picks up: the paused or scrubbed minute when it is inside the
+ * window, otherwise (the full view, or at the end) the window start.
+ */
+export function resumeMinute(t: number | null, start: number, end: number): number {
+  return t !== null && t < end ? Math.max(start, t) : start;
 }
 
 /** 955.9 -> "3:55 p.m." (rounded down to the minute). */

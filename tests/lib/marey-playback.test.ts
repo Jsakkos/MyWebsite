@@ -5,6 +5,8 @@ import {
   clipByMinute,
   clipTrajectory,
   delayBand,
+  elapsedForMinute,
+  resumeMinute,
   formatMinuteClock,
   mareySummary,
   playbackMinute,
@@ -78,6 +80,40 @@ describe("playbackMinute", () => {
     expect(playbackMinute(0, 900, 1000)).toBe(900);
     expect(playbackMinute(PLAYBACK_MS / 2, 900, 1000)).toBe(950);
     expect(playbackMinute(PLAYBACK_MS * 2, 900, 1000)).toBe(1000);
+  });
+});
+
+describe("elapsedForMinute", () => {
+  test("is the inverse of playbackMinute", () => {
+    expect(elapsedForMinute(900, 900, 1000)).toBe(0);
+    expect(elapsedForMinute(950, 900, 1000)).toBe(PLAYBACK_MS / 2);
+    expect(elapsedForMinute(1000, 900, 1000)).toBe(PLAYBACK_MS);
+    for (const m of [900, 912.5, 955, 993, 1000]) {
+      expect(playbackMinute(elapsedForMinute(m, 900, 1000), 900, 1000)).toBeCloseTo(m, 9);
+    }
+    for (const ms of [0, 1234, 10_000, PLAYBACK_MS]) {
+      expect(elapsedForMinute(playbackMinute(ms, 900, 1000), 900, 1000)).toBeCloseTo(ms, 6);
+    }
+  });
+
+  test("clamps outside the window and takes a custom duration", () => {
+    expect(elapsedForMinute(850, 900, 1000)).toBe(0);
+    expect(elapsedForMinute(1100, 900, 1000)).toBe(PLAYBACK_MS);
+    expect(elapsedForMinute(950, 900, 1000, 1000)).toBe(500);
+    expect(elapsedForMinute(950, 900, 900)).toBe(0); // zero-width window
+  });
+});
+
+describe("resumeMinute", () => {
+  test("continues from a paused or scrubbed minute inside the window", () => {
+    expect(resumeMinute(962, 900, 1000)).toBe(962);
+    expect(resumeMinute(900, 900, 1000)).toBe(900);
+  });
+
+  test("restarts from the window start from the full view or the end", () => {
+    expect(resumeMinute(null, 900, 1000)).toBe(900);
+    expect(resumeMinute(1000, 900, 1000)).toBe(900);
+    expect(resumeMinute(1005, 900, 1000)).toBe(900);
   });
 });
 

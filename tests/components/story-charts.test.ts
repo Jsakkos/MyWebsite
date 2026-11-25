@@ -211,6 +211,53 @@ describe("PlayableMarey", () => {
     for (const c of colors) expect(c).toMatch(/^(var\(--[\w-]+\)|none|currentColor)$/);
   });
 
+  describe("mid-playback (t = 4:10 p.m., inside the 3:55–4:33 freeze)", () => {
+    const mid = render(PlayableMarey, { day: exampleDay, initialMinute: 970 });
+    /** Total vertex count across every polyline. */
+    const vertices = (html: string) =>
+      [...html.matchAll(/<polyline points="([^"]*)"/g)].reduce(
+        (n, m) => n + (m[1].trim() ? m[1].trim().split(" ").length : 0),
+        0,
+      );
+    /** Width of the freeze band in the first layout. */
+    const bandWidth = (html: string) =>
+      Number(
+        html
+          .slice(html.indexOf('<svg role="img"')) // skip the legend swatch
+          .match(/<rect[^>]*width="([\d.]+)"[^>]*fill="var\(--major\)"[^>]*fill-opacity/)?.[1],
+      );
+
+    test("clips every polyline at t", () => {
+      expect(mid.match(/<polyline/g)?.length).toBe(exampleDay.trains.length * 2);
+      expect(vertices(mid)).toBeLessThan(vertices(out));
+      // 523 (15:20, 15:50, 16:20, 16:50) is cut after 15:50 with one point interpolated at 16:10.
+      expect(mid).toMatch(/<polyline points="[\d.]+,[\d.]+ [\d.]+,[\d.]+ [\d.]+,[\d.]+" stroke="var\(--major\)"/);
+    });
+
+    test("draws the playhead and shows the clock at t", () => {
+      expect(mid).toMatch(/<line [^>]*stroke="var\(--ink\)"/);
+      expect(out).not.toMatch(/<line [^>]*stroke="var\(--ink\)"/);
+      expect(mid).toContain("4:10 p.m.");
+      expect(mid).toContain('value="970"');
+    });
+
+    test("draws the freeze band only up to t", () => {
+      expect(bandWidth(mid)).toBeGreaterThan(0);
+      expect(bandWidth(mid)).toBeLessThan(bandWidth(out));
+    });
+  });
+
+  test("clamps a freeze that starts before the window to the window", () => {
+    const early = render(PlayableMarey, {
+      day: { ...exampleDay, freeze: { start: "14:00", end: "15:05" } },
+    });
+    const charts = early.slice(early.indexOf('<svg role="img"')); // skip the legend swatch
+    const xs = [...charts.matchAll(/<rect x="([\d.]+)"[^>]*fill="var\(--major\)"/g)].map((m) => Number(m[1]));
+    expect(xs.length).toBe(2);
+    expect(xs[0]).toBe(66); // narrow plot's left edge
+    expect(xs[1]).toBe(96); // wide plot's left edge
+  });
+
   test("renders without a freeze or trains", () => {
     expect(() => render(PlayableMarey, { day: { ...exampleDay, freeze: null } })).not.toThrow();
     expect(() => render(PlayableMarey, { day: { ...exampleDay, trains: [] } })).not.toThrow();

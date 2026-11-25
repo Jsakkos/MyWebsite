@@ -9,7 +9,9 @@ import {
   formatDayDate,
   formatMinuteClock,
   mareySummary,
+  elapsedForMinute,
   playbackMinute,
+  resumeMinute,
   type DelayBand,
 } from "@/lib/marey-playback";
 import { CHART } from "@/components/caltrain/palette";
@@ -117,6 +119,9 @@ interface TrainGeometry {
 
 interface Geometry {
   layout: Layout;
+  /** The window, in minutes of day. */
+  start: number;
+  end: number;
   x: (m: number) => number;
   stationRows: { name: string; y: number; label: boolean }[];
   timeTicks: { m: number; x: number }[];
@@ -160,7 +165,7 @@ function geometry(day: ExampleDay, layout: Layout, start: number, end: number): 
     }))
     .sort((a, b) => BAND_ORDER[a.band] - BAND_ORDER[b.band]);
 
-  return { layout, x, stationRows, timeTicks, trains };
+  return { layout, start, end, x, stationRows, timeTicks, trains };
 }
 
 // ---------------------------------------------------------------------------
@@ -240,12 +245,15 @@ function Diagram({
   const { width, height, margin } = layout;
   const shown = t ?? Infinity;
 
+  // The freeze band, clamped to the window (so it never paints over the
+  // station labels) and, during playback, drawn only up to t.
   let freeze: { x0: number; x1: number } | null = null;
   if (day.freeze) {
-    const fStart = minutesOfDay(day.freeze.start);
-    const fEnd = minutesOfDay(day.freeze.end);
-    if (shown >= fStart) freeze = { x0: x(fStart), x1: x(Math.min(fEnd, shown)) };
+    const fStart = Math.max(geo.start, minutesOfDay(day.freeze.start));
+    const fEnd = Math.min(geo.end, minutesOfDay(day.freeze.end));
+    if (fEnd > fStart && shown >= fStart) freeze = { x0: x(fStart), x1: x(Math.min(fEnd, shown)) };
   }
+  const clipped = geo.trains.map((train) => clipByMinute(train.points, shown));
 
   return (
     <svg
@@ -289,19 +297,18 @@ function Diagram({
         </g>
       ) : null}
       <g clipPath={`url(#${clipId})`} fill="none" strokeLinejoin="round" strokeLinecap="round">
-        {geo.trains.map((train) => (
+        {geo.trains.map((train, i) => (
           <polyline
             key={train.id}
-            points={clipByMinute(train.points, shown)
-              .map((p) => `${r(p.x)},${r(p.y)}`)
-              .join(" ")}
+            points={clipped[i].map((p) => `${r(p.x)},${r(p.y)}`).join(" ")}
             stroke={BAND_COLOR[train.band]}
             strokeWidth={BAND_WIDTH[train.band]}
           />
         ))}
         {t !== null
-          ? geo.trains.map((train) => {
-              const head = clipByMinute(train.points, t).at(-1);
+          ? geo.trains.map((train, i) => {
+              // The head is the last point of the already-clipped line.
+              const head = clipped[i].at(-1);
               const last = train.points.at(-1);
               if (!head || !last || last.m < t) return null;
               return (
@@ -349,7 +356,14 @@ function PlayIcon({ playing }: { playing: boolean }) {
  * (Marey) diagram. Play sweeps a clock across the afternoon so the stop and
  * the delay spreading behind it unfold; the slider scrubs.
  */
-export function PlayableMarey({ day }: { day: ExampleDay }) {
+export function PlayableMarey({
+  day,
+  initialMinute = null,
+}: {
+  day: ExampleDay;
+  /** The clock minute to open on; null (the default) opens on the full diagram. */
+  initialMinute?: number | null;
+}) {
   const start = Math.round(minutesOfDay(day.window.start));
   const end = Math.max(start + 1, Math.round(minutesOfDay(day.window.end)));
   const wide = useMemo(() => geometry(day, WIDE, start, end), [day, start, end]);
@@ -357,9 +371,14 @@ export function PlayableMarey({ day }: { day: ExampleDay }) {
   const summary = useMemo(() => mareySummary(day), [day]);
 
   // null: the full diagram (before Play). Otherwise the clock minute shown.
-  const [t, setT] = useState<number | null>(null);
+  const [t, setT] = useState<number | null>(initialMinute);
   const [playing, setPlaying] = useState(false);
+  // The minute the current playback started from (resume point).
+  const [playFrom, setPlayFrom] = useState(start);
   const reduced = useSyncExternalStore(subscribeReduced, getReduced, () => false);
+  // If reduced motion turns on mid-play, stop for good (adjusting state during
+  // render, not in an effect), so turning it back off can't silently restart.
+  if (reduced && playing) setPlaying(false);
   const animating = playing && !reduced;
 
   useEffect(() => {
@@ -367,7 +386,8 @@ export function PlayableMarey({ day }: { day: ExampleDay }) {
     let raf = 0;
     let began: number | null = null;
     const step = (now: number) => {
-      if (began === null) began = now;
+      // Offset the clock so playback continues from playFrom, not the start.
+      if (began === null) began = now - elapsedForMinute(playFrom, start, end);
       const m = playbackMinute(now - began, start, end);
       setT(m);
       if (m >= end) {
@@ -378,7 +398,7 @@ export function PlayableMarey({ day }: { day: ExampleDay }) {
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [animating, start, end]);
+  }, [animating, playFrom, start, end]);
 
   const clock = formatMinuteClock(t ?? end);
   const noteId = useId();
@@ -389,7 +409,9 @@ export function PlayableMarey({ day }: { day: ExampleDay }) {
       return;
     }
     if (reduced) return;
-    setT(start);
+    const from = resumeMinute(t, start, end);
+    setPlayFrom(from);
+    setT(from);
     setPlaying(true);
   }
 
@@ -437,7 +459,7 @@ export function PlayableMarey({ day }: { day: ExampleDay }) {
             }}
             className="h-11 min-w-0 flex-1 cursor-pointer accent-accent"
           />
-          <span className="w-20 shrink-0 text-right font-mono text-sm tabular-nums text-ink">{clock}</span>
+          <span className="min-w-[10ch] shrink-0 text-right font-mono text-sm tabular-nums text-ink">{clock}</span>
         </div>
       </div>
       {reduced ? (
