@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -94,4 +95,17 @@ test("a file can opt out of generic patterns for fake examples, but never of nam
   const v = scanRepo(root).violations;
   expect(v).toHaveLength(1);
   expect(v[0].rule).toBe("denylisted term");
+});
+
+test("build tooling folders that git doesn't ignore are skipped (Netlify plugins, nested node_modules)", () => {
+  const root = tempRepo({
+    ".gitignore": "/node_modules\n",
+    ".content-denylist": "",
+    "content/ok.md": "Nothing internal here.",
+    ".netlify/plugins/node_modules/vendor/index.ts": "s.replace(re, '$1')",
+    "tools/node_modules/dep/readme.md": "costs $5",
+    ".next/server/page.js": "x = '$2'",
+  });
+  execFileSync("git", ["init", "-q"], { cwd: root });
+  expect(scanRepo(root).violations).toEqual([]);
 });

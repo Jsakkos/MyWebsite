@@ -30,7 +30,10 @@ export const GENERIC_PATTERNS = [
 
 const ALLOW_EXAMPLES = "content-check: allow-examples";
 const TEXT_FILE = /\.(md|mdx|json|ts|tsx|js|mjs|cjs|css|html|toml|ya?ml|txt|xml)$/i;
-const SKIP_DIRS = new Set(["node_modules", ".git", ".next", ".superpowers", ".playwright-mcp", "out", "build"]);
+// Tooling and build folders, skipped at any depth. Git may not ignore all of them
+// (Netlify installs its plugins into .netlify/plugins/node_modules during the build).
+const SKIP_DIRS = new Set(["node_modules", ".git", ".next", ".netlify", ".vercel", ".superpowers", ".playwright-mcp", "out", "build", "coverage"]);
+const inSkippedDir = (rel) => rel.split("/").slice(0, -1).some((seg) => SKIP_DIRS.has(seg));
 const SKIP_FILES = new Set([".content-denylist", "package-lock.json"]);
 const DATA_DIR = "public/data/caltrain/";
 
@@ -100,7 +103,7 @@ export function scanRepo(root) {
   }
   const files = listFiles(root)
     .map((f) => f.split(path.sep).join("/"))
-    .filter((f) => TEXT_FILE.test(f) && !f.startsWith(DATA_DIR) && !SKIP_FILES.has(path.basename(f)))
+    .filter((f) => TEXT_FILE.test(f) && !inSkippedDir(f) && !f.startsWith(DATA_DIR) && !SKIP_FILES.has(path.basename(f)))
     .filter((f) => fs.existsSync(path.join(root, f)));
   const violations = files.flatMap((f) => {
     const text = fs.readFileSync(path.join(root, f), "utf8");

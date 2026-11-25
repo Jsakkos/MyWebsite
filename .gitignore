@@ -46,3 +46,6 @@ next-env.d.ts
 
 # local confidentiality denylist (never commit)
 .content-denylist
+
+# Netlify local state and build plugins
+.netlify/
