@@ -74,7 +74,7 @@ export default function CaltrainTrackerPage() {
           {cleaned
             ? "The headline figure leaves out each train's first stop, calls after midnight and days when the real-time feed went stale. "
             : ""}
-          Minor delays are 5 to 14 minutes; major delays are 15 minutes or more. The commute
+          Minor delays are more than 4 and up to 15 minutes; major delays are more than 15. The commute
           windows are 6 to 9 a.m. and 3:30 to 7:30 p.m. on weekdays.
         </p>
         <p>

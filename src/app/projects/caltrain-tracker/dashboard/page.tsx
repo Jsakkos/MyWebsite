@@ -201,10 +201,10 @@ export default function CaltrainDashboardPage() {
                       <span className="h-2 w-2 rounded-full bg-ontime" /> On-time: within 4 min
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-minor" /> Minor: 5-14 min late
+                      <span className="h-2 w-2 rounded-full bg-minor" /> Minor: over 4, up to 15 min
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-major" /> Major: 15+ min late
+                      <span className="h-2 w-2 rounded-full bg-major" /> Major: over 15 min
                     </li>
                   </ul>
                 </div>
