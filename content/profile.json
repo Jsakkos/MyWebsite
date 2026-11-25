@@ -204,7 +204,7 @@
       "name": "Caltrain Performance Tracker",
       "group": "data",
       "pitch": "Logs the position of every Caltrain once a minute and turns it into on-time performance, delay patterns, and space-time diagrams of incidents.",
-      "stack": ["Python", "GTFS-RT", "Next.js", "Recharts"],
+      "stack": ["Python", "SQLite", "DuckDB", "GTFS-RT", "Next.js"],
       "years": "2024–",
       "links": [
         { "label": "Write-up", "url": "/projects/caltrain-tracker/" },

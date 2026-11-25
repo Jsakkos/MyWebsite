@@ -19,6 +19,10 @@
   --major: #b4432f;
   --chart-grid: #e8e1d2;
   --chart-axis: #6b6458;
+  --series-1: #b07a1c;
+  --series-2: #7a5a9e;
+  --series-3: #3f6f8f;
+  --series-4: #2f6b4f;
 }
 
 .dark {
@@ -35,6 +39,10 @@
   --major: #ef8f7b;
   --chart-grid: #2e2922;
   --chart-axis: #a89f8f;
+  --series-1: #e3b65e;
+  --series-2: #b79ad6;
+  --series-3: #8bb4d0;
+  --series-4: #86c4a0;
 }
 
 @theme inline {

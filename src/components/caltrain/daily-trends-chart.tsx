@@ -13,6 +13,7 @@ import {
 } from "recharts";
 import type { DailyPerformance } from "@/lib/api";
 import { parseLocalDate } from "@/lib/utils";
+import { tooltipStyle } from "@/components/caltrain/palette";
 
 const RANGES = [
   { label: "7d", days: 7 },
@@ -38,16 +39,16 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
   return (
     <section>
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Daily Trends</h2>
-        <div className="flex gap-1 rounded-lg bg-gray-100 p-1 dark:bg-gray-700">
+        <h2 className="font-serif text-2xl tracking-tight text-ink">Daily Trends</h2>
+        <div className="flex gap-1 rounded-lg bg-paper-2 p-1">
           {RANGES.map((r) => (
             <button
               key={r.label}
               onClick={() => setRange(r.days)}
               className={`rounded-md px-3 py-1 text-sm font-medium transition-colors ${
                 range === r.days
-                  ? "bg-white text-blue-600 shadow-sm dark:bg-gray-600 dark:text-blue-400"
-                  : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+                  ? "bg-paper text-accent "
+                  : "text-ink-2 hover:text-ink"
               }`}
             >
               {r.label}
@@ -56,43 +57,38 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
         </div>
       </div>
 
-      <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+      <div className="rounded-md border border-rule bg-paper p-4">
         <ResponsiveContainer width="100%" height={350}>
           <AreaChart data={filtered} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
             <defs>
               <linearGradient id="gradOnTime" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#00CC96" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#00CC96" stopOpacity={0} />
+                <stop offset="5%" stopColor="var(--ontime)" stopOpacity={0.3} />
+                <stop offset="95%" stopColor="var(--ontime)" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="gradMinor" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#FECB52" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#FECB52" stopOpacity={0} />
+                <stop offset="5%" stopColor="var(--minor)" stopOpacity={0.3} />
+                <stop offset="95%" stopColor="var(--minor)" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="gradMajor" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#EF553B" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#EF553B" stopOpacity={0} />
+                <stop offset="5%" stopColor="var(--major)" stopOpacity={0.3} />
+                <stop offset="95%" stopColor="var(--major)" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
             <XAxis
               dataKey="date"
               tick={{ fontSize: 12 }}
               tickFormatter={(d) => parseLocalDate(d).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
-              stroke="#9ca3af"
+              stroke="var(--chart-axis)"
             />
             <YAxis
               domain={[0, 100]}
               tick={{ fontSize: 12 }}
               tickFormatter={(v) => `${v}%`}
-              stroke="#9ca3af"
+              stroke="var(--chart-axis)"
             />
             <Tooltip
-              contentStyle={{
-                backgroundColor: "rgba(255,255,255,0.95)",
-                border: "1px solid #e5e7eb",
-                borderRadius: "8px",
-                fontSize: "13px",
-              }}
+              contentStyle={tooltipStyle}
               formatter={(value, name) => [`${Number(value).toFixed(1)}%`, name]}
               labelFormatter={(label) =>
                 parseLocalDate(label).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })
@@ -103,7 +99,7 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
               type="monotone"
               dataKey="on_time_pct"
               name="On Time"
-              stroke="#00CC96"
+              stroke="var(--ontime)"
               fill="url(#gradOnTime)"
               strokeWidth={2}
             />
@@ -111,7 +107,7 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
               type="monotone"
               dataKey="minor_pct"
               name="Minor Delay"
-              stroke="#FECB52"
+              stroke="var(--minor)"
               fill="url(#gradMinor)"
               strokeWidth={2}
             />
@@ -119,7 +115,7 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
               type="monotone"
               dataKey="major_pct"
               name="Major Delay"
-              stroke="#EF553B"
+              stroke="var(--major)"
               fill="url(#gradMajor)"
               strokeWidth={2}
             />

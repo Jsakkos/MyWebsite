@@ -3,17 +3,8 @@
 import { useMemo, useState } from "react";
 import type { DailyPerformance } from "@/lib/api";
 import { parseLocalDate, toLocalDateKey } from "@/lib/utils";
+import { performanceColor } from "@/components/caltrain/palette";
 
-function getColor(pct: number): string {
-  if (pct >= 95) return "#059669";
-  if (pct >= 90) return "#10b981";
-  if (pct >= 85) return "#34d399";
-  if (pct >= 80) return "#6ee7b7";
-  if (pct >= 75) return "#fbbf24";
-  if (pct >= 70) return "#f59e0b";
-  if (pct >= 60) return "#f97316";
-  return "#ef4444";
-}
 
 interface CalendarHeatmapProps {
   data: DailyPerformance[];
@@ -88,9 +79,9 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
 
   return (
     <section>
-      <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Daily Performance Calendar</h2>
-      <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-        <p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
+      <h2 className="mb-4 font-serif text-2xl tracking-tight text-ink">Daily Performance Calendar</h2>
+      <div className="rounded-md border border-rule bg-paper p-4">
+        <p className="mb-4 text-sm text-muted">
           Each square represents one day. Color shows on-time percentage.
         </p>
         <div className="overflow-x-auto">
@@ -102,7 +93,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
                 x={dayLabelW + ml.weekIndex * (cellSize + gap)}
                 y={labelH - 5}
                 fontSize={11}
-                className="fill-gray-500 dark:fill-gray-400"
+                className="fill-muted"
               >
                 {ml.month}
               </text>
@@ -116,7 +107,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
                 y={labelH + i * (cellSize + gap) + cellSize / 2 + 4}
                 textAnchor="end"
                 fontSize={10}
-                className="fill-gray-400 dark:fill-gray-500"
+                className="fill-muted"
               >
                 {name}
               </text>
@@ -132,7 +123,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
                   width={cellSize}
                   height={cellSize}
                   rx={3}
-                  fill={day ? getColor(day.on_time_pct) : "#f3f4f6"}
+                  fill={day ? performanceColor(day.on_time_pct) : "var(--paper-2)"}
                   opacity={day ? 1 : 0.15}
                   className="cursor-pointer transition-opacity hover:opacity-80"
                   onMouseEnter={(e) => {
@@ -150,7 +141,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
 
         {tooltip && (
           <div
-            className="pointer-events-none fixed z-50 rounded-lg bg-gray-900 px-3 py-2 text-xs text-white shadow-lg"
+            className="pointer-events-none fixed z-50 rounded-md bg-ink px-3 py-2 text-xs text-paper"
             style={{ left: tooltip.x, top: tooltip.y - 70, transform: "translateX(-50%)" }}
           >
             <div className="font-semibold">

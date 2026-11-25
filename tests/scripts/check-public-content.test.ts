@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-// @ts-expect-error - plain ESM script without type declarations
 import { findViolations, loadNamedTerms, scanRepo } from "../../scripts/check-public-content.mjs";
 
 function tempRepo(files: Record<string, string>): string {
