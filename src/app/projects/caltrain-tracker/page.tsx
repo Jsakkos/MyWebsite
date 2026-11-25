@@ -70,8 +70,11 @@ export default function CaltrainTrackerPage() {
         </p>
         <p>
           <span className="text-ink">On time.</span> A train is on time at a stop if it arrives no more than 4
-          minutes behind schedule. The headline figure leaves out each train&apos;s first stop, calls after midnight
-          and days when the real-time feed went stale. Minor delays are 5 to 14 minutes; major delays are 15 minutes or more. The commute
+          minutes behind schedule.{" "}
+          {cleaned
+            ? "The headline figure leaves out each train's first stop, calls after midnight and days when the real-time feed went stale. "
+            : ""}
+          Minor delays are 5 to 14 minutes; major delays are 15 minutes or more. The commute
           windows are 6 to 9 a.m. and 3:30 to 7:30 p.m. on weekdays.
         </p>
         <p>
@@ -93,7 +96,7 @@ export default function CaltrainTrackerPage() {
               </p>
               <p>
                 Caltrain counts its own figure at each train&apos;s final stop, so the two aren&apos;t directly
-                comparable. Mine is a stricter, stop-by-stop view of the whole line.
+                comparable. Mine looks at every stop along the way, not just the last one.
               </p>
             </>
           ) : (

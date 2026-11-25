@@ -23,7 +23,9 @@ export function headline(stats: CaltrainStats): Headline {
     c &&
     typeof c.on_time_percentage === "number" &&
     typeof c.total_arrivals === "number" &&
-    typeof c.days_tracked === "number"
+    typeof c.days_tracked === "number" &&
+    typeof c.rolling_7d_on_time === "number" &&
+    typeof c.rolling_30d_on_time === "number"
   ) {
     return {
       onTimePct: c.on_time_percentage,

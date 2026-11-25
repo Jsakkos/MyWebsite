@@ -53,3 +53,15 @@ test("falls back to the legacy figures without a clean block", () => {
     label: "all stops, unadjusted",
   });
 });
+
+test("falls back to legacy when the clean block lacks rolling figures", () => {
+  const partial = {
+    on_time_percentage: 92.8,
+    total_arrivals: 650000,
+    days_tracked: 430,
+  } as unknown as CaltrainStats["clean"];
+  const h = headline({ ...legacy, clean: partial });
+  expect(h.cleaned).toBe(false);
+  expect(h.label).toBe("all stops, unadjusted");
+  expect(h.rolling7d).toBe(92.1);
+});
