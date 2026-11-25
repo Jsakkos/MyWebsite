@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getProfile, type Project } from "@/lib/content";
 import { pageMetadata } from "@/lib/metadata";
-import { STORIES_PATH, storiesAvailable } from "@/lib/caltrain-stories";
+import { visibleLinks } from "@/lib/project-links";
 import { PageIntro, SectionHeading, TextLink } from "@/components/ui";
 
 export const metadata: Metadata = pageMetadata({
@@ -23,7 +23,6 @@ function byFeaturedFirst(a: Project, b: Project) {
 
 export default function ProjectsPage() {
   const { projects } = getProfile();
-  const showStories = storiesAvailable();
 
   return (
     <div className="mx-auto max-w-5xl px-6">
@@ -50,7 +49,7 @@ export default function ProjectsPage() {
                     <p className="mt-2 max-w-2xl text-ink-2">{p.pitch}</p>
                     <p className="mt-3 text-sm text-muted">{p.stack.join(" · ")}</p>
                     <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1">
-                      {p.links.filter((l) => showStories || l.url !== STORIES_PATH).map((l) => (
+                      {visibleLinks(p).map((l) => (
                         <li key={l.url}>
                           <TextLink href={l.url}>{l.label}</TextLink>
                         </li>

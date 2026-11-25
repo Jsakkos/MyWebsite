@@ -1,4 +1,4 @@
-import { isBadFeedDay, lastStopLabel } from "@/lib/caltrain-dashboard";
+import { isBadFeedDay, lastStopLabel, trendSeries } from "@/lib/caltrain-dashboard";
 import type { DailyPerformance, TrainPerformance } from "@/lib/api";
 
 const train: TrainPerformance = {
@@ -50,5 +50,20 @@ describe("isBadFeedDay", () => {
     expect(isBadFeedDay({ ...day, bad_feed: true })).toBe(true);
     expect(isBadFeedDay({ ...day, bad_feed: false })).toBe(false);
     expect(isBadFeedDay(day)).toBe(false);
+  });
+});
+
+describe("trendSeries", () => {
+  test("blanks the shares of bad-feed days so the chart breaks, and passes good days through", () => {
+    const rows = trendSeries([day, { ...day, date: "2026-11-02", bad_feed: true }]);
+    expect(rows[0]).toEqual({ date: "2026-11-01", on_time_pct: 90, minor_pct: 6, major_pct: 4, bad_feed: false });
+    expect(rows[1]).toEqual({ date: "2026-11-02", on_time_pct: null, minor_pct: null, major_pct: null, bad_feed: true });
+  });
+
+  test("legacy data (no bad_feed) never has a null share", () => {
+    for (const r of trendSeries([day, { ...day, date: "2026-11-02" }])) {
+      expect(r.on_time_pct).not.toBeNull();
+      expect(r.bad_feed).toBe(false);
+    }
   });
 });

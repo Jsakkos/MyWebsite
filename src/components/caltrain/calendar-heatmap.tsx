@@ -7,6 +7,26 @@ import { CHART, performanceColor } from "@/components/caltrain/palette";
 import { isBadFeedDay } from "@/lib/caltrain-dashboard";
 
 
+/** Hover card for one day; a bad-feed day shows only the date and why, never its untrusted figures. */
+export function DayTooltip({ day }: { day: DailyPerformance }) {
+  return (
+    <>
+      <div className="font-semibold">
+        {parseLocalDate(day.date).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })}
+      </div>
+      {isBadFeedDay(day) ? (
+        <div>Feed unreliable</div>
+      ) : (
+        <>
+          <div>On-time: {day.on_time_pct}%</div>
+          <div>{day.total_trips} trips</div>
+          <div>Avg delay: {day.avg_delay_min} min</div>
+        </>
+      )}
+    </>
+  );
+}
+
 interface CalendarHeatmapProps {
   data: DailyPerformance[];
 }
@@ -154,17 +174,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
             className="pointer-events-none fixed z-50 rounded-md bg-ink px-3 py-2 text-xs text-paper"
             style={{ left: tooltip.x, top: tooltip.y - 8, transform: "translate(-50%, -100%)" }}
           >
-            <div className="font-semibold">
-              {parseLocalDate(tooltip.day.date).toLocaleDateString("en-US", {
-                weekday: "short",
-                month: "short",
-                day: "numeric",
-              })}
-            </div>
-            {isBadFeedDay(tooltip.day) && <div className="font-semibold">Feed unreliable</div>}
-            <div>On-time: {tooltip.day.on_time_pct}%</div>
-            <div>{tooltip.day.total_trips} trips</div>
-            <div>Avg delay: {tooltip.day.avg_delay_min} min</div>
+            <DayTooltip day={tooltip.day} />
           </div>
         )}
       </div>
