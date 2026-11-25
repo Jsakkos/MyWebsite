@@ -3,7 +3,8 @@
 import { useMemo, useState } from "react";
 import type { DailyPerformance } from "@/lib/api";
 import { parseLocalDate, toLocalDateKey } from "@/lib/utils";
-import { performanceColor } from "@/components/caltrain/palette";
+import { CHART, performanceColor } from "@/components/caltrain/palette";
+import { isBadFeedDay } from "@/lib/caltrain-dashboard";
 
 
 interface CalendarHeatmapProps {
@@ -69,6 +70,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
     return { weeks, monthLabels: labels };
   }, [data]);
 
+  const hasBadFeed = data.some(isBadFeedDay);
   const cellSize = 16;
   const gap = 3;
   const labelH = 20;
@@ -84,6 +86,12 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
         <p className="mb-4 text-sm text-muted">
           Each square represents one day. Color shows on-time percentage.
         </p>
+        {hasBadFeed && (
+          <p className="mb-4 flex items-center gap-2 text-sm text-muted">
+            <span aria-hidden="true" className="inline-block h-3.5 w-3.5 rounded-[3px] bg-field" />
+            Feed unreliable: the position feed was stale or partial that day.
+          </p>
+        )}
         <div className="overflow-x-auto">
           <svg width={svgW} height={svgH} onMouseLeave={() => setTooltip(null)}>
             {/* Month labels */}
@@ -123,7 +131,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
                   width={cellSize}
                   height={cellSize}
                   rx={3}
-                  fill={day ? performanceColor(day.on_time_pct) : "var(--paper-2)"}
+                  fill={day ? (isBadFeedDay(day) ? CHART.field : performanceColor(day.on_time_pct)) : "var(--paper-2)"}
                   opacity={day ? 1 : 0.15}
                   className="cursor-pointer transition-opacity hover:opacity-80"
                   onMouseEnter={(e) => {
@@ -133,7 +141,9 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
                     }
                   }}
                   onMouseLeave={() => setTooltip(null)}
-                />
+                >
+                  {day && isBadFeedDay(day) && <title>{`${day.date}: feed unreliable`}</title>}
+                </rect>
               )),
             )}
           </svg>
@@ -142,7 +152,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
         {tooltip && (
           <div
             className="pointer-events-none fixed z-50 rounded-md bg-ink px-3 py-2 text-xs text-paper"
-            style={{ left: tooltip.x, top: tooltip.y - 70, transform: "translateX(-50%)" }}
+            style={{ left: tooltip.x, top: tooltip.y - 8, transform: "translate(-50%, -100%)" }}
           >
             <div className="font-semibold">
               {parseLocalDate(tooltip.day.date).toLocaleDateString("en-US", {
@@ -151,6 +161,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
                 day: "numeric",
               })}
             </div>
+            {isBadFeedDay(tooltip.day) && <div className="font-semibold">Feed unreliable</div>}
             <div>On-time: {tooltip.day.on_time_pct}%</div>
             <div>{tooltip.day.total_trips} trips</div>
             <div>Avg delay: {tooltip.day.avg_delay_min} min</div>

@@ -35,7 +35,7 @@ export function Heatmap({ data }: HeatmapProps) {
       </h2>
       <div className="rounded-md border border-rule bg-paper p-4">
         <p className="mb-4 text-sm text-muted">
-          On-time percentage by day of week and hour. Greener = more reliable.
+          On-time percentage by day of week and scheduled hour. Greener = more reliable.
         </p>
         <div className="overflow-x-auto">
           <svg

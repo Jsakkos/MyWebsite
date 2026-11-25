@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllNotes, type NoteMeta } from "@/lib/notes";
 import { SITE_URL } from "@/lib/metadata";
+import { STORIES_PATH, storiesAvailable } from "@/lib/caltrain-stories";
 
 const STATIC_ROUTES: { path: string; priority: number; changeFrequency: "weekly" | "monthly" | "yearly" | "daily" }[] = [
   { path: "/", priority: 1, changeFrequency: "monthly" },
@@ -19,6 +20,9 @@ export function buildSitemap(notes: NoteMeta[]): MetadataRoute.Sitemap {
     changeFrequency: r.changeFrequency,
     priority: r.priority,
   }));
+  if (storiesAvailable()) {
+    entries.push({ url: `${SITE_URL}${STORIES_PATH}`, changeFrequency: "daily", priority: 0.7 });
+  }
   if (notes.length > 0) {
     entries.push({ url: `${SITE_URL}/notes/`, changeFrequency: "monthly", priority: 0.6 });
     for (const n of notes) {

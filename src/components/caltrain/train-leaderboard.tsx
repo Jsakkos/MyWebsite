@@ -2,6 +2,7 @@
 
 import { Trophy, ThumbsDown } from "lucide-react";
 import type { TrainPerformance } from "@/lib/api";
+import { lastStopLabel } from "@/lib/caltrain-dashboard";
 
 interface TrainLeaderboardProps {
   data: TrainPerformance[];
@@ -17,6 +18,7 @@ function TrainCard({
   variant: "best" | "worst";
 }) {
   const isBest = variant === "best";
+  const lastStop = lastStopLabel(train);
   return (
     <div className="flex items-center gap-3 rounded-lg border border-rule bg-paper-2 p-3">
       <div
@@ -31,6 +33,7 @@ function TrainCard({
         <div className="text-xs text-muted">
           {train.days_observed} days observed
         </div>
+        {lastStop && <div className="text-xs text-muted">{lastStop}</div>}
       </div>
       <div className="text-right">
         <div

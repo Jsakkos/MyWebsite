@@ -10,6 +10,8 @@ import { RecoveryFan } from "@/components/caltrain/stories/recovery-fan";
 import { LeagueTable } from "@/components/caltrain/stories/league-table";
 import { HeadwayGrid } from "@/components/caltrain/stories/headway-grid";
 import { DayStrip } from "@/components/caltrain/stories/day-strip";
+import { TrainLeaderboard } from "@/components/caltrain/train-leaderboard";
+import type { TrainPerformance } from "@/lib/api";
 import { StopsTable } from "@/components/caltrain/stories/stops-table";
 
 const data: StoriesData = JSON.parse(
@@ -277,4 +279,28 @@ test("charts render without data", () => {
     render(HeadwayGrid, { data: { ...stories.express, headway: [] } }),
   ).not.toThrow();
   expect(() => render(DayStrip, { data: { holds: true, days: [] }, figures })).not.toThrow();
+});
+
+test("TrainLeaderboard shows the last-stop line only when the figure exists, never null", () => {
+  const base: TrainPerformance = {
+    trip_id: 101,
+    total_stops: 300,
+    on_time_count: 270,
+    avg_delay_min: 1.5,
+    days_observed: 60,
+    on_time_pct: 90,
+  };
+  const legacy = render(TrainLeaderboard, { data: [base] });
+  expect(legacy).not.toContain("null");
+  expect(legacy).not.toContain("undefined");
+  expect(legacy).not.toContain("weekday runs");
+  const nullField = render(TrainLeaderboard, {
+    data: [{ ...base, last_stop_late_pct: null, last_stop_runs: 20, last_stop_name: "22nd Street" }],
+  });
+  expect(nullField).not.toContain("null");
+  expect(nullField).not.toContain("weekday runs");
+  const withFigure = render(TrainLeaderboard, {
+    data: [{ ...base, last_stop_late_pct: 50, last_stop_runs: 90, last_stop_name: "22nd Street" }],
+  });
+  expect(withFigure).toContain("late at 22nd Street on 50% of weekday runs");
 });

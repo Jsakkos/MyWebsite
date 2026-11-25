@@ -8,12 +8,14 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  ReferenceLine,
   ResponsiveContainer,
   Legend,
 } from "recharts";
 import type { DailyPerformance } from "@/lib/api";
 import { parseLocalDate } from "@/lib/utils";
-import { tooltipStyle } from "@/components/caltrain/palette";
+import { CHART, tooltipStyle } from "@/components/caltrain/palette";
+import { isBadFeedDay } from "@/lib/caltrain-dashboard";
 
 const RANGES = [
   { label: "7d", days: 7 },
@@ -35,6 +37,8 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
     cutoff.setDate(cutoff.getDate() - range);
     return data.filter((d) => parseLocalDate(d.date) >= cutoff);
   }, [data, range]);
+
+  const badDays = useMemo(() => filtered.filter(isBadFeedDay).map((d) => d.date), [filtered]);
 
   return (
     <section>
@@ -90,11 +94,20 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
             <Tooltip
               contentStyle={tooltipStyle}
               formatter={(value, name) => [`${Number(value).toFixed(1)}%`, name]}
-              labelFormatter={(label) =>
-                parseLocalDate(label).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })
-              }
+              labelFormatter={(label, payload) => {
+                const text = parseLocalDate(label).toLocaleDateString("en-US", {
+                  weekday: "short",
+                  month: "short",
+                  day: "numeric",
+                });
+                const row = payload?.[0]?.payload as DailyPerformance | undefined;
+                return row && isBadFeedDay(row) ? `${text} (feed unreliable)` : text;
+              }}
             />
             <Legend />
+            {badDays.map((date) => (
+              <ReferenceLine key={date} x={date} stroke={CHART.field} strokeWidth={3} strokeOpacity={0.7} />
+            ))}
             <Area
               type="monotone"
               dataKey="on_time_pct"
@@ -121,6 +134,12 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
             />
           </AreaChart>
         </ResponsiveContainer>
+        {badDays.length > 0 && (
+          <p className="mt-3 flex items-center gap-2 text-xs text-muted">
+            <span aria-hidden="true" className="inline-block h-3 w-1 rounded-sm bg-field" />
+            Feed unreliable: the position feed was stale or partial that day, so its figures are not trusted.
+          </p>
+        )}
       </div>
     </section>
   );

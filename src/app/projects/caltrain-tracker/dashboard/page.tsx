@@ -26,6 +26,7 @@ import {
   TimeBreakdown,
   IncidentAnalysis,
 } from "@/components/caltrain";
+import { StaleNotice } from "@/components/caltrain/stale-notice";
 import { headline } from "@/lib/caltrain-headline";
 
 function LoadingSkeleton() {
@@ -104,6 +105,7 @@ export default function CaltrainDashboardPage() {
               rolling30d={head.rolling30d}
               label={head.label}
             />
+            <StaleNotice dataThrough={stats.date_range.end} />
 
             {/* Performance Overview */}
             <PerformanceOverview
@@ -116,27 +118,48 @@ export default function CaltrainDashboardPage() {
             />
 
             {/* Daily Trends */}
-            {daily && daily.length > 0 && <DailyTrendsChart data={daily} />}
-
-            {/* Calendar Heatmap */}
-            {daily && daily.length > 0 && <CalendarHeatmap data={daily} />}
+            {/* Daily trends and the calendar (#days) */}
+            {daily && daily.length > 0 && (
+              <div id="days" className="scroll-mt-24 space-y-10">
+                <DailyTrendsChart data={daily} />
+                <CalendarHeatmap data={daily} />
+              </div>
+            )}
 
             {/* Day-Hour Heatmap */}
-            {heatmap && heatmap.length > 0 && <Heatmap data={heatmap} />}
+            {heatmap && heatmap.length > 0 && (
+              <div id="hours" className="scroll-mt-24">
+                <Heatmap data={heatmap} />
+              </div>
+            )}
 
             {/* Commute Analysis */}
-            {commute && Object.keys(commute).length > 0 && <CommuteAnalysis data={commute} />}
+            {commute && Object.keys(commute).length > 0 && (
+              <div id="commute" className="scroll-mt-24">
+                <CommuteAnalysis data={commute} />
+              </div>
+            )}
 
             {/* Incident Analysis */}
             {incidents && incidents.length > 0 && trajectories && (
-              <IncidentAnalysis incidents={incidents} trajectories={trajectories} />
+              <div id="incidents" className="scroll-mt-24">
+                <IncidentAnalysis incidents={incidents} trajectories={trajectories} />
+              </div>
             )}
 
             {/* Station Rankings */}
-            {stations && stations.length > 0 && <StationRankings data={stations} />}
+            {stations && stations.length > 0 && (
+              <div id="stations" className="scroll-mt-24">
+                <StationRankings data={stations} />
+              </div>
+            )}
 
             {/* Train Leaderboard */}
-            {trains && trains.length > 0 && <TrainLeaderboard data={trains} />}
+            {trains && trains.length > 0 && (
+              <div id="trains" className="scroll-mt-24">
+                <TrainLeaderboard data={trains} />
+              </div>
+            )}
 
             {/* Time Breakdown */}
             {weekly && monthly && weekly.length > 0 && monthly.length > 0 && (
@@ -146,7 +169,7 @@ export default function CaltrainDashboardPage() {
             {/* Methodology & Footer */}
             <section className="rounded-md border border-rule bg-paper p-6">
               <h2 className="mb-4 font-serif text-2xl tracking-tight text-ink">Methodology</h2>
-              <div className="grid grid-cols-1 gap-6 text-sm text-ink-2 md:grid-cols-3">
+              <div className="grid grid-cols-1 gap-6 text-sm text-ink-2 md:grid-cols-2 lg:grid-cols-4">
                 <div>
                   <h3 className="mb-2 font-semibold text-ink">Data Collection</h3>
                   <p>
@@ -160,6 +183,16 @@ export default function CaltrainDashboardPage() {
                     Arrival times are calculated using the Haversine formula to determine when each train
                     reaches minimum distance to its scheduled station stop.
                   </p>
+                </div>
+                <div>
+                  <h3 className="mb-2 font-semibold text-ink">Cleaning Rules</h3>
+                  <ul className="mt-1 list-disc space-y-1 pl-4">
+                    <li>First stops are left out, since a train has no schedule to be late against there.</li>
+                    <li>Calls after midnight are left out, so one late train is not counted on the wrong day.</li>
+                    <li>An arrival counts only when the train&apos;s closest position is within 1 km of the station.</li>
+                    <li>Only real train numbers are counted; placeholder IDs are dropped.</li>
+                    <li>Days when the feed went stale are excluded from the cleaned figures and marked &ldquo;feed unreliable&rdquo;.</li>
+                  </ul>
                 </div>
                 <div>
                   <h3 className="mb-2 font-semibold text-ink">Delay Classification</h3>

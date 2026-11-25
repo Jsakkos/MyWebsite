@@ -47,6 +47,8 @@ export interface DailyPerformance {
   on_time_pct: number;
   minor_pct: number;
   major_pct: number;
+  /** The day's feed was unreliable (stale or partial); absent in older exports. */
+  bad_feed?: boolean;
 }
 
 export interface StationPerformance {
@@ -68,6 +70,11 @@ export interface TrainPerformance {
   avg_delay_min: number;
   days_observed: number;
   on_time_pct: number;
+  /** Weekday late share at the last stop where the train is seen; null under 80 weekday runs. */
+  last_stop_late_pct?: number | null;
+  last_stop_runs?: number;
+  /** Cleaned station name, e.g. "22nd Street". */
+  last_stop_name?: string | null;
 }
 
 export interface HeatmapCell {
@@ -123,8 +130,8 @@ export interface Incident {
   avg_delay_min: number;
   on_time_pct: number;
   severity_score: number;
-  root_cause_train?: string;
-  root_cause_station?: string;
+  /** Caltrain station the trains were held near, when known. */
+  held_near?: string | null;
 }
 
 export interface TrajectoryPoint {

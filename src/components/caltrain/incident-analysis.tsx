@@ -100,12 +100,10 @@ function IncidentCard({
                 {incident.on_time_pct}%
               </strong>
             </span>
-            {incident.root_cause_station && (
+            {incident.held_near && (
               <span>
-                Held at{" "}
-                <strong className="text-ink-2">
-                  {incident.root_cause_station}
-                </strong>
+                Trains held near{" "}
+                <strong className="text-ink-2">{incident.held_near}</strong>
               </span>
             )}
           </div>
