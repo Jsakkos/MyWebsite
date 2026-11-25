@@ -28,12 +28,14 @@ interface HeroSectionProps {
   rolling7d: number;
   rolling30d: number;
   label?: string;
+  /** Cleaned figures count only the arrivals that pass the cleaning rules. */
+  cleaned?: boolean;
 }
 
 const formatDay = (day: string) =>
   parseLocalDate(day).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
-export function HeroSection({ onTimePct, totalArrivals, daysTracked, dateRange, rolling7d, rolling30d, label = "all stops, unadjusted" }: HeroSectionProps) {
+export function HeroSection({ onTimePct, totalArrivals, daysTracked, dateRange, rolling7d, rolling30d, label = "all stops, unadjusted", cleaned = false }: HeroSectionProps) {
   return (
     <section className="rounded-lg bg-paper-2 p-6 sm:p-10">
       <p className="font-serif text-base italic text-accent">Caltrain performance</p>
@@ -56,7 +58,7 @@ export function HeroSection({ onTimePct, totalArrivals, daysTracked, dateRange, 
 
       <dl className="mt-8 grid grid-cols-1 gap-6 border-t border-rule pt-6 sm:grid-cols-3">
         <div>
-          <dt className="text-sm text-muted">Arrivals logged</dt>
+          <dt className="text-sm text-muted">{cleaned ? "Arrivals counted" : "Arrivals logged"}</dt>
           <dd className="mt-1 font-mono text-2xl text-ink">{totalArrivals.toLocaleString("en-US")}</dd>
         </div>
         <div>

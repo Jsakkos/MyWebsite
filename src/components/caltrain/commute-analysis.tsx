@@ -43,9 +43,11 @@ const PERIOD_CONFIG: Record<string, { icon: React.ReactNode; label: string; colo
 
 interface CommuteAnalysisProps {
   data: CommuteData;
+  /** Cleaned exports group trips by scheduled hour; legacy ones by the hour the train arrived. */
+  cleaned?: boolean;
 }
 
-export function CommuteAnalysis({ data }: CommuteAnalysisProps) {
+export function CommuteAnalysis({ data, cleaned = false }: CommuteAnalysisProps) {
   const periods = Object.entries(data)
     .filter(([key]) => key in PERIOD_CONFIG)
     .map(([key, stats]) => ({
@@ -69,9 +71,11 @@ export function CommuteAnalysis({ data }: CommuteAnalysisProps) {
     <section>
       <h2 className="mb-4 font-serif text-2xl tracking-tight text-ink">Commute Analysis</h2>
 
-      <p className="mb-4 text-sm text-muted">
-        Trips are grouped by scheduled hour, so a late train counts in the hour it was due, not the hour it arrived.
-      </p>
+      {cleaned && (
+        <p className="mb-4 text-sm text-muted">
+          Trips are grouped by scheduled hour, so a late train counts in the hour it was due, not the hour it arrived.
+        </p>
+      )}
 
       {/* Period cards */}
       <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -109,7 +109,7 @@ export function CalendarHeatmap({ data }: CalendarHeatmapProps) {
         {hasBadFeed && (
           <p className="mb-4 flex items-center gap-2 text-sm text-muted">
             <span aria-hidden="true" className="inline-block h-3.5 w-3.5 rounded-[3px] bg-field" />
-            Feed unreliable: the position feed was stale or partial that day.
+            Feed unreliable: the position feed was stale or mislocated that day.
           </p>
         )}
         <div className="overflow-x-auto">

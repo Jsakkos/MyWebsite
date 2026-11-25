@@ -10,9 +10,11 @@ const HOURS = Array.from({ length: 24 }, (_, i) => i);
 
 interface HeatmapProps {
   data: HeatmapCell[];
+  /** Cleaned exports group by scheduled hour; legacy ones by the hour the train arrived. */
+  cleaned?: boolean;
 }
 
-export function Heatmap({ data }: HeatmapProps) {
+export function Heatmap({ data, cleaned = false }: HeatmapProps) {
   const [tooltip, setTooltip] = useState<{ cell: HeatmapCell; x: number; y: number } | null>(null);
 
   // Build lookup: data[dayOfWeek][hour] = cell
@@ -35,7 +37,7 @@ export function Heatmap({ data }: HeatmapProps) {
       </h2>
       <div className="rounded-md border border-rule bg-paper p-4">
         <p className="mb-4 text-sm text-muted">
-          On-time percentage by day of week and scheduled hour. Greener = more reliable.
+          On-time percentage by day of week and {cleaned ? "scheduled hour" : "hour"}. Greener = more reliable.
         </p>
         <div className="overflow-x-auto">
           <svg

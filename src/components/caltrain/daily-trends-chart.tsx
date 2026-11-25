@@ -42,7 +42,7 @@ export function DailyTooltip({ active, label, payload }: { active?: boolean; lab
     <div style={{ ...tooltipStyle, padding: "8px 12px" }}>
       <p className="font-semibold">{bad ? `${longDate(label)} (feed unreliable)` : longDate(label)}</p>
       {bad ? (
-        <p>No figures: the position feed was stale or partial.</p>
+        <p>No figures: the position feed was stale or mislocated.</p>
       ) : (
         (payload ?? [])
           .filter((e) => typeof e.value === "number")
@@ -158,7 +158,7 @@ export function DailyTrendsChart({ data }: DailyTrendsChartProps) {
         {badDays.length > 0 && (
           <p className="mt-3 flex items-center gap-2 text-xs text-muted">
             <span aria-hidden="true" className="inline-block h-3 w-1 rounded-sm bg-field" />
-            Feed unreliable: the position feed was stale or partial that day, so the chart leaves a gap there.
+            Feed unreliable: the position feed was stale or mislocated that day, so the chart leaves a gap there.
           </p>
         )}
       </div>

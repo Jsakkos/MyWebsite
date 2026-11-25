@@ -190,8 +190,8 @@ export function IncidentAnalysis({
       )}
 
       <p className="mt-3 text-xs text-muted">
-        System incidents: 3+ trains delayed more than 15 min on the same day. Train
-        incidents: individual trains delayed more than 15 min.
+        System incidents: 3+ trains delayed 15 min or more on the same day. Train
+        incidents: individual trains delayed 15 min or more.
       </p>
     </section>
   );

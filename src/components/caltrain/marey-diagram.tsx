@@ -15,6 +15,16 @@ const height = 480;
 const plotW = width - margin.left - margin.right;
 const plotH = height - margin.top - margin.bottom;
 
+/**
+ * Legend labels. The export marks the day's most delayed train and the other
+ * trains delayed 15 min or more; it does not know which train caused what, so
+ * the labels say only what the data shows.
+ */
+export const MAREY_LEGEND = {
+  worst: "Most delayed train",
+  others: "Other trains delayed 15 min or more",
+} as const;
+
 function timeToMinutes(t: string): number {
   const [h, m, s] = t.split(":").map(Number);
   return h * 60 + m + (s || 0) / 60;
@@ -93,7 +103,7 @@ export function MareyDiagram({ detail }: MareyDiagramProps) {
 
   // Build polyline strings
   const trainLines = useMemo(() => {
-    // Sort: normal first, then cascading, then anomalous (so anomalous renders on top)
+    // Sort: on-time trains first, then the other delayed trains, then the most delayed (so it renders on top)
     const sorted = [...trajectories].sort((a, b) => {
       const order = (t: TrainTrajectory) =>
         t.is_anomalous && !t.is_cascading ? 2 : t.is_cascading ? 1 : 0;
@@ -107,54 +117,6 @@ export function MareyDiagram({ detail }: MareyDiagramProps) {
       return { ...t, polyline: points };
     });
   }, [trajectories, xScale, yScale]);
-
-  // Find root cause annotation (cheap: one train's points, so not memoized)
-  const annotation = (() => {
-    const rootTrain = trainLines.find(
-      (t) => t.is_anomalous && !t.is_cascading
-    );
-    if (!rootTrain || rootTrain.points.length < 5) return null;
-
-    // Find flat section: 5+ consecutive points with < 0.3km range
-    const pts = rootTrain.points;
-    for (let i = 0; i < pts.length - 4; i++) {
-      const window = pts.slice(i, i + 5);
-      const dists = window.map((p) => p.distance);
-      if (Math.max(...dists) - Math.min(...dists) < 0.3) {
-        const centerTime = timeToMinutes(window[2].time);
-        const centerDist =
-          dists.reduce((a, b) => a + b) / dists.length;
-
-        // Calculate hold duration
-        let endIdx = i + 5;
-        while (
-          endIdx < pts.length &&
-          Math.abs(pts[endIdx].distance - centerDist) < 0.3
-        ) {
-          endIdx++;
-        }
-        const holdMinutes = Math.round(
-          timeToMinutes(pts[endIdx - 1].time) - timeToMinutes(pts[i].time)
-        );
-
-        // Find nearest station
-        const nearestStation = stations.reduce((best, s) =>
-          Math.abs(s.distance - centerDist) < Math.abs(best.distance - centerDist)
-            ? s
-            : best
-        );
-
-        return {
-          x: xScale(centerTime),
-          y: yScale(centerDist),
-          holdMin: holdMinutes,
-          station: nearestStation.name,
-          trainId: rootTrain.trip_id,
-        };
-      }
-    }
-    return null;
-  })();
 
   function handleMouseMove(
     e: React.MouseEvent<SVGElement>,
@@ -234,7 +196,7 @@ export function MareyDiagram({ detail }: MareyDiagramProps) {
 
         {/* Train trajectories */}
         {trainLines.map((t, i) => {
-          const isRoot = t.is_anomalous && !t.is_cascading;
+          const isRoot = t.is_anomalous && !t.is_cascading; // the most delayed train
           const color = isRoot
             ? "var(--major)"
             : t.is_cascading
@@ -270,40 +232,6 @@ export function MareyDiagram({ detail }: MareyDiagramProps) {
             </g>
           );
         })}
-
-        {/* Annotation callout for root cause */}
-        {annotation && (
-          <g>
-            <rect
-              x={annotation.x + 10}
-              y={annotation.y - 30}
-              width={160}
-              height={38}
-              rx={6}
-              className="fill-paper"
-              stroke="var(--major)"
-              strokeWidth={1}
-              opacity={0.95}
-            />
-            <text
-              x={annotation.x + 18}
-              y={annotation.y - 14}
-              fill="var(--major)"
-              fontSize={10}
-              fontWeight="bold"
-            >
-              Train {annotation.trainId} — {annotation.holdMin}min hold
-            </text>
-            <text
-              x={annotation.x + 18}
-              y={annotation.y + 1}
-              className="fill-muted"
-              fontSize={9}
-            >
-              {annotation.station}
-            </text>
-          </g>
-        )}
 
         {/* Tooltip */}
         {tooltip && (
@@ -351,12 +279,12 @@ export function MareyDiagram({ detail }: MareyDiagramProps) {
 
           <line x1={180} y1={0} x2={200} y2={0} stroke="var(--major)" strokeWidth={2.5} />
           <circle cx={190} cy={0} r={2} fill="var(--major)" />
-          <text x={204} y={3} className="fill-muted" fontSize={9}>Primary delay</text>
+          <text x={204} y={3} className="fill-muted" fontSize={9}>{MAREY_LEGEND.worst}</text>
 
-          <line x1={290} y1={0} x2={310} y2={0} stroke="var(--minor)" strokeWidth={1.8} />
-          <text x={314} y={3} className="fill-muted" fontSize={9}>Cascading</text>
+          <line x1={300} y1={0} x2={320} y2={0} stroke="var(--minor)" strokeWidth={1.8} />
+          <text x={324} y={3} className="fill-muted" fontSize={9}>{MAREY_LEGEND.others}</text>
 
-          <text x={390} y={3} className="fill-muted" fontSize={8}>Flat sections = stopped train</text>
+          <text x={510} y={3} className="fill-muted" fontSize={8}>Flat sections = stopped train</text>
         </g>
       </svg>
     </div>

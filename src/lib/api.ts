@@ -47,7 +47,7 @@ export interface DailyPerformance {
   on_time_pct: number;
   minor_pct: number;
   major_pct: number;
-  /** The day's feed was unreliable (stale or partial); absent in older exports. */
+  /** The day's feed was unreliable (stale or mislocated); absent in older exports. */
   bad_feed?: boolean;
 }
 

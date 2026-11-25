@@ -47,7 +47,11 @@ test("uses the clean block when the export has one", () => {
       date_range: { start: "2025-08-10", end: "2026-11-24" },
       clean: {
         on_time_percentage: 92.8,
+        minor_delay_percentage: 5,
+        major_delay_percentage: 2.2,
         total_arrivals: 650000,
+        avg_delay_minutes: 1.5,
+        median_delay_minutes: 0.7,
         days_tracked: 430,
         rolling_7d_on_time: 91.5,
         rolling_30d_on_time: 92.2,

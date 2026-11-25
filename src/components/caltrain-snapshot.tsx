@@ -6,11 +6,13 @@ import { TextLink } from "@/components/ui";
 export function CaltrainSnapshot({ variant }: { variant: "card" | "inline" }) {
   const s = getCaltrainSnapshot();
   if (!s) return null;
+  // Cleaned counts are what passed the cleaning rules; legacy counts are everything logged.
+  const arrivals = s.cleaned ? "arrivals counted" : "arrivals logged";
 
   if (variant === "inline") {
     return (
       <p className="text-ink-2">
-        So far: <span className="font-mono text-ink">{s.arrivals}</span> arrivals logged over{" "}
+        So far: <span className="font-mono text-ink">{s.arrivals}</span> {arrivals} over{" "}
         <span className="font-mono text-ink">{s.days}</span> days since {s.since}, with{" "}
         <span className="font-mono text-ink">{s.onTimePct}</span> on time ({s.label}).
       </p>
@@ -24,7 +26,7 @@ export function CaltrainSnapshot({ variant }: { variant: "card" | "inline" }) {
         <span className="text-sm text-muted">on time · {s.label}</span>
       </div>
       <p className="mt-1 text-sm text-muted">
-        <span className="font-mono">{s.arrivals}</span> arrivals logged over {s.days} days, since {s.since}
+        <span className="font-mono">{s.arrivals}</span> {arrivals} over {s.days} days, since {s.since}
       </p>
       {storiesAvailable() && (
         <p className="mt-2 text-sm">

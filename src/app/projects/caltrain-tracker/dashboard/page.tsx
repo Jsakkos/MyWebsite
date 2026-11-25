@@ -26,6 +26,7 @@ import {
   TimeBreakdown,
   IncidentAnalysis,
 } from "@/components/caltrain";
+import { Methodology } from "@/components/caltrain/methodology";
 import { StaleNotice } from "@/components/caltrain/stale-notice";
 import { headline } from "@/lib/caltrain-headline";
 
@@ -56,7 +57,6 @@ export default function CaltrainDashboardPage() {
   const { data: trajectories } = useCaltrainIncidentTrajectories();
 
   const head = stats ? headline(stats) : null;
-  const figures = stats ? (head?.cleaned && stats.clean ? stats.clean : stats) : null;
 
   return (
     <div className="min-h-screen">
@@ -83,7 +83,7 @@ export default function CaltrainDashboardPage() {
 
         {statsLoading ? (
           <LoadingSkeleton />
-        ) : !stats || !head || !figures ? (
+        ) : !stats || !head ? (
           <div className="rounded-md border border-rule bg-paper p-12 text-center">
             <Database className="mx-auto h-12 w-12 text-muted" />
             <h2 className="mt-4 font-serif text-xl text-ink">
@@ -104,16 +104,17 @@ export default function CaltrainDashboardPage() {
               rolling7d={head.rolling7d}
               rolling30d={head.rolling30d}
               label={head.label}
+              cleaned={head.cleaned}
             />
-            <StaleNotice dataThrough={stats.date_range.end} />
+            <StaleNotice lastReported={stats.date_range.end} />
 
             {/* Performance Overview */}
             <PerformanceOverview
               onTimePct={head.onTimePct}
-              minorPct={figures.minor_delay_percentage}
-              majorPct={figures.major_delay_percentage}
-              avgDelay={figures.avg_delay_minutes}
-              medianDelay={figures.median_delay_minutes}
+              minorPct={head.minorPct}
+              majorPct={head.majorPct}
+              avgDelay={head.avgDelay}
+              medianDelay={head.medianDelay}
               totalArrivals={head.totalArrivals}
             />
 
@@ -129,14 +130,14 @@ export default function CaltrainDashboardPage() {
             {/* Day-Hour Heatmap */}
             {heatmap && heatmap.length > 0 && (
               <div id="hours" className="scroll-mt-24">
-                <Heatmap data={heatmap} />
+                <Heatmap data={heatmap} cleaned={head.cleaned} />
               </div>
             )}
 
             {/* Commute Analysis */}
             {commute && Object.keys(commute).length > 0 && (
               <div id="commute" className="scroll-mt-24">
-                <CommuteAnalysis data={commute} />
+                <CommuteAnalysis data={commute} cleaned={head.cleaned} />
               </div>
             )}
 
@@ -167,49 +168,7 @@ export default function CaltrainDashboardPage() {
             )}
 
             {/* Methodology & Footer */}
-            <section className="rounded-md border border-rule bg-paper p-6">
-              <h2 className="mb-4 font-serif text-2xl tracking-tight text-ink">Methodology</h2>
-              <div className="grid grid-cols-1 gap-6 text-sm text-ink-2 md:grid-cols-2 lg:grid-cols-4">
-                <div>
-                  <h3 className="mb-2 font-semibold text-ink">Data Collection</h3>
-                  <p>
-                    Real-time train positions collected every minute from the 511.org GTFS-RT API.
-                    Each data point includes train ID, GPS coordinates, destination station, and timestamp.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="mb-2 font-semibold text-ink">Arrival Detection</h3>
-                  <p>
-                    Arrival times are calculated using the Haversine formula to determine when each train
-                    reaches minimum distance to its scheduled station stop.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="mb-2 font-semibold text-ink">Cleaning Rules</h3>
-                  <ul className="mt-1 list-disc space-y-1 pl-4">
-                    <li>First stops are left out, since a train has no schedule to be late against there.</li>
-                    <li>Calls after midnight are left out, so one late train is not counted on the wrong day.</li>
-                    <li>An arrival counts only when the train&apos;s closest position is within 1 km of the station.</li>
-                    <li>Only real train numbers are counted; placeholder IDs are dropped.</li>
-                    <li>Days when the feed went stale are excluded from the cleaned figures and marked &ldquo;feed unreliable&rdquo;.</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="mb-2 font-semibold text-ink">Delay Classification</h3>
-                  <ul className="mt-1 space-y-1">
-                    <li className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-ontime" /> On-time: within 4 min
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-minor" /> Minor: over 4, up to 15 min
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-major" /> Major: over 15 min
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </section>
+            <Methodology cleaned={head.cleaned} />
 
             {/* Data freshness */}
             <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-muted">
