@@ -1,126 +1,36 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/96c68816-5ef0-4fea-98a7-d5492305e6a6/deploy-status)](https://app.netlify.com/sites/vibrant-lumiere-c7de04/deploys)
-# Professional Website - Jonathan K. Sakkos
 
-A modern, professional website built with Next.js 16, showcasing biotech engineering expertise and technical projects.
+# jonathanksakkos.com
 
-## 🚀 Features
+Personal site of Jonathan K. Sakkos, Staff Engineer in Spatial Genomics R&D at Takara Bio USA. Built with Next.js 16, TypeScript and Tailwind CSS v4, deployed on Netlify.
 
-- **Modern Stack**: Next.js 16 with TypeScript and Tailwind CSS
-- **Professional Design**: Clean, responsive design optimized for biotech industry
-- **Live Data Integration**: Real-time Caltrain performance tracker integration
-- **MDX Blog**: Technical blog with markdown support
-- **Dark/Light Mode**: System-aware theme switching
-- **SEO Optimized**: Comprehensive metadata, sitemap, and performance optimization
+## What's here
 
-## 📋 Site Structure
+- **Home, Work, Resume:** who I am, what I do, and a printable two-page resume
+- **Projects:** Engram, PhotoSift, lr-autotag, the Caltrain tracker, small hardware builds, research tools
+- **Caltrain dashboard:** on-time performance, delay patterns and incident diagrams, refreshed nightly from the [caltrain-tracker](https://github.com/Jsakkos/caltrain-tracker) pipeline
+- **Papers:** 15 peer-reviewed papers, patents and talks
+- **Notes:** occasional write-ups (MDX)
 
-- **Homepage**: Professional introduction with live project showcase
-- **About**: Detailed background and competencies
-- **Experience**: Career timeline with achievements
-- **Projects**: Technical project portfolio
-- **Blog**: MDX-powered technical articles
-- **Publications**: Streamlined academic publications
-- **Contact**: Professional contact form
+## Development
 
-## 🛠 Technical Stack
-
-- **Framework**: Next.js 16 with App Router
-- **Styling**: Tailwind CSS with custom design system
-- **Content**: MDX for blog posts and documentation
-- **Icons**: Lucide React
-- **Theme**: Next-themes for dark/light mode
-- **Deployment**: Netlify with automatic deployments
-
-## 🔧 Development
-
-### Prerequisites
-- Node.js 18+
-- npm or yarn
-
-### Installation
 ```bash
 npm install
+npm run dev      # http://localhost:3000
+npm test         # unit tests (Vitest)
+npm run lint
+npm run build    # runs the confidentiality check first
 ```
 
-### Development Server
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+## How content works
 
-### Build
-```bash
-npm run build
-```
+- Career facts live in `content/profile.json`, validated at build time by `src/lib/content.ts`. Every page reads from it, so facts can't drift between pages.
+- Notes are MDX files in `content/notes/`. Set `draft: true` to keep a post out of production.
+- Caltrain data in `public/data/caltrain/` is committed nightly by the tracker's export job.
+- `npm run check:content` blocks internal details (project codes, dollar figures, and a local list of names kept in the gitignored `.content-denylist`) from reaching this public repo.
 
-## 🌐 API Integration
+## Design
 
-The site integrates with a self-hosted Caltrain performance tracker:
+"Field notes": cream paper, Newsreader for headings, Inter for text, cyanobacteria green. Colors are CSS variables in `src/app/globals.css` with light and dark values, checked for WCAG AA contrast by `tests/styles/tokens.test.ts`.
 
-- **Live Data**: Real-time transit performance metrics
-- **Fallback**: Mock data when API is unavailable
-- **Health Monitoring**: API status monitoring
-- **CORS Support**: Cross-origin requests configured
-
-### Environment Variables
-```env
-NEXT_PUBLIC_CALTRAIN_API_URL=https://your-caltrain-domain.com
-```
-
-## 📁 Project Structure
-
-```
-src/
-├── app/                 # Next.js App Router pages
-├── components/          # Reusable React components
-├── hooks/              # Custom React hooks
-├── lib/                # Utility functions and API clients
-├── content/            # MDX blog posts
-└── public/             # Static assets
-```
-
-## 🚀 Deployment
-
-### Netlify Configuration
-- Build command: `npm run build`
-- Publish directory: `.next`
-- Environment: Node.js 18
-
-### URL Redirects
-Automatic redirects from old Hugo URLs to new Next.js structure included in `netlify.toml`.
-
-## 🎯 Key Features
-
-### Caltrain Tracker Integration
-- Real-time performance dashboard with live API integration
-- Interactive data visualizations using React components
-- API health monitoring and fallback handling
-- Mobile-responsive design for all devices
-
-### Professional Focus
-- Biotech industry optimization and modern design
-- Process development emphasis throughout content
-- Technical project showcase with detailed case studies
-- Academic background integrated but not primary focus
-
-## 📝 Content Management
-
-### Blog Posts
-Create new MDX files in `content/posts/`:
-```markdown
----
-title: "Post Title"
-date: "2024-12-08"
-excerpt: "Brief description"
-tags: ["tag1", "tag2"]
----
-
-Content here...
-```
-
-## 🙋‍♂️ Author
-
-**Jonathan K. Sakkos**
-- Staff Process Development Engineer at Takara Bio USA, Inc.
-- LinkedIn: [jonathan-sakkos](https://www.linkedin.com/in/jonathan-sakkos-b2833a4/)
-- GitHub: [jsakkos](https://github.com/jsakkos)
+See `CLAUDE.md` for conventions, and `docs/superpowers/specs/` for the design behind the 2026 rebuild.

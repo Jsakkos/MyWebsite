@@ -1,0 +1,443 @@
+{
+  "basics": {
+    "name": "Jonathan K. Sakkos",
+    "label": "Staff Engineer, Spatial Genomics R&D",
+    "throughline": "I turn biology into products by building the instruments, software, and processes in between.",
+    "accent": "the instruments, software, and processes in between",
+    "intro": [
+      "I'm a Staff Engineer in Spatial Genomics R&D at Takara Bio USA, where I lead engineering for spatial transcriptomics products from early research through manufacturing launch. The work doesn't fit neatly into one discipline, and that's the point: automated instruments, computer-vision pipelines, production fixtures, and the validation that lets operations own them.",
+      "I got here the long way: designing wear parts for a steel foundry, a Ph.D. in mechanical engineering spent putting bacteria inside silica gels, and a postdoc engineering cyanobacteria. Most engineers own one layer. I like owning the whole chain, so nothing gets lost in the hand-offs."
+    ],
+    "story": [
+      "My first engineering job was at Columbia Steel Casting in Portland, designing replacement wear parts for industrial scrap shredders. It taught me to follow a design all the way through: from the engineering request to the pattern shop, the foundry floor, and the customer.",
+      "In graduate school at the University of Minnesota I traded steel for living materials: porous silica gels that encapsulate bacteria so they can clean pollutants from water and run chemistry. A postdoc at Michigan State took me deeper into the biology, engineering cyanobacteria and modeling how microbial communities grow together, with the microscopy and image analysis to measure it.",
+      "In 2022 I joined Curio Bioscience to help turn its spatial transcriptomics workflows into manufacturing. Curio became part of Takara Bio in 2025, where I now lead engineering for spatial genomics products: the instruments, the image analysis, the fixtures, and the validation that hands them to operations."
+    ],
+    "offTheClock": "Off the clock I build open-source tools like Engram, take photos, cook, run a self-hosted homelab, and commute by bike and Caltrain, which is how I ended up tracking every train on the line.",
+    "location": "San Francisco, CA",
+    "email": "jonathansakkos@gmail.com",
+    "url": "https://www.jonathanksakkos.com",
+    "image": "/headshot.jpg",
+    "imageCredit": "Photo: Anne-Claire Brun",
+    "profiles": [
+      { "network": "GitHub", "url": "https://github.com/Jsakkos", "username": "Jsakkos" },
+      { "network": "LinkedIn", "url": "https://www.linkedin.com/in/jonathan-sakkos-b2833a4/" },
+      { "network": "Google Scholar", "url": "https://scholar.google.com/citations?user=lk-vZ4EAAAAJ" },
+      { "network": "ORCID", "url": "https://orcid.org/0000-0002-6647-5805", "username": "0000-0002-6647-5805" }
+    ]
+  },
+  "columns": {
+    "now": "Staff Engineer, Spatial Genomics R&D at Takara Bio USA, building the instruments, software, and processes behind spatial transcriptomics products.",
+    "before": [
+      "Process engineering at Curio Bioscience, acquired by Takara Bio",
+      "Synthetic biology postdoc, Michigan State University",
+      "Ph.D., Mechanical Engineering, University of Minnesota",
+      "Product engineer, Columbia Steel Casting"
+    ],
+    "onTheSide": [
+      "Engram, an open-source disc-ripping and episode-identification tool",
+      "A tracker that logs every Caltrain, once a minute",
+      "PhotoSift and lr-autotag for my photo workflow",
+      "Sensors for indoor air quality and a cat's exercise wheel"
+    ]
+  },
+  "pillars": [
+    {
+      "title": "Instruments & automation",
+      "claim": "I design and build the machines that make a delicate process repeatable.",
+      "proof": [
+        "A next-generation automated indexing instrument with multi-fold capacity per station",
+        "Production fixtures taken from 3D-printed prototype to launch"
+      ]
+    },
+    {
+      "title": "Imaging, data & software",
+      "claim": "I turn images and data into decisions, automatically.",
+      "proof": [
+        "A validated Python and computer-vision pipeline, several times faster than the legacy tool it replaced",
+        "Automated QC and imaging-setup tools that run daily in production"
+      ]
+    },
+    {
+      "title": "Scale-up & design transfer",
+      "claim": "I take R&D workflows through validation into manufacturing and launch.",
+      "proof": [
+        "The fixture behind the award-winning Trekker® FX FFPE kit, plus new tile formats",
+        "Verification, IQ/OQ/PQ, and hand-off to operations"
+      ]
+    },
+    {
+      "title": "Scientific depth",
+      "claim": "I speak the scientists' language, so the engineering fits the biology.",
+      "proof": [
+        "Ph.D. in Mechanical Engineering on engineered living materials",
+        "Postdoc in synthetic biology",
+        "15 peer-reviewed papers and 3 patent applications"
+      ]
+    }
+  ],
+  "work": [
+    {
+      "organization": "Takara Bio USA, Inc.",
+      "position": "Staff Engineer, Spatial Genomics R&D",
+      "location": "San Jose, CA",
+      "startDate": "2025-01",
+      "summary": "R&D engineering lead for spatial genomics product development, taking Seeker® and Trekker® products from research through manufacturing. I own the engineering across instruments, image analysis, fixtures, and design transfer.",
+      "highlights": [
+        "Designed and validated a next-generation automated indexing instrument with multi-fold capacity per station, then qualified it and transferred it to operations.",
+        "Replaced a legacy MATLAB image-analysis pipeline with a validated Python and computer-vision system that runs several times faster, now in production with automated reporting.",
+        "Engineered the tissue-alignment fixture behind the Trekker® FX FFPE kit, winner of The Scientist's 2026 Top Innovations award.",
+        "Built automated QC and imaging-setup tools that let manufacturing run without R&D intervention.",
+        "Lead the cross-functional core team developing new custom tile formats for research customers, working with Operations, QA, and vendors through stage gates."
+      ],
+      "url": "https://www.takarabio.com"
+    },
+    {
+      "organization": "Curio Bioscience",
+      "position": "Senior Process Engineer II",
+      "location": "Palo Alto, CA",
+      "startDate": "2024-01",
+      "endDate": "2025-01",
+      "summary": "Turned research-scale spatial transcriptomics workflows into manufacturable processes for the Seeker® and Trekker® product lines. Curio was acquired by Takara Bio in January 2025.",
+      "highlights": [
+        "Started the automation and indexing scale-up program that became the next-generation production platform.",
+        "Built automated QC and process-automation tools that reduced manual intervention."
+      ]
+    },
+    {
+      "organization": "Curio Bioscience",
+      "position": "Senior Process Development Engineer",
+      "location": "Palo Alto, CA",
+      "startDate": "2022-10",
+      "endDate": "2023-12",
+      "summary": "Joined the spatial transcriptomics startup to turn its research workflows into manufacturing.",
+      "highlights": [
+        "Developed and scaled manufacturing processes through the commercial launch of Seeker® and Trekker®.",
+        "Designed custom fixtures with CAD and 3D printing to speed up R&D cycles.",
+        "Established QC checks and standard operating procedures for new processes."
+      ]
+    },
+    {
+      "organization": "Michigan State University",
+      "position": "Postdoctoral Research Associate",
+      "location": "East Lansing, MI",
+      "startDate": "2018-09",
+      "endDate": "2022-09",
+      "summary": "Synthetic biology of cyanobacteria and microbial communities in the Ducat Lab, combining lab experiments with computational modeling and image analysis.",
+      "highlights": [
+        "Developed genetic tools for engineering photosynthetic microbes, including an orthogonal protein-degradation system and quorum-sensing circuits.",
+        "Combined experiments with agent-based modeling (NUFEB) and neural-network surrogate models to study light-driven microbial communities.",
+        "Applied automated microscopy and deep learning to quantify cellular structures, with collaborators at Oak Ridge National Laboratory.",
+        "Led a small research team and mentored graduate and undergraduate researchers; 8 papers from this period."
+      ]
+    },
+    {
+      "organization": "University of Minnesota",
+      "position": "Graduate Research Assistant",
+      "location": "Minneapolis, MN",
+      "startDate": "2012-08",
+      "endDate": "2018-09",
+      "summary": "Engineered living materials: porous silica gels that encapsulate bacteria for water remediation and biocatalysis.",
+      "highlights": [
+        "Designed, synthesized, and characterized porous sol-gel silica materials for encapsulating bacteria.",
+        "Authored 7 peer-reviewed papers and filed 3 patent applications.",
+        "Mentored 6 undergraduate researchers."
+      ]
+    },
+    {
+      "organization": "Columbia Steel Casting Co.",
+      "position": "Product Engineer",
+      "location": "Portland, OR",
+      "startDate": "2007-05",
+      "endDate": "2012-08",
+      "summary": "Designed replacement wear parts for heavy scrap shredders, from engineering request through foundry production and sales. Started as an intern in 2007.",
+      "highlights": [
+        "Modeled parts and assemblies in SolidWorks and produced drawings in AutoCAD.",
+        "Redesigned parts for longer service life, working with the pattern shop and foundry to avoid production issues."
+      ]
+    },
+    {
+      "organization": "County of Sonoma",
+      "position": "Engineering Technician I",
+      "location": "Santa Rosa, CA",
+      "startDate": "2006-05",
+      "endDate": "2006-08",
+      "summary": "Field and lab materials testing: compaction, gradation, and in-place density.",
+      "highlights": []
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Minnesota",
+      "studyType": "Ph.D.",
+      "area": "Mechanical Engineering",
+      "location": "Minneapolis, MN",
+      "startYear": 2012,
+      "endYear": 2018,
+      "thesis": "Engineering Biocatalytic Materials: Encapsulation Systems for Biotechnology"
+    },
+    {
+      "institution": "University of Portland",
+      "studyType": "B.S.",
+      "area": "Mechanical Engineering",
+      "location": "Portland, OR",
+      "startYear": 2005,
+      "endYear": 2009
+    }
+  ],
+  "projects": [
+    {
+      "slug": "engram",
+      "name": "Engram",
+      "group": "software",
+      "pitch": "Open-source disc ripping and media organization with a live web dashboard. It identifies TV episodes by audio fingerprint and asks a human when a disc is ambiguous, instead of guessing.",
+      "stack": ["Python", "FastAPI", "React", "TypeScript", "SQLite"],
+      "years": "2026–",
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/Jsakkos/engram" },
+        { "label": "Docs", "url": "https://jsakkos.github.io/engram/" }
+      ],
+      "featured": true
+    },
+    {
+      "slug": "caltrain-tracker",
+      "name": "Caltrain Performance Tracker",
+      "group": "data",
+      "pitch": "Logs the position of every Caltrain once a minute and turns it into on-time performance, delay patterns, and space-time diagrams of incidents.",
+      "stack": ["Python", "SQLite", "DuckDB", "GTFS-RT", "Next.js"],
+      "years": "2024–",
+      "links": [
+        { "label": "Write-up", "url": "/projects/caltrain-tracker/" },
+        { "label": "Dashboard", "url": "/projects/caltrain-tracker/dashboard/" },
+        { "label": "Stories", "url": "/projects/caltrain-tracker/stories/" },
+        { "label": "GitHub", "url": "https://github.com/Jsakkos/caltrain-tracker" }
+      ],
+      "featured": true
+    },
+    {
+      "slug": "photosift",
+      "name": "PhotoSift",
+      "group": "software",
+      "pitch": "A local-first photo pipeline: import a card, let on-device models group and annotate the shots, then cull with one keystroke per photo. Decisions land in XMP sidecars for Lightroom.",
+      "stack": ["Rust", "React", "TypeScript"],
+      "years": "2026–",
+      "links": [{ "label": "GitHub", "url": "https://github.com/Jsakkos/photosift" }]
+    },
+    {
+      "slug": "lr-autotag",
+      "name": "lr-autotag",
+      "group": "software",
+      "pitch": "AI keyword tagging for Lightroom Classic catalogs, using CLIP to match photos against a keyword hierarchy.",
+      "stack": ["Python", "CLIP", "SQLite"],
+      "years": "2024–",
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/Jsakkos/lightroom-autotag" },
+        { "label": "PyPI", "url": "https://pypi.org/project/lr-autotag/" },
+        { "label": "Docs", "url": "https://jsakkos.github.io/lightroom-autotag/" }
+      ]
+    },
+    {
+      "slug": "mkv-episode-matcher",
+      "name": "MKV Episode Matcher",
+      "group": "software",
+      "pitch": "Identifies and renames ripped TV episodes using speech recognition and fuzzy matching. The predecessor to Engram.",
+      "stack": ["Python", "Speech recognition"],
+      "years": "2024",
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/Jsakkos/mkv-episode-matcher" },
+        { "label": "PyPI", "url": "https://pypi.org/project/mkv-episode-matcher/" },
+        { "label": "Docs", "url": "https://jsakkos.github.io/mkv-episode-matcher/" }
+      ]
+    },
+    {
+      "slug": "airiq",
+      "name": "AirIQ",
+      "group": "hardware",
+      "pitch": "An indoor air-quality meter that measures CO₂, particulates, VOCs, temperature, humidity, and pressure, with an LED that shows the PM2.5 AQI by color.",
+      "stack": ["Custom PCB", "Sensors", "Home Assistant"],
+      "years": "2021–2022",
+      "links": [{ "label": "GitHub", "url": "https://github.com/Jsakkos/airIQ" }]
+    },
+    {
+      "slug": "cat-wheel-speedometer",
+      "name": "Cat Wheel Speedometer",
+      "group": "hardware",
+      "pitch": "A speedometer for a cat's exercise wheel: a reed switch and magnets measure speed and distance, logged to Home Assistant.",
+      "stack": ["ESP32", "ESPHome", "Home Assistant"],
+      "years": "2025",
+      "links": [{ "label": "GitHub", "url": "https://github.com/Jsakkos/cat-wheel-speedometer" }]
+    },
+    {
+      "slug": "nufeb",
+      "name": "NUFEB contributions and nufeb_tools",
+      "group": "research",
+      "pitch": "Added cyanobacteria and quorum-sensing models to the open-source NUFEB biofilm simulator, plus Python tools for setting up and analyzing simulations.",
+      "stack": ["C++", "Python"],
+      "years": "2020–2023",
+      "links": [
+        { "label": "NUFEB", "url": "https://github.com/nufeb/NUFEB" },
+        { "label": "nufeb_tools", "url": "https://github.com/Jsakkos/nufeb_tools" }
+      ]
+    },
+    {
+      "slug": "microtools",
+      "name": "microtools",
+      "group": "research",
+      "pitch": "Python tools for analyzing microscopy images.",
+      "stack": ["Python"],
+      "years": "2020–2023",
+      "links": [{ "label": "GitHub", "url": "https://github.com/Jsakkos/microtools" }]
+    }
+  ],
+  "publications": [
+    {
+      "title": "Coordination of carbon partitioning and photosynthesis by a two-component signaling network in Synechococcus elongatus PCC 7942",
+      "authors": ["Santos-Merino M", "Sakkos JK", "Singh AK", "Ducat DC"],
+      "venue": "Metabolic Engineering",
+      "year": 2024,
+      "doi": "10.1016/j.ymben.2023.11.001"
+    },
+    {
+      "title": "Population-level heterogeneity complicates utilization of Synechococcus elongatus PCC 7942 surface display platforms",
+      "authors": ["Yun L", "Sakkos JK", "Ducat DC"],
+      "venue": "microPublication Biology",
+      "year": 2024,
+      "doi": "10.17912/micropub.biology.001097"
+    },
+    {
+      "title": "Predicting partner fitness based on spatial structuring in a light-driven microbial community",
+      "authors": ["Sakkos JK", "Santos-Merino M", "Kokarakis EJ", "Li B", "Fuentes-Cabrera M", "Zuliani P", "Ducat DC"],
+      "venue": "PLOS Computational Biology",
+      "year": 2023,
+      "doi": "10.1371/journal.pcbi.1011045"
+    },
+    {
+      "title": "Investigating carboxysome morphology dynamics with a rotationally invariant variational autoencoder",
+      "authors": ["Fuentes-Cabrera M", "Sakkos JK", "Ducat DC", "Ziatdinov M"],
+      "venue": "The Journal of Physical Chemistry A",
+      "year": 2022,
+      "doi": "10.1021/acs.jpca.2c02179"
+    },
+    {
+      "title": "Developing cyanobacterial quorum sensing toolkits: toward interspecies coordination in mixed autotroph/heterotroph communities",
+      "authors": ["Kokarakis EJ", "Rillema R", "Ducat DC", "Sakkos JK"],
+      "venue": "ACS Synthetic Biology",
+      "year": 2022,
+      "doi": "10.1021/acssynbio.2c00527",
+      "note": "Senior and corresponding author"
+    },
+    {
+      "title": "Rubisco regulation in response to altered carbon status in the cyanobacterium Synechococcus elongatus PCC 7942",
+      "authors": ["Singh AK", "Santos-Merino M", "Sakkos JK", "Walker BJ", "Ducat DC"],
+      "venue": "Plant Physiology",
+      "year": 2022,
+      "doi": "10.1093/plphys/kiac065"
+    },
+    {
+      "title": "Orthogonal degron system for controlled protein degradation in cyanobacteria",
+      "authors": ["Sakkos JK", "Hernandez-Ortiz S", "Osteryoung KW", "Ducat DC"],
+      "venue": "ACS Synthetic Biology",
+      "year": 2021,
+      "doi": "10.1021/acssynbio.1c00035"
+    },
+    {
+      "title": "Visualizing in vivo dynamics of designer nanoscaffolds",
+      "authors": ["Young EJ", "Sakkos JK", "Huang J", "Wright JK", "Kachel B", "Fuentes-Cabrera M", "Kerfeld CA", "Ducat DC"],
+      "venue": "Nano Letters",
+      "year": 2019,
+      "doi": "10.1021/acs.nanolett.9b03651"
+    },
+    {
+      "title": "Signal disruption leads to changes in bacterial community population",
+      "authors": ["Schwab M", "Bergonzi C", "Sakkos J", "Staley C", "Zhang Q", "Sadowsky MJ", "Aksan A", "Elias M"],
+      "venue": "Frontiers in Microbiology",
+      "year": 2019,
+      "doi": "10.3389/fmicb.2019.00611"
+    },
+    {
+      "title": "Enhancement of biocatalyst activity and protection against stressors using a microbial exoskeleton",
+      "authors": ["Sakkos JK", "Wackett LP", "Aksan A"],
+      "venue": "Scientific Reports",
+      "year": 2019,
+      "doi": "10.1038/s41598-019-40113-8"
+    },
+    {
+      "title": "Enhanced biodegradation of atrazine by bacteria encapsulated in organically modified silica gels",
+      "authors": ["Benson JJ", "Sakkos JK", "Radian A", "Wackett LP", "Aksan A"],
+      "venue": "Journal of Colloid and Interface Science",
+      "year": 2018,
+      "doi": "10.1016/j.jcis.2017.09.044"
+    },
+    {
+      "title": "Achieving high-rate hydrogen recovery from wastewater using customizable alginate polymer gel matrices encapsulating biomass",
+      "authors": ["Zhu K", "Arnold WA", "Sakkos J", "Davis CW", "Novak PJ"],
+      "venue": "Environmental Science: Water Research & Technology",
+      "year": 2018,
+      "doi": "10.1039/c8ew00351c"
+    },
+    {
+      "title": "Adsorption and biodegradation of aromatic chemicals by bacteria encapsulated in a hydrophobic silica gel",
+      "authors": ["Sakkos JK", "Mutlu BR", "Wackett LP", "Aksan A"],
+      "venue": "ACS Applied Materials & Interfaces",
+      "year": 2017,
+      "doi": "10.1021/acsami.7b06791"
+    },
+    {
+      "title": "Silica ecosystem for synergistic biotransformation",
+      "authors": ["Mutlu BR", "Sakkos JK", "Yeom S", "Wackett LP", "Aksan A"],
+      "venue": "Scientific Reports",
+      "year": 2016,
+      "doi": "10.1038/srep27404"
+    },
+    {
+      "title": "Engineering of a silica encapsulation platform for hydrocarbon degradation using Pseudomonas sp. NCIB 9816-4",
+      "authors": ["Sakkos JK", "Kieffer DP", "Mutlu BR", "Wackett LP", "Aksan A"],
+      "venue": "Biotechnology and Bioengineering",
+      "year": 2016,
+      "doi": "10.1002/bit.25821"
+    }
+  ],
+  "patents": [
+    {
+      "title": "Compositions including a silica matrix and biomaterial, methods regarding the same and uses thereof",
+      "authors": ["Radian A", "Mutlu BR", "Sakkos JK", "Aksan A", "Wackett LP"],
+      "number": "U.S. Application 14/883,053",
+      "year": 2015
+    },
+    {
+      "title": "Cyanuric acid remediation",
+      "authors": ["Wackett LP", "Aksan A", "Sakkos JK", "Dodge T"],
+      "number": "U.S. Provisional Application 62/486,491",
+      "year": 2017
+    },
+    {
+      "title": "Biological assembly including biological component and shield",
+      "authors": ["Sakkos JK", "Wackett LP", "Aksan A"],
+      "number": "U.S. Application 16/959,812; PCT/US2018/068154",
+      "year": 2018
+    }
+  ],
+  "talks": [
+    { "year": 2022, "kind": "Poster", "event": "14th Workshop on Cyanobacteria", "location": "East Lansing, MI", "title": "Elucidating the impact of proximity on partner fitness in a sucrose-secreting cyanobacterial consortium" },
+    { "year": 2020, "kind": "Oral presentation", "event": "11th European Workshop on the Biology of Cyanobacteria", "location": "Porto, Portugal", "title": "Orthogonal degron system for controlled protein degradation in cyanobacteria" },
+    { "year": 2018, "kind": "Invited talk", "event": "University of Michigan", "location": "Ann Arbor, MI", "title": "Engineering Biocatalytic Materials: Encapsulation Systems for Biotechnology" },
+    { "year": 2017, "kind": "Two posters", "event": "5th International Conference on Multifunctional, Hybrid and Nanomaterials", "location": "Lisbon, Portugal" },
+    { "year": 2016, "kind": "Two posters", "event": "Summer Biomechanics, Bioengineering & Biotransport Conference", "location": "National Harbor, MD" },
+    { "year": 2016, "kind": "Poster", "event": "University of Minnesota MnDRIVE Environment Symposium", "location": "Minneapolis, MN" },
+    { "year": 2015, "kind": "Poster", "event": "Materials Research Society Fall Meeting", "location": "Boston, MA" },
+    { "year": 2015, "kind": "Platform talk", "event": "Battelle Bioremediation Symposium", "location": "Miami, FL" },
+    { "year": 2015, "kind": "Platform talk", "event": "Northeast Bioengineering Conference", "location": "Troy, NY" }
+  ],
+  "honors": [
+    { "year": "2017", "title": "Joachim and Yuko Heberlein Award", "org": "Department of Mechanical Engineering, University of Minnesota" },
+    { "year": "2015", "title": "BioTechnology Institute Travel Award", "org": "University of Minnesota" },
+    { "year": "2012", "title": "Departmental Fellowship", "org": "Mechanical Engineering, University of Minnesota" },
+    { "year": "2008–2009", "title": "Dean's List", "org": "University of Portland" },
+    { "year": "2005–2009", "title": "President's Scholarship", "org": "University of Portland" }
+  ],
+  "service": [
+    "Mentored graduate and undergraduate researchers at Michigan State and Minnesota, several of whom became co-authors.",
+    "Advised the Michigan State iGEM team's computational modeling subteam (2021).",
+    "Hosted a Reddit r/Science AMA on using bacteria in porous materials to clean pollutants from water (2016)."
+  ]
+}

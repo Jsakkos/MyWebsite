@@ -5,6 +5,20 @@ const CALTRAIN_API_BASE = process.env.NEXT_PUBLIC_CALTRAIN_API_URL || '';
 
 // --- Core Types ---
 
+/** Cleaned figures from the nightly export; absent until the tracker pipeline publishes them. */
+export interface CleanStats {
+  on_time_percentage: number;
+  minor_delay_percentage: number;
+  major_delay_percentage: number;
+  total_arrivals: number;
+  avg_delay_minutes: number;
+  median_delay_minutes: number;
+  days_tracked: number;
+  bad_feed_days: number;
+  rolling_7d_on_time: number;
+  rolling_30d_on_time: number;
+}
+
 export interface CaltrainStats {
   on_time_percentage: number;
   minor_delay_percentage: number;
@@ -20,6 +34,7 @@ export interface CaltrainStats {
   days_tracked: number;
   rolling_7d_on_time: number;
   rolling_30d_on_time: number;
+  clean?: CleanStats;
 }
 
 export interface DailyPerformance {
@@ -32,6 +47,8 @@ export interface DailyPerformance {
   on_time_pct: number;
   minor_pct: number;
   major_pct: number;
+  /** The day's feed was unreliable (stale or mislocated); absent in older exports. */
+  bad_feed?: boolean;
 }
 
 export interface StationPerformance {
@@ -53,6 +70,11 @@ export interface TrainPerformance {
   avg_delay_min: number;
   days_observed: number;
   on_time_pct: number;
+  /** Weekday late share at the last stop where the train is seen; null under 80 weekday runs. */
+  last_stop_late_pct?: number | null;
+  last_stop_runs?: number;
+  /** Cleaned station name, e.g. "22nd Street". */
+  last_stop_name?: string | null;
 }
 
 export interface HeatmapCell {
@@ -108,8 +130,8 @@ export interface Incident {
   avg_delay_min: number;
   on_time_pct: number;
   severity_score: number;
-  root_cause_train?: string;
-  root_cause_station?: string;
+  /** Caltrain station the trains were held near, when known. */
+  held_near?: string | null;
 }
 
 export interface TrajectoryPoint {

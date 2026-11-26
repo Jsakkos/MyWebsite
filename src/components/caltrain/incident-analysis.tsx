@@ -15,13 +15,13 @@ type TierFilter = "all" | 1 | 2;
 function TierBadge({ tier }: { tier: 1 | 2 }) {
   if (tier === 2) {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700 dark:bg-red-900/30 dark:text-red-400">
+      <span className="inline-flex items-center gap-1 rounded-full bg-paper-2 px-2 py-0.5 text-xs font-semibold text-major">
         System
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+    <span className="inline-flex items-center gap-1 rounded-full bg-paper-2 px-2 py-0.5 text-xs font-semibold text-minor">
       Train
     </span>
   );
@@ -50,15 +50,15 @@ function IncidentCard({
 
   return (
     <div
-      className={`overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 ${
-        isExpanded ? "ring-1 ring-blue-500/30" : ""
+      className={`overflow-hidden rounded-lg border border-rule ${
+        isExpanded ? "ring-1 ring-accent/30" : ""
       }`}
     >
       <button
         onClick={onToggle}
-        className={`flex w-full items-start gap-3 border-l-4 ${borderColor} bg-white p-4 text-left transition-colors hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700/50`}
+        className={`flex w-full items-start gap-3 border-l-4 ${borderColor} bg-paper p-4 text-left transition-colors hover:bg-paper-2`}
       >
-        <div className="mt-0.5 shrink-0 text-gray-400">
+        <div className="mt-0.5 shrink-0 text-muted">
           {isExpanded ? (
             <ChevronDown className="h-4 w-4" />
           ) : (
@@ -68,23 +68,23 @@ function IncidentCard({
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <TierBadge tier={incident.tier} />
-            <span className="font-semibold text-gray-900 dark:text-white">
+            <span className="font-semibold text-ink">
               {dateStr}
             </span>
           </div>
-          <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+          <p className="mt-1 text-sm text-ink-2">
             {incident.summary}
           </p>
-          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500 dark:text-gray-400">
+          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
             <span>
-              <strong className="text-gray-700 dark:text-gray-300">
+              <strong className="text-ink-2">
                 {incident.trains_affected}
               </strong>{" "}
               trains affected
             </span>
             <span>
               Max delay:{" "}
-              <strong className="text-red-600 dark:text-red-400">
+              <strong className="text-major">
                 {incident.max_delay_min} min
               </strong>
             </span>
@@ -93,19 +93,17 @@ function IncidentCard({
               <strong
                 className={
                   incident.on_time_pct >= 80
-                    ? "text-amber-600 dark:text-amber-400"
-                    : "text-red-600 dark:text-red-400"
+                    ? "text-minor"
+                    : "text-major"
                 }
               >
                 {incident.on_time_pct}%
               </strong>
             </span>
-            {incident.root_cause_station && (
+            {incident.held_near && (
               <span>
-                Held at{" "}
-                <strong className="text-gray-700 dark:text-gray-300">
-                  {incident.root_cause_station}
-                </strong>
+                Trains held near{" "}
+                <strong className="text-ink-2">{incident.held_near}</strong>
               </span>
             )}
           </div>
@@ -113,7 +111,7 @@ function IncidentCard({
       </button>
 
       {isExpanded && detail && (
-        <div className="border-t border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-900">
+        <div className="border-t border-rule bg-paper-2 p-4">
           <MareyDiagram detail={detail} />
         </div>
       )}
@@ -140,12 +138,12 @@ export function IncidentAnalysis({
     <section>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <AlertTriangle className="h-5 w-5 text-red-500" />
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <AlertTriangle className="h-5 w-5 text-major" />
+          <h2 className="font-serif text-2xl tracking-tight text-ink">
             Incident Analysis
           </h2>
         </div>
-        <div className="flex gap-1 rounded-lg bg-gray-100 p-1 dark:bg-gray-700">
+        <div className="flex gap-1 rounded-lg bg-paper-2 p-1">
           {([
             { key: "all" as TierFilter, label: `All (${incidents.length})` },
             { key: 2 as TierFilter, label: `System (${tier2Count})` },
@@ -156,8 +154,8 @@ export function IncidentAnalysis({
               onClick={() => setTierFilter(opt.key)}
               className={`rounded-md px-3 py-1 text-sm font-medium transition-colors ${
                 tierFilter === opt.key
-                  ? "bg-white text-blue-600 shadow-sm dark:bg-gray-600 dark:text-blue-400"
-                  : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+                  ? "bg-paper text-accent "
+                  : "text-ink-2 hover:text-ink"
               }`}
             >
               {opt.label}
@@ -166,7 +164,7 @@ export function IncidentAnalysis({
         </div>
       </div>
 
-      <p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
+      <p className="mb-4 text-sm text-muted">
         Auto-detected disruptions ranked by severity. Click to reveal the
         space-time diagram showing every train&apos;s trajectory that day.
       </p>
@@ -186,14 +184,14 @@ export function IncidentAnalysis({
       </div>
 
       {filtered.length === 0 && (
-        <p className="py-8 text-center text-sm text-gray-400 dark:text-gray-500">
+        <p className="py-8 text-center text-sm text-muted">
           No incidents found for this filter.
         </p>
       )}
 
-      <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">
-        System incidents: 3+ trains delayed ≥15 min on the same day. Train
-        incidents: individual trains delayed ≥15 min.
+      <p className="mt-3 text-xs text-muted">
+        System incidents: 3+ trains delayed 15 min or more on the same day. Train
+        incidents: individual trains delayed 15 min or more.
       </p>
     </section>
   );

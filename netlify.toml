@@ -5,63 +5,7 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Redirects for old Hugo URLs to new Next.js URLs
-[[redirects]]
-  from = "/author/*"
-  to = "/about"
-  status = 301
-
-[[redirects]]
-  from = "/authors/*"
-  to = "/about"
-  status = 301
-
-[[redirects]]
-  from = "/publication/*"
-  to = "/publications"
-  status = 301
-
-[[redirects]]
-  from = "/project/*"
-  to = "/projects"
-  status = 301
-
-[[redirects]]
-  from = "/talk/*"
-  to = "/publications"
-  status = 301
-
-[[redirects]]
-  from = "/slides/*"
-  to = "/publications"
-  status = 301
-
-[[redirects]]
-  from = "/courses/*"
-  to = "/experience"
-  status = 301
-
-[[redirects]]
-  from = "/home/*"
-  to = "/"
-  status = 301
-
-# Specific post redirects
-[[redirects]]
-  from = "/post/getting-started/*"
-  to = "/blog"
-  status = 301
-
-[[redirects]]
-  from = "/post/*"
-  to = "/blog"
-  status = 301
-
-# Files
-[[redirects]]
-  from = "/files/cv.pdf"
-  to = "/files/SakkosCV.pdf"
-  status = 301
+# Redirects live in src/lib/redirects.ts (wired through next.config.ts).
 
 # Cache headers for static Caltrain data (hourly updates)
 [[headers]]

@@ -2,26 +2,19 @@
 
 import { useState } from "react";
 import type { HeatmapCell } from "@/lib/api";
+import { performanceColor } from "@/components/caltrain/palette";
 
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const HOURS = Array.from({ length: 24 }, (_, i) => i);
 
-function getColor(pct: number): string {
-  if (pct >= 95) return "#059669";   // emerald-600
-  if (pct >= 90) return "#10b981";   // emerald-500
-  if (pct >= 85) return "#34d399";   // emerald-400
-  if (pct >= 80) return "#6ee7b7";   // emerald-300
-  if (pct >= 75) return "#fbbf24";   // amber-400
-  if (pct >= 70) return "#f59e0b";   // amber-500
-  if (pct >= 60) return "#f97316";   // orange-500
-  return "#ef4444";                   // red-500
-}
 
 interface HeatmapProps {
   data: HeatmapCell[];
+  /** Cleaned exports group by scheduled hour; legacy ones by the hour the train arrived. */
+  cleaned?: boolean;
 }
 
-export function Heatmap({ data }: HeatmapProps) {
+export function Heatmap({ data, cleaned = false }: HeatmapProps) {
   const [tooltip, setTooltip] = useState<{ cell: HeatmapCell; x: number; y: number } | null>(null);
 
   // Build lookup: data[dayOfWeek][hour] = cell
@@ -39,12 +32,12 @@ export function Heatmap({ data }: HeatmapProps) {
 
   return (
     <section>
-      <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+      <h2 className="mb-4 font-serif text-2xl tracking-tight text-ink">
         When Are Trains On Time?
       </h2>
-      <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-        <p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
-          On-time percentage by day of week and hour. Greener = more reliable.
+      <div className="rounded-md border border-rule bg-paper p-4">
+        <p className="mb-4 text-sm text-muted">
+          On-time percentage by day of week and {cleaned ? "scheduled hour" : "hour"}. Greener = more reliable.
         </p>
         <div className="overflow-x-auto">
           <svg
@@ -60,7 +53,7 @@ export function Heatmap({ data }: HeatmapProps) {
                 x={labelW + h * (cellSize + gap) + cellSize / 2}
                 y={labelH - 8}
                 textAnchor="middle"
-                className="fill-gray-500 dark:fill-gray-400"
+                className="fill-muted"
                 fontSize={10}
               >
                 {h === 0 ? "12a" : h < 12 ? `${h}a` : h === 12 ? "12p" : `${h - 12}p`}
@@ -74,7 +67,7 @@ export function Heatmap({ data }: HeatmapProps) {
                   x={labelW - 8}
                   y={labelH + di * (cellSize + gap) + cellSize / 2 + 4}
                   textAnchor="end"
-                  className="fill-gray-600 dark:fill-gray-300"
+                  className="fill-muted"
                   fontSize={12}
                   fontWeight={500}
                 >
@@ -92,7 +85,7 @@ export function Heatmap({ data }: HeatmapProps) {
                       width={cellSize}
                       height={cellSize}
                       rx={4}
-                      fill={count > 0 ? getColor(pct) : "#f3f4f6"}
+                      fill={count > 0 ? performanceColor(pct) : "var(--paper-2)"}
                       opacity={count > 0 ? 1 : 0.3}
                       className="cursor-pointer transition-opacity hover:opacity-80"
                       onMouseEnter={(e) => {
@@ -110,17 +103,18 @@ export function Heatmap({ data }: HeatmapProps) {
 
             {/* Color scale legend */}
             {[
-              { label: "95%+", color: "#059669" },
-              { label: "90%", color: "#10b981" },
-              { label: "85%", color: "#34d399" },
-              { label: "80%", color: "#6ee7b7" },
-              { label: "75%", color: "#fbbf24" },
-              { label: "70%", color: "#f59e0b" },
-              { label: "<60%", color: "#ef4444" },
+              { label: "95%+", pct: 95 },
+              { label: "90%", pct: 90 },
+              { label: "85%", pct: 85 },
+              { label: "80%", pct: 80 },
+              { label: "75%", pct: 75 },
+              { label: "70%", pct: 70 },
+              { label: "60%", pct: 60 },
+              { label: "<60%", pct: 0 },
             ].map((item, i) => (
               <g key={item.label} transform={`translate(${labelW + i * 70}, ${svgH - 30})`}>
-                <rect width={14} height={14} rx={3} fill={item.color} />
-                <text x={18} y={11} fontSize={10} className="fill-gray-500 dark:fill-gray-400">
+                <rect width={14} height={14} rx={3} fill={performanceColor(item.pct)} />
+                <text x={18} y={11} fontSize={10} className="fill-muted">
                   {item.label}
                 </text>
               </g>
@@ -131,7 +125,7 @@ export function Heatmap({ data }: HeatmapProps) {
         {/* Tooltip */}
         {tooltip && (
           <div
-            className="pointer-events-none fixed z-50 rounded-lg bg-gray-900 px-3 py-2 text-xs text-white shadow-lg"
+            className="pointer-events-none fixed z-50 rounded-md bg-ink px-3 py-2 text-xs text-paper"
             style={{
               left: tooltip.x,
               top: tooltip.y - 60,

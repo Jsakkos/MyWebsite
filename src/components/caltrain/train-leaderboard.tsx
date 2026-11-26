@@ -2,6 +2,7 @@
 
 import { Trophy, ThumbsDown } from "lucide-react";
 import type { TrainPerformance } from "@/lib/api";
+import { lastStopLabel } from "@/lib/caltrain-dashboard";
 
 interface TrainLeaderboardProps {
   data: TrainPerformance[];
@@ -17,30 +18,32 @@ function TrainCard({
   variant: "best" | "worst";
 }) {
   const isBest = variant === "best";
+  const lastStop = lastStopLabel(train);
   return (
-    <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50 p-3 dark:border-gray-700 dark:bg-gray-700/50">
+    <div className="flex items-center gap-3 rounded-lg border border-rule bg-paper-2 p-3">
       <div
-        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${
-          isBest ? "bg-emerald-500" : "bg-red-500"
+        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold text-paper ${
+          isBest ? "bg-ontime" : "bg-major"
         }`}
       >
         {rank}
       </div>
       <div className="min-w-0 flex-1">
-        <div className="font-semibold text-gray-900 dark:text-white">Train {train.trip_id}</div>
-        <div className="text-xs text-gray-500 dark:text-gray-400">
+        <div className="font-semibold text-ink">Train {train.trip_id}</div>
+        <div className="text-xs text-muted">
           {train.days_observed} days observed
         </div>
+        {lastStop && <div className="text-xs text-muted">{lastStop}</div>}
       </div>
       <div className="text-right">
         <div
           className={`text-lg font-bold ${
-            isBest ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"
+            isBest ? "text-ontime" : "text-major"
           }`}
         >
           {train.on_time_pct}%
         </div>
-        <div className="text-xs text-gray-500 dark:text-gray-400">
+        <div className="text-xs text-muted">
           {train.avg_delay_min} min avg
         </div>
       </div>
@@ -56,13 +59,13 @@ export function TrainLeaderboard({ data }: TrainLeaderboardProps) {
 
   return (
     <section>
-      <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Train Leaderboard</h2>
+      <h2 className="mb-4 font-serif text-2xl tracking-tight text-ink">Train Leaderboard</h2>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Best */}
-        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+        <div className="rounded-md border border-rule bg-paper p-5">
           <div className="mb-4 flex items-center gap-2">
-            <Trophy className="h-5 w-5 text-amber-500" />
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Most Reliable</h3>
+            <Trophy className="h-5 w-5 text-minor" />
+            <h3 className="font-serif text-lg text-ink">Most Reliable</h3>
           </div>
           <div className="space-y-2">
             {best.map((train, i) => (
@@ -72,10 +75,10 @@ export function TrainLeaderboard({ data }: TrainLeaderboardProps) {
         </div>
 
         {/* Worst */}
-        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+        <div className="rounded-md border border-rule bg-paper p-5">
           <div className="mb-4 flex items-center gap-2">
-            <ThumbsDown className="h-5 w-5 text-red-500" />
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Least Reliable</h3>
+            <ThumbsDown className="h-5 w-5 text-major" />
+            <h3 className="font-serif text-lg text-ink">Least Reliable</h3>
           </div>
           <div className="space-y-2">
             {worst.map((train, i) => (
@@ -84,7 +87,7 @@ export function TrainLeaderboard({ data }: TrainLeaderboardProps) {
           </div>
         </div>
       </div>
-      <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">
+      <p className="mt-3 text-xs text-muted">
         Only trains observed on 5+ days are included in rankings.
       </p>
     </section>

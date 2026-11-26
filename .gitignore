@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# brainstorming mockups
+.superpowers/
+.playwright-mcp/
+
+# local confidentiality denylist (never commit)
+.content-denylist
+
+# Netlify local state and build plugins
+.netlify/

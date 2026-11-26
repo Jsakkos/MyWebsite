@@ -1,0 +1,46 @@
+---
+title: "Rebuilding this site"
+date: "2026-11-25"
+summary: "Why the old site had to go, the hunt for a serif whose J doesn't hook, and keeping a public repo free of internal detail."
+draft: true
+---
+
+My old website was a starter template with my name on it. I built it in late 2024, when I moved from academic research into industry, and then mostly left it alone. Personal sites rot that way: nobody is paid to look after them, so they quietly drift out of date.
+
+By this fall the drift was hard to miss. The only blog post returned a 404. Search results still listed the job title I had two roles ago. The "Download CV" button handed out an academic CV from 2022, complete with a university email address I no longer use. The site had three different lists of my publications, and they disagreed with each other.
+
+So I rebuilt it.
+
+## Who it's for
+
+Three kinds of people land here. Some are deciding whether to hire me, and they skim: what I do now, how I got here, and where to find a resume. Some might want to build something with me, and they want to see how I think and what I make. The third reader is me. I wanted a site I'd enjoy adding to, not a brochure I'd have to maintain.
+
+That shaped the homepage. The top answers the first reader in about thirty seconds. Scrolling down answers the second.
+
+## Three directions
+
+I looked at three directions before writing any code. One was an engineering notebook, with graph paper, a drawing title block and red pencil. One was an instrument panel: dark, data-forward, with my Caltrain train-path diagram as the background. The third was field notes: warm, editorial, cream paper and a serif with some character.
+
+I picked field notes. It reads like a person talking to you, which is what I wanted, and it leaves room for the other two to show up in the details.
+
+## The J
+
+The first serif I tried had a capital J that dropped below the line with a hooked tail. It looked like a fish hook, and since the first letter of my name is a J, I saw it every time the page loaded.
+
+That sent me through about twenty-five serifs, checking each capital J at headline size, upright and italic. Several looked fine upright and then grew a tail in italics. I ended up with Newsreader, which was designed for long reading on screens and has a J that sits on the line in both styles.
+
+## One source of truth
+
+The old site kept the same facts in several places, so they drifted apart. One paper's DOI pointed at a record that doesn't exist.
+
+Now every page reads from one file. I keep a master resume in my notes with everything I've done; the site's file is a public-safe version of it. When something changes, I update the master and regenerate the site's copy, and the pages can't disagree because there's only one place to look.
+
+## A public repo and private notes
+
+This site's code is public. My notes are not: they hold project codes, customer names and other details that belong to my employer. That makes copying from one to the other risky.
+
+So the build checks for it. Before every build, a script scans the site's content for patterns that shouldn't be public, such as internal project codes and dollar figures, plus a list of specific names. That list can't live in the repo, because publishing it would defeat the point, so it stays on my machine. If anything matches, the build fails before the site goes out.
+
+## What's next
+
+I've been logging every Caltrain once a minute for more than a year. The data has turned up some stories worth telling properly, such as how a train that falls ten minutes behind tends to stay behind to the end of the line. Those are next.

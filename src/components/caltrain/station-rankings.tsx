@@ -10,6 +10,11 @@ interface StationRankingsProps {
   data: StationPerformance[];
 }
 
+function SortIcon({ column, sortKey, ascending }: { column: SortKey; sortKey: SortKey; ascending: boolean }) {
+  if (sortKey !== column) return <ChevronUp className="h-3 w-3 opacity-30" />;
+  return ascending ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />;
+}
+
 export function StationRankings({ data }: StationRankingsProps) {
   const [sortKey, setSortKey] = useState<SortKey>("on_time_pct");
   const [ascending, setAscending] = useState(false);
@@ -28,10 +33,6 @@ export function StationRankings({ data }: StationRankingsProps) {
     }
   }
 
-  function SortIcon({ column }: { column: SortKey }) {
-    if (sortKey !== column) return <ChevronUp className="h-3 w-3 opacity-30" />;
-    return ascending ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />;
-  }
 
   function cleanStationName(name: string): string {
     return name
@@ -43,42 +44,42 @@ export function StationRankings({ data }: StationRankingsProps) {
   return (
     <section>
       <div className="mb-4 flex items-center gap-2">
-        <MapPin className="h-5 w-5 text-blue-500" />
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Station Rankings</h2>
+        <MapPin className="h-5 w-5 text-accent" />
+        <h2 className="font-serif text-2xl tracking-tight text-ink">Station Rankings</h2>
       </div>
 
-      <div className="rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+      <div className="rounded-md border border-rule bg-paper">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-200 dark:border-gray-700">
-                <th className="px-4 py-3 text-left font-medium text-gray-500 dark:text-gray-400">#</th>
-                <th className="px-4 py-3 text-left font-medium text-gray-500 dark:text-gray-400">Station</th>
+              <tr className="border-b border-rule">
+                <th className="px-4 py-3 text-left font-medium text-muted">#</th>
+                <th className="px-4 py-3 text-left font-medium text-muted">Station</th>
                 <th
-                  className="cursor-pointer px-4 py-3 text-right font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  className="cursor-pointer px-4 py-3 text-right font-medium text-muted hover:text-ink"
                   onClick={() => toggleSort("on_time_pct")}
                 >
                   <span className="inline-flex items-center gap-1">
-                    On-Time % <SortIcon column="on_time_pct" />
+                    On-Time % <SortIcon sortKey={sortKey} ascending={ascending} column="on_time_pct" />
                   </span>
                 </th>
                 <th
-                  className="cursor-pointer px-4 py-3 text-right font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  className="cursor-pointer px-4 py-3 text-right font-medium text-muted hover:text-ink"
                   onClick={() => toggleSort("avg_delay_min")}
                 >
                   <span className="inline-flex items-center gap-1">
-                    Avg Delay <SortIcon column="avg_delay_min" />
+                    Avg Delay <SortIcon sortKey={sortKey} ascending={ascending} column="avg_delay_min" />
                   </span>
                 </th>
                 <th
-                  className="cursor-pointer px-4 py-3 text-right font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  className="cursor-pointer px-4 py-3 text-right font-medium text-muted hover:text-ink"
                   onClick={() => toggleSort("total_arrivals")}
                 >
                   <span className="inline-flex items-center gap-1">
-                    Arrivals <SortIcon column="total_arrivals" />
+                    Arrivals <SortIcon sortKey={sortKey} ascending={ascending} column="total_arrivals" />
                   </span>
                 </th>
-                <th className="px-4 py-3 text-right font-medium text-gray-500 dark:text-gray-400 hidden sm:table-cell">
+                <th className="px-4 py-3 text-right font-medium text-muted hidden sm:table-cell">
                   Performance
                 </th>
               </tr>
@@ -87,35 +88,35 @@ export function StationRankings({ data }: StationRankingsProps) {
               {sorted.map((station, i) => (
                 <tr
                   key={station.stop_id}
-                  className="border-b border-gray-100 transition-colors hover:bg-gray-50 dark:border-gray-700/50 dark:hover:bg-gray-700/50 last:border-0"
+                  className="border-b border-rule transition-colors hover:bg-paper-2 last:border-0"
                 >
-                  <td className="px-4 py-3 font-medium text-gray-400">{i + 1}</td>
-                  <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">
+                  <td className="px-4 py-3 font-medium text-muted">{i + 1}</td>
+                  <td className="px-4 py-3 font-medium text-ink">
                     {cleanStationName(station.stop_name)}
                   </td>
                   <td className="px-4 py-3 text-right">
                     <span
                       className={`font-semibold ${
                         station.on_time_pct >= 90
-                          ? "text-emerald-600 dark:text-emerald-400"
+                          ? "text-ontime"
                           : station.on_time_pct >= 80
-                          ? "text-amber-600 dark:text-amber-400"
-                          : "text-red-600 dark:text-red-400"
+                          ? "text-minor"
+                          : "text-major"
                       }`}
                     >
                       {station.on_time_pct}%
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-right text-gray-600 dark:text-gray-300">
+                  <td className="px-4 py-3 text-right text-ink-2">
                     {station.avg_delay_min} min
                   </td>
-                  <td className="px-4 py-3 text-right text-gray-500 dark:text-gray-400">
+                  <td className="px-4 py-3 text-right text-muted">
                     {station.total_arrivals}
                   </td>
                   <td className="px-4 py-3 text-right hidden sm:table-cell">
-                    <div className="inline-flex h-2 w-20 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
+                    <div className="inline-flex h-2 w-20 overflow-hidden rounded-full bg-rule">
                       <div
-                        className="bg-emerald-500 transition-all duration-500"
+                        className="bg-ontime transition-all duration-500"
                         style={{ width: `${station.on_time_pct}%` }}
                       />
                     </div>
