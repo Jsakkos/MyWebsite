@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getFeaturedProjects, getProfile, getRecentPublications } from "@/lib/content";
 import { doiUrl } from "@/lib/format";
+import { visibleLinks } from "@/lib/project-links";
 import { CaltrainSnapshot } from "@/components/caltrain-snapshot";
 import { Label, SectionHeading, TextLink } from "@/components/ui";
 
@@ -113,7 +114,7 @@ export default function Home() {
                 {project.slug === "caltrain-tracker" && <CaltrainSnapshot variant="card" />}
                 <p className="mt-3 text-sm text-muted">{project.stack.join(" · ")}</p>
                 <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1">
-                  {project.links.map((l) => (
+                  {visibleLinks(project).map((l) => (
                     <li key={l.url}>
                       <TextLink href={l.url}>{l.label}</TextLink>
                     </li>

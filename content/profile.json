@@ -209,6 +209,7 @@
       "links": [
         { "label": "Write-up", "url": "/projects/caltrain-tracker/" },
         { "label": "Dashboard", "url": "/projects/caltrain-tracker/dashboard/" },
+        { "label": "Stories", "url": "/projects/caltrain-tracker/stories/" },
         { "label": "GitHub", "url": "https://github.com/Jsakkos/caltrain-tracker" }
       ],
       "featured": true

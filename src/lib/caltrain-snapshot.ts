@@ -1,13 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
 import { formatYearMonth } from "@/lib/format";
+import { headline, type HeadlineLabel } from "@/lib/caltrain-headline";
+import type { CaltrainStats } from "@/lib/api";
 
 export interface CaltrainSnapshot {
   onTimePct: string;
   arrivals: string;
   days: number;
   since: string;
-  label: "all stops, unadjusted";
+  label: HeadlineLabel;
+  cleaned: boolean;
 }
 
 const DEFAULT_FILE = path.join(process.cwd(), "public", "data", "caltrain", "stats.json");
@@ -20,19 +23,23 @@ const DEFAULT_FILE = path.join(process.cwd(), "public", "data", "caltrain", "sta
 export function getCaltrainSnapshot(file: string = DEFAULT_FILE): CaltrainSnapshot | null {
   try {
     const s = JSON.parse(fs.readFileSync(file, "utf8"));
-    const pct = s?.on_time_percentage;
-    const arrivals = s?.total_arrivals;
-    const days = s?.days_tracked;
     const start = s?.date_range?.start;
-    if (typeof pct !== "number" || typeof arrivals !== "number" || typeof days !== "number" || typeof start !== "string") {
+    if (
+      typeof s?.on_time_percentage !== "number" ||
+      typeof s?.total_arrivals !== "number" ||
+      typeof s?.days_tracked !== "number" ||
+      typeof start !== "string"
+    ) {
       return null;
     }
+    const h = headline(s as CaltrainStats);
     return {
-      onTimePct: `${pct.toFixed(1)}%`,
-      arrivals: arrivals.toLocaleString("en-US"),
-      days,
+      onTimePct: `${h.onTimePct.toFixed(1)}%`,
+      arrivals: h.totalArrivals.toLocaleString("en-US"),
+      days: h.daysTracked,
       since: formatYearMonth(start),
-      label: "all stops, unadjusted",
+      label: h.label,
+      cleaned: h.cleaned,
     };
   } catch {
     return null;

@@ -10,8 +10,20 @@ export const CHART = {
   tooltipBg: "var(--paper)",
   tooltipBorder: "var(--rule)",
   text: "var(--ink)",
+  textSoft: "var(--ink-2)",
+  muted: "var(--muted)",
+  accent: "var(--accent)",
+  field: "var(--field)",
+  paper: "var(--paper)",
   empty: "var(--paper-2)",
 } as const;
+
+/** Bars and marks by service type (the story charts). */
+export const SERVICE_COLORS: Record<"Express" | "Limited" | "Local", string> = {
+  Express: "var(--series-1)",
+  Limited: "var(--series-2)",
+  Local: "var(--series-3)",
+};
 
 export const COMMUTE_COLORS: Record<"Morning" | "Evening" | "Other" | "Weekend", string> = {
   Morning: "var(--series-1)",
@@ -42,6 +54,42 @@ const WORST = "#b4432f";
 export function performanceColor(pct: number): string {
   for (const [min, color] of RAMP) if (pct >= min) return color;
   return WORST;
+}
+
+/**
+ * Late-share ramp for the story charts: seven bands (--late-0 … --late-6 in
+ * globals.css) from pale and quiet to warm and salient, so a higher late share
+ * always draws the eye. Each break set has six inclusive lower bounds.
+ */
+export const LATE_BREAKS = {
+  /** The opener heatmap: hour × day late shares sit in about 0–15%. */
+  opener: [3, 5, 7, 9, 11, 13],
+  /** The headway grid: a following train's late share spans about 10–90%. */
+  headway: [10, 20, 30, 40, 50, 60],
+} as const satisfies Record<string, readonly number[]>;
+
+export const LATE_BAND_COUNT = 7;
+
+/** The band (0–6) for a late share; breaks are inclusive lower bounds. */
+export function lateBand(latePct: number, breaks: readonly number[]): number {
+  let band = 0;
+  while (band < breaks.length && latePct >= breaks[band]) band++;
+  return band;
+}
+
+/** Fill for one band of the late ramp (0 = quietest). */
+export function lateBandColor(band: number): string {
+  return `var(--late-${band})`;
+}
+
+/** Fill for a late share. */
+export function lateColor(latePct: number, breaks: readonly number[]): string {
+  return lateBandColor(lateBand(latePct, breaks));
+}
+
+/** Text color that meets AA on lateColor(latePct, breaks), in either theme. */
+export function lateTextColor(latePct: number, breaks: readonly number[]): string {
+  return `var(--late-${lateBand(latePct, breaks)}-text)`;
 }
 
 export const tooltipStyle = {

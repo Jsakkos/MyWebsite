@@ -100,12 +100,10 @@ function IncidentCard({
                 {incident.on_time_pct}%
               </strong>
             </span>
-            {incident.root_cause_station && (
+            {incident.held_near && (
               <span>
-                Held at{" "}
-                <strong className="text-ink-2">
-                  {incident.root_cause_station}
-                </strong>
+                Trains held near{" "}
+                <strong className="text-ink-2">{incident.held_near}</strong>
               </span>
             )}
           </div>
@@ -192,8 +190,8 @@ export function IncidentAnalysis({
       )}
 
       <p className="mt-3 text-xs text-muted">
-        System incidents: 3+ trains delayed ≥15 min on the same day. Train
-        incidents: individual trains delayed ≥15 min.
+        System incidents: 3+ trains delayed 15 min or more on the same day. Train
+        incidents: individual trains delayed 15 min or more.
       </p>
     </section>
   );

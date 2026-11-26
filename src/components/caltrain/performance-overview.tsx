@@ -70,14 +70,14 @@ export function PerformanceOverview({
           value={minorPct}
           icon={<Clock className="h-24 w-24" />}
           tone="minor"
-          description="5-14 minutes behind schedule"
+          description="More than 4, up to 15 minutes behind schedule"
         />
         <MetricCard
           title="Major Delays"
           value={majorPct}
           icon={<AlertTriangle className="h-24 w-24" />}
           tone="major"
-          description="15+ minutes behind schedule"
+          description="More than 15 minutes behind schedule"
         />
       </div>
 
