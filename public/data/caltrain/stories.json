@@ -1,0 +1,3847 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-26T18:00:02",
+  "data_through": "2026-11-26",
+  "first_day": "2025-08-10",
+  "clean_days": 399,
+  "figures": {
+    "on_time_pct": {
+      "value": 92.7,
+      "unit": "pct"
+    },
+    "recovery_trips": {
+      "value": 1011,
+      "unit": "count"
+    },
+    "recovery_median_change_5": {
+      "value": 0.9,
+      "unit": "minutes"
+    },
+    "recovery_worse_5_pct": {
+      "value": 36.8,
+      "unit": "pct"
+    },
+    "recovery_better_5_pct": {
+      "value": 5.1,
+      "unit": "pct"
+    },
+    "recovery_back_on_time_pct": {
+      "value": 0.3,
+      "unit": "pct"
+    },
+    "worst_train": {
+      "value": "523",
+      "unit": "text"
+    },
+    "worst_train_departs": {
+      "value": "17:22",
+      "unit": "time"
+    },
+    "worst_train_late_pct": {
+      "value": 47.8,
+      "unit": "pct"
+    },
+    "worst_train_last_stop": {
+      "value": "22nd Street",
+      "unit": "text"
+    },
+    "worst_train_service": {
+      "value": "Express",
+      "unit": "text"
+    },
+    "worst_train_direction": {
+      "value": "northbound",
+      "unit": "text"
+    },
+    "nb_in_worst_25": {
+      "value": 20,
+      "unit": "count"
+    },
+    "express_nb_late_pct": {
+      "value": 13.0,
+      "unit": "pct"
+    },
+    "express_sb_late_pct": {
+      "value": 4.8,
+      "unit": "pct"
+    },
+    "local_nb_late_pct": {
+      "value": 6.9,
+      "unit": "pct"
+    },
+    "local_sb_late_pct": {
+      "value": 6.1,
+      "unit": "pct"
+    },
+    "headway_close_late_pct": {
+      "value": 87.8,
+      "unit": "pct"
+    },
+    "headway_far_late_pct": {
+      "value": 33.9,
+      "unit": "pct"
+    },
+    "stops_count": {
+      "value": 14,
+      "unit": "count"
+    },
+    "stops_every_weeks": {
+      "value": 4.1,
+      "unit": "weeks"
+    },
+    "stops_late15_share_pct": {
+      "value": 26.3,
+      "unit": "pct"
+    },
+    "stops_hours_to_normal_median": {
+      "value": 4.0,
+      "unit": "hours"
+    },
+    "stops_longest_hold_minutes": {
+      "value": 131,
+      "unit": "minutes"
+    },
+    "cancel_express_pct": {
+      "value": 17.5,
+      "unit": "pct"
+    },
+    "cancel_local_pct": {
+      "value": 1.0,
+      "unit": "pct"
+    },
+    "example_trains_late": {
+      "value": 36,
+      "unit": "count"
+    },
+    "worst_days_10_share_pct": {
+      "value": 38.5,
+      "unit": "pct"
+    },
+    "sat_late_pct": {
+      "value": 10.7,
+      "unit": "pct"
+    },
+    "weekday_late_pct": {
+      "value": 6.7,
+      "unit": "pct"
+    },
+    "sun_late_pct": {
+      "value": 8.1,
+      "unit": "pct"
+    },
+    "sat_bad_day_pct": {
+      "value": 20.0,
+      "unit": "pct"
+    },
+    "weekday_bad_day_pct": {
+      "value": 7.4,
+      "unit": "pct"
+    },
+    "saturdays": {
+      "value": 55,
+      "unit": "count"
+    }
+  },
+  "stories": {
+    "opener": {
+      "heatmap": [
+        {
+          "dow": 1,
+          "hour": 5,
+          "n": 2355,
+          "late_pct": 1.4
+        },
+        {
+          "dow": 1,
+          "hour": 6,
+          "n": 3971,
+          "late_pct": 4.4
+        },
+        {
+          "dow": 1,
+          "hour": 7,
+          "n": 5906,
+          "late_pct": 5.6
+        },
+        {
+          "dow": 1,
+          "hour": 8,
+          "n": 5929,
+          "late_pct": 9.7
+        },
+        {
+          "dow": 1,
+          "hour": 9,
+          "n": 4845,
+          "late_pct": 9.1
+        },
+        {
+          "dow": 1,
+          "hour": 10,
+          "n": 3571,
+          "late_pct": 7.3
+        },
+        {
+          "dow": 1,
+          "hour": 11,
+          "n": 3715,
+          "late_pct": 4.3
+        },
+        {
+          "dow": 1,
+          "hour": 12,
+          "n": 3672,
+          "late_pct": 1.9
+        },
+        {
+          "dow": 1,
+          "hour": 13,
+          "n": 3669,
+          "late_pct": 3.1
+        },
+        {
+          "dow": 1,
+          "hour": 14,
+          "n": 3669,
+          "late_pct": 6.1
+        },
+        {
+          "dow": 1,
+          "hour": 15,
+          "n": 4395,
+          "late_pct": 5.0
+        },
+        {
+          "dow": 1,
+          "hour": 16,
+          "n": 6191,
+          "late_pct": 8.2
+        },
+        {
+          "dow": 1,
+          "hour": 17,
+          "n": 6068,
+          "late_pct": 10.5
+        },
+        {
+          "dow": 1,
+          "hour": 18,
+          "n": 6342,
+          "late_pct": 8.4
+        },
+        {
+          "dow": 1,
+          "hour": 19,
+          "n": 5173,
+          "late_pct": 5.7
+        },
+        {
+          "dow": 1,
+          "hour": 20,
+          "n": 3767,
+          "late_pct": 3.8
+        },
+        {
+          "dow": 1,
+          "hour": 21,
+          "n": 3792,
+          "late_pct": 5.2
+        },
+        {
+          "dow": 1,
+          "hour": 22,
+          "n": 3648,
+          "late_pct": 6.3
+        },
+        {
+          "dow": 1,
+          "hour": 23,
+          "n": 2919,
+          "late_pct": 6.1
+        },
+        {
+          "dow": 2,
+          "hour": 5,
+          "n": 2743,
+          "late_pct": 3.8
+        },
+        {
+          "dow": 2,
+          "hour": 6,
+          "n": 4402,
+          "late_pct": 4.1
+        },
+        {
+          "dow": 2,
+          "hour": 7,
+          "n": 6688,
+          "late_pct": 4.6
+        },
+        {
+          "dow": 2,
+          "hour": 8,
+          "n": 6351,
+          "late_pct": 6.9
+        },
+        {
+          "dow": 2,
+          "hour": 9,
+          "n": 5252,
+          "late_pct": 7.0
+        },
+        {
+          "dow": 2,
+          "hour": 10,
+          "n": 3644,
+          "late_pct": 5.1
+        },
+        {
+          "dow": 2,
+          "hour": 11,
+          "n": 3699,
+          "late_pct": 4.1
+        },
+        {
+          "dow": 2,
+          "hour": 12,
+          "n": 3723,
+          "late_pct": 3.6
+        },
+        {
+          "dow": 2,
+          "hour": 13,
+          "n": 3642,
+          "late_pct": 7.4
+        },
+        {
+          "dow": 2,
+          "hour": 14,
+          "n": 3633,
+          "late_pct": 6.5
+        },
+        {
+          "dow": 2,
+          "hour": 15,
+          "n": 4385,
+          "late_pct": 7.2
+        },
+        {
+          "dow": 2,
+          "hour": 16,
+          "n": 6017,
+          "late_pct": 9.5
+        },
+        {
+          "dow": 2,
+          "hour": 17,
+          "n": 6138,
+          "late_pct": 10.5
+        },
+        {
+          "dow": 2,
+          "hour": 18,
+          "n": 6294,
+          "late_pct": 9.9
+        },
+        {
+          "dow": 2,
+          "hour": 19,
+          "n": 5125,
+          "late_pct": 9.2
+        },
+        {
+          "dow": 2,
+          "hour": 20,
+          "n": 3615,
+          "late_pct": 7.7
+        },
+        {
+          "dow": 2,
+          "hour": 21,
+          "n": 3676,
+          "late_pct": 7.8
+        },
+        {
+          "dow": 2,
+          "hour": 22,
+          "n": 3532,
+          "late_pct": 8.7
+        },
+        {
+          "dow": 2,
+          "hour": 23,
+          "n": 2942,
+          "late_pct": 6.4
+        },
+        {
+          "dow": 3,
+          "hour": 5,
+          "n": 2616,
+          "late_pct": 1.7
+        },
+        {
+          "dow": 3,
+          "hour": 6,
+          "n": 4372,
+          "late_pct": 3.6
+        },
+        {
+          "dow": 3,
+          "hour": 7,
+          "n": 6316,
+          "late_pct": 4.5
+        },
+        {
+          "dow": 3,
+          "hour": 8,
+          "n": 6028,
+          "late_pct": 7.6
+        },
+        {
+          "dow": 3,
+          "hour": 9,
+          "n": 4948,
+          "late_pct": 8.0
+        },
+        {
+          "dow": 3,
+          "hour": 10,
+          "n": 3587,
+          "late_pct": 6.6
+        },
+        {
+          "dow": 3,
+          "hour": 11,
+          "n": 3657,
+          "late_pct": 6.2
+        },
+        {
+          "dow": 3,
+          "hour": 12,
+          "n": 3536,
+          "late_pct": 2.7
+        },
+        {
+          "dow": 3,
+          "hour": 13,
+          "n": 3537,
+          "late_pct": 4.4
+        },
+        {
+          "dow": 3,
+          "hour": 14,
+          "n": 3585,
+          "late_pct": 4.3
+        },
+        {
+          "dow": 3,
+          "hour": 15,
+          "n": 4388,
+          "late_pct": 7.9
+        },
+        {
+          "dow": 3,
+          "hour": 16,
+          "n": 6079,
+          "late_pct": 8.7
+        },
+        {
+          "dow": 3,
+          "hour": 17,
+          "n": 5934,
+          "late_pct": 10.3
+        },
+        {
+          "dow": 3,
+          "hour": 18,
+          "n": 6247,
+          "late_pct": 10.9
+        },
+        {
+          "dow": 3,
+          "hour": 19,
+          "n": 5095,
+          "late_pct": 7.3
+        },
+        {
+          "dow": 3,
+          "hour": 20,
+          "n": 3563,
+          "late_pct": 8.4
+        },
+        {
+          "dow": 3,
+          "hour": 21,
+          "n": 3595,
+          "late_pct": 7.5
+        },
+        {
+          "dow": 3,
+          "hour": 22,
+          "n": 3484,
+          "late_pct": 4.7
+        },
+        {
+          "dow": 3,
+          "hour": 23,
+          "n": 2790,
+          "late_pct": 5.2
+        },
+        {
+          "dow": 4,
+          "hour": 5,
+          "n": 2391,
+          "late_pct": 4.0
+        },
+        {
+          "dow": 4,
+          "hour": 6,
+          "n": 3979,
+          "late_pct": 3.7
+        },
+        {
+          "dow": 4,
+          "hour": 7,
+          "n": 5912,
+          "late_pct": 4.9
+        },
+        {
+          "dow": 4,
+          "hour": 8,
+          "n": 5788,
+          "late_pct": 8.1
+        },
+        {
+          "dow": 4,
+          "hour": 9,
+          "n": 4880,
+          "late_pct": 5.8
+        },
+        {
+          "dow": 4,
+          "hour": 10,
+          "n": 3523,
+          "late_pct": 4.9
+        },
+        {
+          "dow": 4,
+          "hour": 11,
+          "n": 3525,
+          "late_pct": 5.9
+        },
+        {
+          "dow": 4,
+          "hour": 12,
+          "n": 3563,
+          "late_pct": 4.4
+        },
+        {
+          "dow": 4,
+          "hour": 13,
+          "n": 3523,
+          "late_pct": 4.5
+        },
+        {
+          "dow": 4,
+          "hour": 14,
+          "n": 3463,
+          "late_pct": 7.2
+        },
+        {
+          "dow": 4,
+          "hour": 15,
+          "n": 4390,
+          "late_pct": 8.2
+        },
+        {
+          "dow": 4,
+          "hour": 16,
+          "n": 5859,
+          "late_pct": 8.8
+        },
+        {
+          "dow": 4,
+          "hour": 17,
+          "n": 5866,
+          "late_pct": 10.2
+        },
+        {
+          "dow": 4,
+          "hour": 18,
+          "n": 6090,
+          "late_pct": 11.8
+        },
+        {
+          "dow": 4,
+          "hour": 19,
+          "n": 5009,
+          "late_pct": 9.6
+        },
+        {
+          "dow": 4,
+          "hour": 20,
+          "n": 3573,
+          "late_pct": 9.9
+        },
+        {
+          "dow": 4,
+          "hour": 21,
+          "n": 3527,
+          "late_pct": 7.7
+        },
+        {
+          "dow": 4,
+          "hour": 22,
+          "n": 3519,
+          "late_pct": 7.1
+        },
+        {
+          "dow": 4,
+          "hour": 23,
+          "n": 2911,
+          "late_pct": 5.3
+        },
+        {
+          "dow": 5,
+          "hour": 5,
+          "n": 2519,
+          "late_pct": 2.5
+        },
+        {
+          "dow": 5,
+          "hour": 6,
+          "n": 4260,
+          "late_pct": 4.4
+        },
+        {
+          "dow": 5,
+          "hour": 7,
+          "n": 6303,
+          "late_pct": 4.8
+        },
+        {
+          "dow": 5,
+          "hour": 8,
+          "n": 6108,
+          "late_pct": 5.0
+        },
+        {
+          "dow": 5,
+          "hour": 9,
+          "n": 4867,
+          "late_pct": 2.4
+        },
+        {
+          "dow": 5,
+          "hour": 10,
+          "n": 3437,
+          "late_pct": 6.1
+        },
+        {
+          "dow": 5,
+          "hour": 11,
+          "n": 3521,
+          "late_pct": 3.9
+        },
+        {
+          "dow": 5,
+          "hour": 12,
+          "n": 3583,
+          "late_pct": 2.6
+        },
+        {
+          "dow": 5,
+          "hour": 13,
+          "n": 3420,
+          "late_pct": 4.2
+        },
+        {
+          "dow": 5,
+          "hour": 14,
+          "n": 3531,
+          "late_pct": 5.6
+        },
+        {
+          "dow": 5,
+          "hour": 15,
+          "n": 4467,
+          "late_pct": 6.3
+        },
+        {
+          "dow": 5,
+          "hour": 16,
+          "n": 6021,
+          "late_pct": 7.8
+        },
+        {
+          "dow": 5,
+          "hour": 17,
+          "n": 6087,
+          "late_pct": 9.8
+        },
+        {
+          "dow": 5,
+          "hour": 18,
+          "n": 6274,
+          "late_pct": 10.5
+        },
+        {
+          "dow": 5,
+          "hour": 19,
+          "n": 5089,
+          "late_pct": 7.5
+        },
+        {
+          "dow": 5,
+          "hour": 20,
+          "n": 3561,
+          "late_pct": 8.2
+        },
+        {
+          "dow": 5,
+          "hour": 21,
+          "n": 3626,
+          "late_pct": 7.6
+        },
+        {
+          "dow": 5,
+          "hour": 22,
+          "n": 3504,
+          "late_pct": 8.3
+        },
+        {
+          "dow": 5,
+          "hour": 23,
+          "n": 2818,
+          "late_pct": 7.5
+        },
+        {
+          "dow": 6,
+          "hour": 6,
+          "n": 30,
+          "late_pct": 0.0
+        },
+        {
+          "dow": 6,
+          "hour": 7,
+          "n": 1176,
+          "late_pct": 2.6
+        },
+        {
+          "dow": 6,
+          "hour": 8,
+          "n": 2997,
+          "late_pct": 4.7
+        },
+        {
+          "dow": 6,
+          "hour": 9,
+          "n": 3589,
+          "late_pct": 5.7
+        },
+        {
+          "dow": 6,
+          "hour": 10,
+          "n": 3503,
+          "late_pct": 8.8
+        },
+        {
+          "dow": 6,
+          "hour": 11,
+          "n": 3629,
+          "late_pct": 11.0
+        },
+        {
+          "dow": 6,
+          "hour": 12,
+          "n": 3582,
+          "late_pct": 11.1
+        },
+        {
+          "dow": 6,
+          "hour": 13,
+          "n": 3492,
+          "late_pct": 13.1
+        },
+        {
+          "dow": 6,
+          "hour": 14,
+          "n": 3582,
+          "late_pct": 9.4
+        },
+        {
+          "dow": 6,
+          "hour": 15,
+          "n": 3506,
+          "late_pct": 17.1
+        },
+        {
+          "dow": 6,
+          "hour": 16,
+          "n": 3610,
+          "late_pct": 11.0
+        },
+        {
+          "dow": 6,
+          "hour": 17,
+          "n": 3525,
+          "late_pct": 14.3
+        },
+        {
+          "dow": 6,
+          "hour": 18,
+          "n": 3440,
+          "late_pct": 12.0
+        },
+        {
+          "dow": 6,
+          "hour": 19,
+          "n": 3606,
+          "late_pct": 10.1
+        },
+        {
+          "dow": 6,
+          "hour": 20,
+          "n": 3621,
+          "late_pct": 11.3
+        },
+        {
+          "dow": 6,
+          "hour": 21,
+          "n": 3652,
+          "late_pct": 12.3
+        },
+        {
+          "dow": 6,
+          "hour": 22,
+          "n": 3595,
+          "late_pct": 12.7
+        },
+        {
+          "dow": 6,
+          "hour": 23,
+          "n": 2811,
+          "late_pct": 6.9
+        },
+        {
+          "dow": 7,
+          "hour": 6,
+          "n": 33,
+          "late_pct": 3.0
+        },
+        {
+          "dow": 7,
+          "hour": 7,
+          "n": 1198,
+          "late_pct": 2.5
+        },
+        {
+          "dow": 7,
+          "hour": 8,
+          "n": 3356,
+          "late_pct": 7.0
+        },
+        {
+          "dow": 7,
+          "hour": 9,
+          "n": 3947,
+          "late_pct": 8.7
+        },
+        {
+          "dow": 7,
+          "hour": 10,
+          "n": 4041,
+          "late_pct": 7.8
+        },
+        {
+          "dow": 7,
+          "hour": 11,
+          "n": 3953,
+          "late_pct": 12.3
+        },
+        {
+          "dow": 7,
+          "hour": 12,
+          "n": 3904,
+          "late_pct": 9.5
+        },
+        {
+          "dow": 7,
+          "hour": 13,
+          "n": 3987,
+          "late_pct": 12.0
+        },
+        {
+          "dow": 7,
+          "hour": 14,
+          "n": 4106,
+          "late_pct": 9.3
+        },
+        {
+          "dow": 7,
+          "hour": 15,
+          "n": 4024,
+          "late_pct": 11.0
+        },
+        {
+          "dow": 7,
+          "hour": 16,
+          "n": 4031,
+          "late_pct": 9.4
+        },
+        {
+          "dow": 7,
+          "hour": 17,
+          "n": 4081,
+          "late_pct": 5.8
+        },
+        {
+          "dow": 7,
+          "hour": 18,
+          "n": 4124,
+          "late_pct": 5.1
+        },
+        {
+          "dow": 7,
+          "hour": 19,
+          "n": 4094,
+          "late_pct": 7.6
+        },
+        {
+          "dow": 7,
+          "hour": 20,
+          "n": 4078,
+          "late_pct": 6.7
+        },
+        {
+          "dow": 7,
+          "hour": 21,
+          "n": 4126,
+          "late_pct": 8.9
+        },
+        {
+          "dow": 7,
+          "hour": 22,
+          "n": 4026,
+          "late_pct": 4.9
+        },
+        {
+          "dow": 7,
+          "hour": 23,
+          "n": 3117,
+          "late_pct": 4.8
+        }
+      ]
+    },
+    "recovery": {
+      "holds": true,
+      "fan": [
+        {
+          "k": 1,
+          "n": 784,
+          "p10": -1.0,
+          "p25": -0.2,
+          "median": 0.0,
+          "p75": 1.0,
+          "p90": 3.0,
+          "back_on_time_pct": 0.0
+        },
+        {
+          "k": 2,
+          "n": 756,
+          "p10": -1.2,
+          "p25": -0.9,
+          "median": 0.0,
+          "p75": 1.9,
+          "p90": 5.1,
+          "back_on_time_pct": 0.3
+        },
+        {
+          "k": 3,
+          "n": 685,
+          "p10": -1.2,
+          "p25": -0.2,
+          "median": 0.8,
+          "p75": 2.0,
+          "p90": 6.9,
+          "back_on_time_pct": 0.1
+        },
+        {
+          "k": 4,
+          "n": 625,
+          "p10": -1.9,
+          "p25": -0.9,
+          "median": 0.2,
+          "p75": 2.1,
+          "p90": 8.0,
+          "back_on_time_pct": 0.0
+        },
+        {
+          "k": 5,
+          "n": 552,
+          "p10": -1.3,
+          "p25": -0.2,
+          "median": 0.9,
+          "p75": 3.0,
+          "p90": 8.1,
+          "back_on_time_pct": 0.0
+        },
+        {
+          "k": 6,
+          "n": 534,
+          "p10": -2.0,
+          "p25": -0.9,
+          "median": 1.0,
+          "p75": 3.1,
+          "p90": 9.0,
+          "back_on_time_pct": 0.0
+        },
+        {
+          "k": 7,
+          "n": 484,
+          "p10": -1.9,
+          "p25": -0.9,
+          "median": 1.0,
+          "p75": 4.0,
+          "p90": 11.2,
+          "back_on_time_pct": 0.2
+        },
+        {
+          "k": 8,
+          "n": 433,
+          "p10": -2.0,
+          "p25": -0.8,
+          "median": 1.0,
+          "p75": 3.9,
+          "p90": 9.9,
+          "back_on_time_pct": 0.5
+        },
+        {
+          "k": 9,
+          "n": 352,
+          "p10": -2.0,
+          "p25": -1.0,
+          "median": 0.9,
+          "p75": 3.1,
+          "p90": 9.3,
+          "back_on_time_pct": 0.0
+        },
+        {
+          "k": 10,
+          "n": 320,
+          "p10": -2.1,
+          "p25": -1.0,
+          "median": 1.0,
+          "p75": 3.1,
+          "p90": 9.8,
+          "back_on_time_pct": 0.3
+        }
+      ]
+    },
+    "express": {
+      "holds": true,
+      "league": [
+        {
+          "train": "523",
+          "service": "Express",
+          "direction": "NB",
+          "departs": "17:22",
+          "last_stop": "22nd Street",
+          "runs": 272,
+          "late_pct": 47.8,
+          "ci_low": 41.9,
+          "ci_high": 53.7
+        },
+        {
+          "train": "511",
+          "service": "Express",
+          "direction": "NB",
+          "departs": "08:22",
+          "last_stop": "22nd Street",
+          "runs": 275,
+          "late_pct": 36.4,
+          "ci_low": 30.9,
+          "ci_high": 42.2
+        },
+        {
+          "train": "149",
+          "service": "Local",
+          "direction": "NB",
+          "departs": "16:52",
+          "last_stop": "22nd Street",
+          "runs": 279,
+          "late_pct": 33.7,
+          "ci_low": 28.4,
+          "ci_high": 39.4
+        },
+        {
+          "train": "507",
+          "service": "Express",
+          "direction": "NB",
+          "departs": "07:22",
+          "last_stop": "22nd Street",
+          "runs": 266,
+          "late_pct": 33.5,
+          "ci_low": 28.1,
+          "ci_high": 39.3
+        },
+        {
+          "train": "409",
+          "service": "Limited",
+          "direction": "NB",
+          "departs": "07:43",
+          "last_stop": "22nd Street",
+          "runs": 271,
+          "late_pct": 33.2,
+          "ci_low": 27.9,
+          "ci_high": 39.0
+        },
+        {
+          "train": "151",
+          "service": "Local",
+          "direction": "NB",
+          "departs": "17:28",
+          "last_stop": "22nd Street",
+          "runs": 277,
+          "late_pct": 32.5,
+          "ci_low": 27.2,
+          "ci_high": 38.2
+        },
+        {
+          "train": "527",
+          "service": "Express",
+          "direction": "NB",
+          "departs": "18:22",
+          "last_stop": "22nd Street",
+          "runs": 274,
+          "late_pct": 30.7,
+          "ci_low": 25.5,
+          "ci_high": 36.4
+        },
+        {
+          "train": "425",
+          "service": "Limited",
+          "direction": "NB",
+          "departs": "17:43",
+          "last_stop": "22nd Street",
+          "runs": 271,
+          "late_pct": 24.0,
+          "ci_low": 19.3,
+          "ci_high": 29.4
+        },
+        {
+          "train": "153",
+          "service": "Local",
+          "direction": "NB",
+          "departs": "17:52",
+          "last_stop": "22nd Street",
+          "runs": 278,
+          "late_pct": 23.4,
+          "ci_low": 18.8,
+          "ci_high": 28.7
+        },
+        {
+          "train": "421",
+          "service": "Limited",
+          "direction": "NB",
+          "departs": "16:43",
+          "last_stop": "22nd Street",
+          "runs": 274,
+          "late_pct": 22.6,
+          "ci_low": 18.1,
+          "ci_high": 27.9
+        }
+      ],
+      "groups": [
+        {
+          "service": "Local",
+          "direction": "NB",
+          "n": 156010,
+          "late_pct": 6.9
+        },
+        {
+          "service": "Local",
+          "direction": "SB",
+          "n": 167538,
+          "late_pct": 6.1
+        },
+        {
+          "service": "Limited",
+          "direction": "NB",
+          "n": 27979,
+          "late_pct": 8.9
+        },
+        {
+          "service": "Limited",
+          "direction": "SB",
+          "n": 24646,
+          "late_pct": 4.6
+        },
+        {
+          "service": "Express",
+          "direction": "NB",
+          "n": 15663,
+          "late_pct": 13.0
+        },
+        {
+          "service": "Express",
+          "direction": "SB",
+          "n": 15748,
+          "late_pct": 4.8
+        }
+      ],
+      "headway": [
+        {
+          "leader": "\u2264 0",
+          "headway": "\u2264 10",
+          "n": 5975,
+          "late_pct": 4.3
+        },
+        {
+          "leader": "\u2264 0",
+          "headway": "11\u201320",
+          "n": 35709,
+          "late_pct": 3.9
+        },
+        {
+          "leader": "\u2264 0",
+          "headway": "21\u201330",
+          "n": 91164,
+          "late_pct": 3.7
+        },
+        {
+          "leader": "\u2264 0",
+          "headway": "31\u201340",
+          "n": 9989,
+          "late_pct": 3.1
+        },
+        {
+          "leader": "0\u20134",
+          "headway": "\u2264 10",
+          "n": 12745,
+          "late_pct": 5.6
+        },
+        {
+          "leader": "0\u20134",
+          "headway": "11\u201320",
+          "n": 50391,
+          "late_pct": 5.7
+        },
+        {
+          "leader": "0\u20134",
+          "headway": "21\u201330",
+          "n": 99121,
+          "late_pct": 6.6
+        },
+        {
+          "leader": "0\u20134",
+          "headway": "31\u201340",
+          "n": 7660,
+          "late_pct": 6.2
+        },
+        {
+          "leader": "4\u201310",
+          "headway": "\u2264 10",
+          "n": 1101,
+          "late_pct": 42.5
+        },
+        {
+          "leader": "4\u201310",
+          "headway": "11\u201320",
+          "n": 4755,
+          "late_pct": 18.7
+        },
+        {
+          "leader": "4\u201310",
+          "headway": "21\u201330",
+          "n": 10049,
+          "late_pct": 17.8
+        },
+        {
+          "leader": "4\u201310",
+          "headway": "31\u201340",
+          "n": 819,
+          "late_pct": 21.2
+        },
+        {
+          "leader": "10\u201320",
+          "headway": "\u2264 10",
+          "n": 181,
+          "late_pct": 87.8
+        },
+        {
+          "leader": "10\u201320",
+          "headway": "11\u201320",
+          "n": 1053,
+          "late_pct": 65.3
+        },
+        {
+          "leader": "10\u201320",
+          "headway": "21\u201330",
+          "n": 2292,
+          "late_pct": 33.9
+        },
+        {
+          "leader": "10\u201320",
+          "headway": "31\u201340",
+          "n": 231,
+          "late_pct": 46.8
+        },
+        {
+          "leader": "> 20",
+          "headway": "\u2264 10",
+          "n": 125,
+          "late_pct": 80.8
+        },
+        {
+          "leader": "> 20",
+          "headway": "11\u201320",
+          "n": 642,
+          "late_pct": 83.2
+        },
+        {
+          "leader": "> 20",
+          "headway": "21\u201330",
+          "n": 1307,
+          "late_pct": 74.4
+        },
+        {
+          "leader": "> 20",
+          "headway": "31\u201340",
+          "n": 94,
+          "late_pct": 63.8
+        }
+      ]
+    },
+    "afternoons": {
+      "holds": true,
+      "events": [
+        {
+          "date": "2026-11-05",
+          "start": "18:57",
+          "hold_minutes": 103,
+          "held_near": "Redwood City",
+          "trains_late": 15,
+          "cancelled": 2,
+          "hours_to_normal": null
+        },
+        {
+          "date": "2026-09-02",
+          "start": "17:45",
+          "hold_minutes": 73,
+          "held_near": "San Bruno",
+          "trains_late": 13,
+          "cancelled": 4,
+          "hours_to_normal": 3.2
+        },
+        {
+          "date": "2026-06-22",
+          "start": "07:58",
+          "hold_minutes": 39,
+          "held_near": "Lawrence",
+          "trains_late": 17,
+          "cancelled": 1,
+          "hours_to_normal": 4.0
+        },
+        {
+          "date": "2026-03-19",
+          "start": "16:30",
+          "hold_minutes": 73,
+          "held_near": "Redwood City",
+          "trains_late": 26,
+          "cancelled": 1,
+          "hours_to_normal": 4.5
+        },
+        {
+          "date": "2026-02-17",
+          "start": "19:53",
+          "hold_minutes": 22,
+          "held_near": "Sunnyvale",
+          "trains_late": 8,
+          "cancelled": 1,
+          "hours_to_normal": 3.1
+        },
+        {
+          "date": "2026-02-17",
+          "start": "19:07",
+          "hold_minutes": 15,
+          "held_near": "Sunnyvale",
+          "trains_late": 13,
+          "cancelled": 1,
+          "hours_to_normal": 3.9
+        },
+        {
+          "date": "2026-02-10",
+          "start": "18:18",
+          "hold_minutes": 69,
+          "held_near": "San Antonio",
+          "trains_late": 11,
+          "cancelled": 2,
+          "hours_to_normal": 4.7
+        },
+        {
+          "date": "2026-02-03",
+          "start": "11:35",
+          "hold_minutes": 29,
+          "held_near": "Menlo Park",
+          "trains_late": 8,
+          "cancelled": 1,
+          "hours_to_normal": 3.4
+        },
+        {
+          "date": "2025-12-19",
+          "start": "18:37",
+          "hold_minutes": 27,
+          "held_near": "San Mateo",
+          "trains_late": 17,
+          "cancelled": 0,
+          "hours_to_normal": null
+        },
+        {
+          "date": "2025-11-07",
+          "start": "19:20",
+          "hold_minutes": 23,
+          "held_near": "Lawrence",
+          "trains_late": 5,
+          "cancelled": 3,
+          "hours_to_normal": null
+        },
+        {
+          "date": "2025-11-06",
+          "start": "15:55",
+          "hold_minutes": 131,
+          "held_near": "Sunnyvale",
+          "trains_late": 36,
+          "cancelled": 0,
+          "hours_to_normal": null
+        },
+        {
+          "date": "2025-10-24",
+          "start": "16:19",
+          "hold_minutes": 38,
+          "held_near": "Palo Alto",
+          "trains_late": 27,
+          "cancelled": 3,
+          "hours_to_normal": 4.7
+        },
+        {
+          "date": "2025-08-27",
+          "start": "17:12",
+          "hold_minutes": 20,
+          "held_near": "Menlo Park",
+          "trains_late": 21,
+          "cancelled": 0,
+          "hours_to_normal": null
+        },
+        {
+          "date": "2025-08-18",
+          "start": "06:58",
+          "hold_minutes": 38,
+          "held_near": "Palo Alto",
+          "trains_late": 22,
+          "cancelled": 1,
+          "hours_to_normal": 5.0
+        }
+      ]
+    },
+    "saturday": {
+      "holds": true,
+      "days": [
+        {
+          "date": "2025-08-10",
+          "type": "Sunday",
+          "n": 887,
+          "late_pct": 14.0
+        },
+        {
+          "date": "2025-08-11",
+          "type": "weekday",
+          "n": 1460,
+          "late_pct": 4.9
+        },
+        {
+          "date": "2025-08-12",
+          "type": "weekday",
+          "n": 1505,
+          "late_pct": 5.4
+        },
+        {
+          "date": "2025-08-13",
+          "type": "weekday",
+          "n": 1421,
+          "late_pct": 7.1
+        },
+        {
+          "date": "2025-08-14",
+          "type": "weekday",
+          "n": 1534,
+          "late_pct": 8.9
+        },
+        {
+          "date": "2025-08-15",
+          "type": "weekday",
+          "n": 1499,
+          "late_pct": 7.5
+        },
+        {
+          "date": "2025-08-16",
+          "type": "Saturday",
+          "n": 1009,
+          "late_pct": 11.0
+        },
+        {
+          "date": "2025-08-17",
+          "type": "Sunday",
+          "n": 1113,
+          "late_pct": 6.2
+        },
+        {
+          "date": "2025-08-18",
+          "type": "weekday",
+          "n": 1346,
+          "late_pct": 24.1
+        },
+        {
+          "date": "2025-08-19",
+          "type": "weekday",
+          "n": 1544,
+          "late_pct": 5.6
+        },
+        {
+          "date": "2025-08-20",
+          "type": "weekday",
+          "n": 1417,
+          "late_pct": 7.3
+        },
+        {
+          "date": "2025-08-21",
+          "type": "weekday",
+          "n": 1420,
+          "late_pct": 7.1
+        },
+        {
+          "date": "2025-08-22",
+          "type": "weekday",
+          "n": 1454,
+          "late_pct": 5.8
+        },
+        {
+          "date": "2025-08-23",
+          "type": "Saturday",
+          "n": 1022,
+          "late_pct": 14.6
+        },
+        {
+          "date": "2025-08-24",
+          "type": "Sunday",
+          "n": 1103,
+          "late_pct": 10.0
+        },
+        {
+          "date": "2025-08-25",
+          "type": "weekday",
+          "n": 1563,
+          "late_pct": 4.4
+        },
+        {
+          "date": "2025-08-26",
+          "type": "weekday",
+          "n": 1472,
+          "late_pct": 6.4
+        },
+        {
+          "date": "2025-08-27",
+          "type": "weekday",
+          "n": 1474,
+          "late_pct": 21.6
+        },
+        {
+          "date": "2025-08-28",
+          "type": "weekday",
+          "n": 1538,
+          "late_pct": 2.0
+        },
+        {
+          "date": "2025-08-29",
+          "type": "weekday",
+          "n": 1490,
+          "late_pct": 3.4
+        },
+        {
+          "date": "2025-08-30",
+          "type": "Saturday",
+          "n": 1059,
+          "late_pct": 8.8
+        },
+        {
+          "date": "2025-08-31",
+          "type": "Sunday",
+          "n": 1075,
+          "late_pct": 1.7
+        },
+        {
+          "date": "2025-09-01",
+          "type": "weekday",
+          "n": 1007,
+          "late_pct": 2.8
+        },
+        {
+          "date": "2025-09-02",
+          "type": "weekday",
+          "n": 1511,
+          "late_pct": 7.4
+        },
+        {
+          "date": "2025-09-03",
+          "type": "weekday",
+          "n": 1548,
+          "late_pct": 2.1
+        },
+        {
+          "date": "2025-09-04",
+          "type": "weekday",
+          "n": 1561,
+          "late_pct": 3.5
+        },
+        {
+          "date": "2025-09-05",
+          "type": "weekday",
+          "n": 1438,
+          "late_pct": 6.1
+        },
+        {
+          "date": "2025-09-06",
+          "type": "Saturday",
+          "n": 1001,
+          "late_pct": 5.7
+        },
+        {
+          "date": "2025-09-07",
+          "type": "Sunday",
+          "n": 1069,
+          "late_pct": 2.7
+        },
+        {
+          "date": "2025-09-08",
+          "type": "weekday",
+          "n": 1376,
+          "late_pct": 6.2
+        },
+        {
+          "date": "2025-09-09",
+          "type": "weekday",
+          "n": 1403,
+          "late_pct": 3.9
+        },
+        {
+          "date": "2025-09-10",
+          "type": "weekday",
+          "n": 1434,
+          "late_pct": 5.9
+        },
+        {
+          "date": "2025-09-11",
+          "type": "weekday",
+          "n": 1447,
+          "late_pct": 2.5
+        },
+        {
+          "date": "2025-09-12",
+          "type": "weekday",
+          "n": 1334,
+          "late_pct": 7.2
+        },
+        {
+          "date": "2025-09-13",
+          "type": "Saturday",
+          "n": 933,
+          "late_pct": 3.8
+        },
+        {
+          "date": "2025-09-14",
+          "type": "Sunday",
+          "n": 1118,
+          "late_pct": 2.4
+        },
+        {
+          "date": "2025-09-15",
+          "type": "weekday",
+          "n": 1359,
+          "late_pct": 9.5
+        },
+        {
+          "date": "2025-09-16",
+          "type": "weekday",
+          "n": 1510,
+          "late_pct": 6.5
+        },
+        {
+          "date": "2025-09-17",
+          "type": "weekday",
+          "n": 1487,
+          "late_pct": 9.8
+        },
+        {
+          "date": "2025-09-18",
+          "type": "weekday",
+          "n": 1495,
+          "late_pct": 11.2
+        },
+        {
+          "date": "2025-09-19",
+          "type": "weekday",
+          "n": 1535,
+          "late_pct": 4.8
+        },
+        {
+          "date": "2025-09-20",
+          "type": "Saturday",
+          "n": 1078,
+          "late_pct": 4.2
+        },
+        {
+          "date": "2025-09-21",
+          "type": "Sunday",
+          "n": 1101,
+          "late_pct": 5.6
+        },
+        {
+          "date": "2025-09-22",
+          "type": "weekday",
+          "n": 1496,
+          "late_pct": 12.0
+        },
+        {
+          "date": "2025-09-23",
+          "type": "weekday",
+          "n": 1528,
+          "late_pct": 7.8
+        },
+        {
+          "date": "2025-09-24",
+          "type": "weekday",
+          "n": 1577,
+          "late_pct": 5.5
+        },
+        {
+          "date": "2025-09-25",
+          "type": "weekday",
+          "n": 1432,
+          "late_pct": 7.9
+        },
+        {
+          "date": "2025-09-26",
+          "type": "weekday",
+          "n": 1565,
+          "late_pct": 3.3
+        },
+        {
+          "date": "2025-09-27",
+          "type": "Saturday",
+          "n": 1100,
+          "late_pct": 5.4
+        },
+        {
+          "date": "2025-09-28",
+          "type": "Sunday",
+          "n": 1081,
+          "late_pct": 4.7
+        },
+        {
+          "date": "2025-09-29",
+          "type": "weekday",
+          "n": 1526,
+          "late_pct": 2.6
+        },
+        {
+          "date": "2025-09-30",
+          "type": "weekday",
+          "n": 1526,
+          "late_pct": 7.3
+        },
+        {
+          "date": "2025-10-01",
+          "type": "weekday",
+          "n": 1555,
+          "late_pct": 3.1
+        },
+        {
+          "date": "2025-10-02",
+          "type": "weekday",
+          "n": 1405,
+          "late_pct": 9.0
+        },
+        {
+          "date": "2025-10-03",
+          "type": "weekday",
+          "n": 1562,
+          "late_pct": 12.5
+        },
+        {
+          "date": "2025-10-04",
+          "type": "Saturday",
+          "n": 1106,
+          "late_pct": 39.2
+        },
+        {
+          "date": "2025-10-05",
+          "type": "Sunday",
+          "n": 1079,
+          "late_pct": 26.0
+        },
+        {
+          "date": "2025-10-06",
+          "type": "weekday",
+          "n": 1473,
+          "late_pct": 5.2
+        },
+        {
+          "date": "2025-10-07",
+          "type": "weekday",
+          "n": 1495,
+          "late_pct": 12.8
+        },
+        {
+          "date": "2025-10-08",
+          "type": "weekday",
+          "n": 998,
+          "late_pct": 5.3
+        },
+        {
+          "date": "2025-10-09",
+          "type": "weekday",
+          "n": 1460,
+          "late_pct": 6.5
+        },
+        {
+          "date": "2025-10-10",
+          "type": "weekday",
+          "n": 1489,
+          "late_pct": 4.0
+        },
+        {
+          "date": "2025-10-11",
+          "type": "Saturday",
+          "n": 1017,
+          "late_pct": 6.6
+        },
+        {
+          "date": "2025-10-12",
+          "type": "Sunday",
+          "n": 1026,
+          "late_pct": 5.8
+        },
+        {
+          "date": "2025-10-13",
+          "type": "weekday",
+          "n": 1441,
+          "late_pct": 8.0
+        },
+        {
+          "date": "2025-10-14",
+          "type": "weekday",
+          "n": 1515,
+          "late_pct": 7.6
+        },
+        {
+          "date": "2025-10-15",
+          "type": "weekday",
+          "n": 1519,
+          "late_pct": 5.5
+        },
+        {
+          "date": "2025-10-16",
+          "type": "weekday",
+          "n": 1479,
+          "late_pct": 3.2
+        },
+        {
+          "date": "2025-10-17",
+          "type": "weekday",
+          "n": 1416,
+          "late_pct": 6.9
+        },
+        {
+          "date": "2025-10-18",
+          "type": "Saturday",
+          "n": 1092,
+          "late_pct": 14.4
+        },
+        {
+          "date": "2025-10-19",
+          "type": "Sunday",
+          "n": 1126,
+          "late_pct": 5.4
+        },
+        {
+          "date": "2025-10-20",
+          "type": "weekday",
+          "n": 1472,
+          "late_pct": 4.5
+        },
+        {
+          "date": "2025-10-21",
+          "type": "weekday",
+          "n": 1362,
+          "late_pct": 6.1
+        },
+        {
+          "date": "2025-10-22",
+          "type": "weekday",
+          "n": 1548,
+          "late_pct": 4.6
+        },
+        {
+          "date": "2025-10-23",
+          "type": "weekday",
+          "n": 1459,
+          "late_pct": 12.1
+        },
+        {
+          "date": "2025-10-24",
+          "type": "weekday",
+          "n": 1311,
+          "late_pct": 24.2
+        },
+        {
+          "date": "2025-10-25",
+          "type": "Saturday",
+          "n": 1103,
+          "late_pct": 5.3
+        },
+        {
+          "date": "2025-10-26",
+          "type": "Sunday",
+          "n": 1033,
+          "late_pct": 21.7
+        },
+        {
+          "date": "2025-10-27",
+          "type": "weekday",
+          "n": 1494,
+          "late_pct": 4.8
+        },
+        {
+          "date": "2025-10-29",
+          "type": "weekday",
+          "n": 1513,
+          "late_pct": 5.8
+        },
+        {
+          "date": "2025-10-30",
+          "type": "weekday",
+          "n": 1537,
+          "late_pct": 1.5
+        },
+        {
+          "date": "2025-10-31",
+          "type": "weekday",
+          "n": 1280,
+          "late_pct": 11.8
+        },
+        {
+          "date": "2025-11-01",
+          "type": "Saturday",
+          "n": 1057,
+          "late_pct": 4.4
+        },
+        {
+          "date": "2025-11-02",
+          "type": "Sunday",
+          "n": 1150,
+          "late_pct": 6.2
+        },
+        {
+          "date": "2025-11-03",
+          "type": "weekday",
+          "n": 1587,
+          "late_pct": 2.4
+        },
+        {
+          "date": "2025-11-04",
+          "type": "weekday",
+          "n": 1470,
+          "late_pct": 7.4
+        },
+        {
+          "date": "2025-11-05",
+          "type": "weekday",
+          "n": 1547,
+          "late_pct": 7.6
+        },
+        {
+          "date": "2025-11-06",
+          "type": "weekday",
+          "n": 1349,
+          "late_pct": 28.4
+        },
+        {
+          "date": "2025-11-07",
+          "type": "weekday",
+          "n": 1314,
+          "late_pct": 14.0
+        },
+        {
+          "date": "2025-11-08",
+          "type": "Saturday",
+          "n": 986,
+          "late_pct": 3.8
+        },
+        {
+          "date": "2025-11-09",
+          "type": "Sunday",
+          "n": 1107,
+          "late_pct": 7.0
+        },
+        {
+          "date": "2025-11-10",
+          "type": "weekday",
+          "n": 1447,
+          "late_pct": 7.7
+        },
+        {
+          "date": "2025-11-11",
+          "type": "weekday",
+          "n": 1480,
+          "late_pct": 6.2
+        },
+        {
+          "date": "2025-11-12",
+          "type": "weekday",
+          "n": 1468,
+          "late_pct": 5.2
+        },
+        {
+          "date": "2025-11-13",
+          "type": "weekday",
+          "n": 1424,
+          "late_pct": 6.0
+        },
+        {
+          "date": "2025-11-14",
+          "type": "weekday",
+          "n": 1512,
+          "late_pct": 2.8
+        },
+        {
+          "date": "2025-11-15",
+          "type": "Saturday",
+          "n": 1007,
+          "late_pct": 6.4
+        },
+        {
+          "date": "2025-11-16",
+          "type": "Sunday",
+          "n": 1007,
+          "late_pct": 7.8
+        },
+        {
+          "date": "2025-11-17",
+          "type": "weekday",
+          "n": 1510,
+          "late_pct": 17.0
+        },
+        {
+          "date": "2025-11-18",
+          "type": "weekday",
+          "n": 1397,
+          "late_pct": 15.1
+        },
+        {
+          "date": "2025-11-19",
+          "type": "weekday",
+          "n": 1450,
+          "late_pct": 7.9
+        },
+        {
+          "date": "2025-11-20",
+          "type": "weekday",
+          "n": 1572,
+          "late_pct": 4.6
+        },
+        {
+          "date": "2025-11-21",
+          "type": "weekday",
+          "n": 1513,
+          "late_pct": 4.4
+        },
+        {
+          "date": "2025-11-22",
+          "type": "Saturday",
+          "n": 990,
+          "late_pct": 15.1
+        },
+        {
+          "date": "2025-11-23",
+          "type": "Sunday",
+          "n": 1019,
+          "late_pct": 16.6
+        },
+        {
+          "date": "2025-11-24",
+          "type": "weekday",
+          "n": 1488,
+          "late_pct": 2.4
+        },
+        {
+          "date": "2025-11-25",
+          "type": "weekday",
+          "n": 1439,
+          "late_pct": 3.3
+        },
+        {
+          "date": "2025-11-26",
+          "type": "weekday",
+          "n": 1484,
+          "late_pct": 1.7
+        },
+        {
+          "date": "2025-11-29",
+          "type": "Saturday",
+          "n": 991,
+          "late_pct": 4.0
+        },
+        {
+          "date": "2025-11-30",
+          "type": "Sunday",
+          "n": 1095,
+          "late_pct": 2.8
+        },
+        {
+          "date": "2025-12-01",
+          "type": "weekday",
+          "n": 1464,
+          "late_pct": 4.0
+        },
+        {
+          "date": "2025-12-02",
+          "type": "weekday",
+          "n": 1535,
+          "late_pct": 7.4
+        },
+        {
+          "date": "2025-12-03",
+          "type": "weekday",
+          "n": 1511,
+          "late_pct": 3.3
+        },
+        {
+          "date": "2025-12-04",
+          "type": "weekday",
+          "n": 1467,
+          "late_pct": 1.5
+        },
+        {
+          "date": "2025-12-05",
+          "type": "weekday",
+          "n": 1484,
+          "late_pct": 4.6
+        },
+        {
+          "date": "2025-12-06",
+          "type": "Saturday",
+          "n": 1083,
+          "late_pct": 12.1
+        },
+        {
+          "date": "2025-12-07",
+          "type": "Sunday",
+          "n": 1142,
+          "late_pct": 18.1
+        },
+        {
+          "date": "2025-12-08",
+          "type": "weekday",
+          "n": 1560,
+          "late_pct": 5.8
+        },
+        {
+          "date": "2025-12-09",
+          "type": "weekday",
+          "n": 1538,
+          "late_pct": 9.5
+        },
+        {
+          "date": "2025-12-10",
+          "type": "weekday",
+          "n": 1571,
+          "late_pct": 9.9
+        },
+        {
+          "date": "2025-12-11",
+          "type": "weekday",
+          "n": 1504,
+          "late_pct": 7.8
+        },
+        {
+          "date": "2025-12-12",
+          "type": "weekday",
+          "n": 1553,
+          "late_pct": 17.4
+        },
+        {
+          "date": "2025-12-13",
+          "type": "Saturday",
+          "n": 1054,
+          "late_pct": 11.8
+        },
+        {
+          "date": "2025-12-14",
+          "type": "Sunday",
+          "n": 955,
+          "late_pct": 5.7
+        },
+        {
+          "date": "2025-12-15",
+          "type": "weekday",
+          "n": 1477,
+          "late_pct": 4.5
+        },
+        {
+          "date": "2025-12-16",
+          "type": "weekday",
+          "n": 1427,
+          "late_pct": 4.0
+        },
+        {
+          "date": "2025-12-17",
+          "type": "weekday",
+          "n": 1489,
+          "late_pct": 2.1
+        },
+        {
+          "date": "2025-12-18",
+          "type": "weekday",
+          "n": 1562,
+          "late_pct": 6.9
+        },
+        {
+          "date": "2025-12-19",
+          "type": "weekday",
+          "n": 1401,
+          "late_pct": 10.8
+        },
+        {
+          "date": "2025-12-20",
+          "type": "Saturday",
+          "n": 586,
+          "late_pct": 8.0
+        },
+        {
+          "date": "2025-12-21",
+          "type": "Sunday",
+          "n": 923,
+          "late_pct": 3.7
+        },
+        {
+          "date": "2025-12-22",
+          "type": "weekday",
+          "n": 1519,
+          "late_pct": 5.9
+        },
+        {
+          "date": "2025-12-23",
+          "type": "weekday",
+          "n": 1538,
+          "late_pct": 4.0
+        },
+        {
+          "date": "2025-12-24",
+          "type": "weekday",
+          "n": 1154,
+          "late_pct": 10.3
+        },
+        {
+          "date": "2025-12-25",
+          "type": "weekday",
+          "n": 1098,
+          "late_pct": 14.4
+        },
+        {
+          "date": "2025-12-26",
+          "type": "weekday",
+          "n": 1546,
+          "late_pct": 7.4
+        },
+        {
+          "date": "2025-12-27",
+          "type": "Saturday",
+          "n": 1133,
+          "late_pct": 2.3
+        },
+        {
+          "date": "2025-12-28",
+          "type": "Sunday",
+          "n": 1108,
+          "late_pct": 7.2
+        },
+        {
+          "date": "2025-12-29",
+          "type": "weekday",
+          "n": 1449,
+          "late_pct": 5.3
+        },
+        {
+          "date": "2025-12-30",
+          "type": "weekday",
+          "n": 1519,
+          "late_pct": 2.6
+        },
+        {
+          "date": "2025-12-31",
+          "type": "weekday",
+          "n": 1478,
+          "late_pct": 4.1
+        },
+        {
+          "date": "2026-01-01",
+          "type": "weekday",
+          "n": 1082,
+          "late_pct": 3.4
+        },
+        {
+          "date": "2026-01-02",
+          "type": "weekday",
+          "n": 1583,
+          "late_pct": 4.5
+        },
+        {
+          "date": "2026-01-03",
+          "type": "Saturday",
+          "n": 1014,
+          "late_pct": 32.8
+        },
+        {
+          "date": "2026-01-04",
+          "type": "Sunday",
+          "n": 1054,
+          "late_pct": 7.9
+        },
+        {
+          "date": "2026-01-05",
+          "type": "weekday",
+          "n": 1442,
+          "late_pct": 9.6
+        },
+        {
+          "date": "2026-01-06",
+          "type": "weekday",
+          "n": 1521,
+          "late_pct": 8.5
+        },
+        {
+          "date": "2026-01-07",
+          "type": "weekday",
+          "n": 1582,
+          "late_pct": 6.6
+        },
+        {
+          "date": "2026-01-08",
+          "type": "weekday",
+          "n": 1541,
+          "late_pct": 3.0
+        },
+        {
+          "date": "2026-01-09",
+          "type": "weekday",
+          "n": 1498,
+          "late_pct": 5.3
+        },
+        {
+          "date": "2026-01-10",
+          "type": "Saturday",
+          "n": 1072,
+          "late_pct": 12.0
+        },
+        {
+          "date": "2026-01-11",
+          "type": "Sunday",
+          "n": 1095,
+          "late_pct": 22.2
+        },
+        {
+          "date": "2026-01-12",
+          "type": "weekday",
+          "n": 1487,
+          "late_pct": 12.4
+        },
+        {
+          "date": "2026-01-13",
+          "type": "weekday",
+          "n": 1390,
+          "late_pct": 6.3
+        },
+        {
+          "date": "2026-01-14",
+          "type": "weekday",
+          "n": 1515,
+          "late_pct": 4.4
+        },
+        {
+          "date": "2026-01-15",
+          "type": "weekday",
+          "n": 1530,
+          "late_pct": 3.1
+        },
+        {
+          "date": "2026-01-16",
+          "type": "weekday",
+          "n": 1509,
+          "late_pct": 17.4
+        },
+        {
+          "date": "2026-01-17",
+          "type": "Saturday",
+          "n": 1061,
+          "late_pct": 3.4
+        },
+        {
+          "date": "2026-01-18",
+          "type": "Sunday",
+          "n": 1023,
+          "late_pct": 13.5
+        },
+        {
+          "date": "2026-01-19",
+          "type": "weekday",
+          "n": 1119,
+          "late_pct": 2.7
+        },
+        {
+          "date": "2026-01-20",
+          "type": "weekday",
+          "n": 1568,
+          "late_pct": 6.1
+        },
+        {
+          "date": "2026-01-21",
+          "type": "weekday",
+          "n": 1505,
+          "late_pct": 7.8
+        },
+        {
+          "date": "2026-01-22",
+          "type": "weekday",
+          "n": 1514,
+          "late_pct": 1.7
+        },
+        {
+          "date": "2026-01-23",
+          "type": "weekday",
+          "n": 1440,
+          "late_pct": 3.5
+        },
+        {
+          "date": "2026-01-24",
+          "type": "Saturday",
+          "n": 1061,
+          "late_pct": 5.3
+        },
+        {
+          "date": "2026-01-25",
+          "type": "Sunday",
+          "n": 1063,
+          "late_pct": 1.5
+        },
+        {
+          "date": "2026-01-26",
+          "type": "weekday",
+          "n": 1525,
+          "late_pct": 3.0
+        },
+        {
+          "date": "2026-01-27",
+          "type": "weekday",
+          "n": 1542,
+          "late_pct": 3.6
+        },
+        {
+          "date": "2026-01-28",
+          "type": "weekday",
+          "n": 1486,
+          "late_pct": 2.2
+        },
+        {
+          "date": "2026-01-29",
+          "type": "weekday",
+          "n": 1497,
+          "late_pct": 3.9
+        },
+        {
+          "date": "2026-01-30",
+          "type": "weekday",
+          "n": 1569,
+          "late_pct": 1.5
+        },
+        {
+          "date": "2026-02-02",
+          "type": "weekday",
+          "n": 1230,
+          "late_pct": 3.4
+        },
+        {
+          "date": "2026-02-03",
+          "type": "weekday",
+          "n": 1476,
+          "late_pct": 9.7
+        },
+        {
+          "date": "2026-02-05",
+          "type": "weekday",
+          "n": 1154,
+          "late_pct": 2.9
+        },
+        {
+          "date": "2026-02-08",
+          "type": "Sunday",
+          "n": 1181,
+          "late_pct": 15.5
+        },
+        {
+          "date": "2026-02-09",
+          "type": "weekday",
+          "n": 1315,
+          "late_pct": 3.9
+        },
+        {
+          "date": "2026-02-10",
+          "type": "weekday",
+          "n": 1391,
+          "late_pct": 13.7
+        },
+        {
+          "date": "2026-02-11",
+          "type": "weekday",
+          "n": 1502,
+          "late_pct": 4.4
+        },
+        {
+          "date": "2026-02-12",
+          "type": "weekday",
+          "n": 1426,
+          "late_pct": 1.8
+        },
+        {
+          "date": "2026-02-13",
+          "type": "weekday",
+          "n": 1443,
+          "late_pct": 2.0
+        },
+        {
+          "date": "2026-02-14",
+          "type": "Saturday",
+          "n": 1076,
+          "late_pct": 11.2
+        },
+        {
+          "date": "2026-02-15",
+          "type": "Sunday",
+          "n": 996,
+          "late_pct": 14.5
+        },
+        {
+          "date": "2026-02-16",
+          "type": "weekday",
+          "n": 1119,
+          "late_pct": 1.7
+        },
+        {
+          "date": "2026-02-17",
+          "type": "weekday",
+          "n": 1416,
+          "late_pct": 9.5
+        },
+        {
+          "date": "2026-02-18",
+          "type": "weekday",
+          "n": 1506,
+          "late_pct": 5.4
+        },
+        {
+          "date": "2026-02-20",
+          "type": "weekday",
+          "n": 1564,
+          "late_pct": 1.2
+        },
+        {
+          "date": "2026-02-21",
+          "type": "Saturday",
+          "n": 1103,
+          "late_pct": 2.7
+        },
+        {
+          "date": "2026-02-22",
+          "type": "Sunday",
+          "n": 1016,
+          "late_pct": 1.6
+        },
+        {
+          "date": "2026-02-23",
+          "type": "weekday",
+          "n": 1529,
+          "late_pct": 3.0
+        },
+        {
+          "date": "2026-02-24",
+          "type": "weekday",
+          "n": 1400,
+          "late_pct": 20.7
+        },
+        {
+          "date": "2026-02-25",
+          "type": "weekday",
+          "n": 1531,
+          "late_pct": 8.3
+        },
+        {
+          "date": "2026-02-26",
+          "type": "weekday",
+          "n": 1544,
+          "late_pct": 6.2
+        },
+        {
+          "date": "2026-02-27",
+          "type": "weekday",
+          "n": 1629,
+          "late_pct": 2.9
+        },
+        {
+          "date": "2026-02-28",
+          "type": "Saturday",
+          "n": 1007,
+          "late_pct": 6.1
+        },
+        {
+          "date": "2026-03-01",
+          "type": "Sunday",
+          "n": 1074,
+          "late_pct": 4.2
+        },
+        {
+          "date": "2026-03-02",
+          "type": "weekday",
+          "n": 1539,
+          "late_pct": 7.6
+        },
+        {
+          "date": "2026-03-03",
+          "type": "weekday",
+          "n": 1506,
+          "late_pct": 4.7
+        },
+        {
+          "date": "2026-03-04",
+          "type": "weekday",
+          "n": 1195,
+          "late_pct": 2.3
+        },
+        {
+          "date": "2026-03-05",
+          "type": "weekday",
+          "n": 1449,
+          "late_pct": 3.7
+        },
+        {
+          "date": "2026-03-06",
+          "type": "weekday",
+          "n": 1538,
+          "late_pct": 4.6
+        },
+        {
+          "date": "2026-03-07",
+          "type": "Saturday",
+          "n": 973,
+          "late_pct": 5.0
+        },
+        {
+          "date": "2026-03-08",
+          "type": "Sunday",
+          "n": 1169,
+          "late_pct": 3.2
+        },
+        {
+          "date": "2026-03-09",
+          "type": "weekday",
+          "n": 1529,
+          "late_pct": 4.2
+        },
+        {
+          "date": "2026-03-10",
+          "type": "weekday",
+          "n": 1118,
+          "late_pct": 2.2
+        },
+        {
+          "date": "2026-03-11",
+          "type": "weekday",
+          "n": 1522,
+          "late_pct": 8.0
+        },
+        {
+          "date": "2026-03-12",
+          "type": "weekday",
+          "n": 1517,
+          "late_pct": 18.6
+        },
+        {
+          "date": "2026-03-13",
+          "type": "weekday",
+          "n": 1644,
+          "late_pct": 4.9
+        },
+        {
+          "date": "2026-03-14",
+          "type": "Saturday",
+          "n": 993,
+          "late_pct": 20.7
+        },
+        {
+          "date": "2026-03-15",
+          "type": "Sunday",
+          "n": 1065,
+          "late_pct": 3.3
+        },
+        {
+          "date": "2026-03-16",
+          "type": "weekday",
+          "n": 1495,
+          "late_pct": 8.6
+        },
+        {
+          "date": "2026-03-17",
+          "type": "weekday",
+          "n": 1533,
+          "late_pct": 4.8
+        },
+        {
+          "date": "2026-03-18",
+          "type": "weekday",
+          "n": 1221,
+          "late_pct": 8.6
+        },
+        {
+          "date": "2026-03-19",
+          "type": "weekday",
+          "n": 1372,
+          "late_pct": 19.8
+        },
+        {
+          "date": "2026-03-20",
+          "type": "weekday",
+          "n": 1511,
+          "late_pct": 2.1
+        },
+        {
+          "date": "2026-03-21",
+          "type": "Saturday",
+          "n": 1068,
+          "late_pct": 11.5
+        },
+        {
+          "date": "2026-03-22",
+          "type": "Sunday",
+          "n": 1149,
+          "late_pct": 8.8
+        },
+        {
+          "date": "2026-03-23",
+          "type": "weekday",
+          "n": 1562,
+          "late_pct": 9.2
+        },
+        {
+          "date": "2026-03-24",
+          "type": "weekday",
+          "n": 1113,
+          "late_pct": 5.6
+        },
+        {
+          "date": "2026-03-26",
+          "type": "weekday",
+          "n": 1627,
+          "late_pct": 1.7
+        },
+        {
+          "date": "2026-03-27",
+          "type": "weekday",
+          "n": 1154,
+          "late_pct": 3.6
+        },
+        {
+          "date": "2026-03-28",
+          "type": "Saturday",
+          "n": 1080,
+          "late_pct": 4.3
+        },
+        {
+          "date": "2026-03-29",
+          "type": "Sunday",
+          "n": 1106,
+          "late_pct": 3.8
+        },
+        {
+          "date": "2026-03-30",
+          "type": "weekday",
+          "n": 1427,
+          "late_pct": 10.0
+        },
+        {
+          "date": "2026-03-31",
+          "type": "weekday",
+          "n": 1545,
+          "late_pct": 5.5
+        },
+        {
+          "date": "2026-04-01",
+          "type": "weekday",
+          "n": 1515,
+          "late_pct": 1.8
+        },
+        {
+          "date": "2026-04-02",
+          "type": "weekday",
+          "n": 1466,
+          "late_pct": 4.4
+        },
+        {
+          "date": "2026-04-03",
+          "type": "weekday",
+          "n": 1481,
+          "late_pct": 9.5
+        },
+        {
+          "date": "2026-04-04",
+          "type": "Saturday",
+          "n": 1062,
+          "late_pct": 18.6
+        },
+        {
+          "date": "2026-04-05",
+          "type": "Sunday",
+          "n": 1138,
+          "late_pct": 8.9
+        },
+        {
+          "date": "2026-04-06",
+          "type": "weekday",
+          "n": 1532,
+          "late_pct": 5.9
+        },
+        {
+          "date": "2026-04-07",
+          "type": "weekday",
+          "n": 1515,
+          "late_pct": 8.1
+        },
+        {
+          "date": "2026-04-08",
+          "type": "weekday",
+          "n": 1529,
+          "late_pct": 8.7
+        },
+        {
+          "date": "2026-04-09",
+          "type": "weekday",
+          "n": 1514,
+          "late_pct": 6.1
+        },
+        {
+          "date": "2026-04-10",
+          "type": "weekday",
+          "n": 1556,
+          "late_pct": 7.7
+        },
+        {
+          "date": "2026-04-11",
+          "type": "Saturday",
+          "n": 1052,
+          "late_pct": 10.4
+        },
+        {
+          "date": "2026-04-12",
+          "type": "Sunday",
+          "n": 1109,
+          "late_pct": 1.6
+        },
+        {
+          "date": "2026-04-13",
+          "type": "weekday",
+          "n": 1557,
+          "late_pct": 9.1
+        },
+        {
+          "date": "2026-04-14",
+          "type": "weekday",
+          "n": 1532,
+          "late_pct": 8.3
+        },
+        {
+          "date": "2026-04-15",
+          "type": "weekday",
+          "n": 1549,
+          "late_pct": 6.5
+        },
+        {
+          "date": "2026-04-16",
+          "type": "weekday",
+          "n": 1564,
+          "late_pct": 4.0
+        },
+        {
+          "date": "2026-04-17",
+          "type": "weekday",
+          "n": 1556,
+          "late_pct": 5.9
+        },
+        {
+          "date": "2026-04-18",
+          "type": "Saturday",
+          "n": 1110,
+          "late_pct": 2.6
+        },
+        {
+          "date": "2026-04-19",
+          "type": "Sunday",
+          "n": 1129,
+          "late_pct": 5.9
+        },
+        {
+          "date": "2026-04-20",
+          "type": "weekday",
+          "n": 1507,
+          "late_pct": 5.2
+        },
+        {
+          "date": "2026-04-21",
+          "type": "weekday",
+          "n": 1560,
+          "late_pct": 5.9
+        },
+        {
+          "date": "2026-04-22",
+          "type": "weekday",
+          "n": 1472,
+          "late_pct": 1.6
+        },
+        {
+          "date": "2026-04-23",
+          "type": "weekday",
+          "n": 1539,
+          "late_pct": 8.4
+        },
+        {
+          "date": "2026-04-24",
+          "type": "weekday",
+          "n": 1587,
+          "late_pct": 4.9
+        },
+        {
+          "date": "2026-04-25",
+          "type": "Saturday",
+          "n": 1044,
+          "late_pct": 5.3
+        },
+        {
+          "date": "2026-04-26",
+          "type": "Sunday",
+          "n": 1154,
+          "late_pct": 2.1
+        },
+        {
+          "date": "2026-04-27",
+          "type": "weekday",
+          "n": 1350,
+          "late_pct": 4.1
+        },
+        {
+          "date": "2026-04-28",
+          "type": "weekday",
+          "n": 1500,
+          "late_pct": 10.1
+        },
+        {
+          "date": "2026-04-29",
+          "type": "weekday",
+          "n": 1492,
+          "late_pct": 3.7
+        },
+        {
+          "date": "2026-04-30",
+          "type": "weekday",
+          "n": 1543,
+          "late_pct": 1.4
+        },
+        {
+          "date": "2026-05-01",
+          "type": "weekday",
+          "n": 1616,
+          "late_pct": 2.0
+        },
+        {
+          "date": "2026-05-02",
+          "type": "Saturday",
+          "n": 1114,
+          "late_pct": 5.6
+        },
+        {
+          "date": "2026-05-03",
+          "type": "Sunday",
+          "n": 1122,
+          "late_pct": 4.9
+        },
+        {
+          "date": "2026-05-04",
+          "type": "weekday",
+          "n": 1505,
+          "late_pct": 3.4
+        },
+        {
+          "date": "2026-05-05",
+          "type": "weekday",
+          "n": 1479,
+          "late_pct": 3.0
+        },
+        {
+          "date": "2026-05-06",
+          "type": "weekday",
+          "n": 1530,
+          "late_pct": 6.3
+        },
+        {
+          "date": "2026-05-07",
+          "type": "weekday",
+          "n": 1588,
+          "late_pct": 11.5
+        },
+        {
+          "date": "2026-05-08",
+          "type": "weekday",
+          "n": 1517,
+          "late_pct": 7.3
+        },
+        {
+          "date": "2026-05-09",
+          "type": "Saturday",
+          "n": 1032,
+          "late_pct": 12.5
+        },
+        {
+          "date": "2026-05-10",
+          "type": "Sunday",
+          "n": 1124,
+          "late_pct": 3.3
+        },
+        {
+          "date": "2026-05-11",
+          "type": "weekday",
+          "n": 1567,
+          "late_pct": 5.7
+        },
+        {
+          "date": "2026-05-12",
+          "type": "weekday",
+          "n": 1551,
+          "late_pct": 3.8
+        },
+        {
+          "date": "2026-05-13",
+          "type": "weekday",
+          "n": 1488,
+          "late_pct": 4.4
+        },
+        {
+          "date": "2026-05-14",
+          "type": "weekday",
+          "n": 1467,
+          "late_pct": 10.5
+        },
+        {
+          "date": "2026-05-15",
+          "type": "weekday",
+          "n": 1473,
+          "late_pct": 5.2
+        },
+        {
+          "date": "2026-05-16",
+          "type": "Saturday",
+          "n": 1116,
+          "late_pct": 9.4
+        },
+        {
+          "date": "2026-05-17",
+          "type": "Sunday",
+          "n": 1025,
+          "late_pct": 8.5
+        },
+        {
+          "date": "2026-05-18",
+          "type": "weekday",
+          "n": 1455,
+          "late_pct": 8.2
+        },
+        {
+          "date": "2026-05-19",
+          "type": "weekday",
+          "n": 1527,
+          "late_pct": 15.5
+        },
+        {
+          "date": "2026-05-20",
+          "type": "weekday",
+          "n": 1413,
+          "late_pct": 15.6
+        },
+        {
+          "date": "2026-05-21",
+          "type": "weekday",
+          "n": 1172,
+          "late_pct": 11.4
+        },
+        {
+          "date": "2026-05-22",
+          "type": "weekday",
+          "n": 1466,
+          "late_pct": 14.9
+        },
+        {
+          "date": "2026-05-23",
+          "type": "Saturday",
+          "n": 1061,
+          "late_pct": 37.8
+        },
+        {
+          "date": "2026-05-24",
+          "type": "Sunday",
+          "n": 1027,
+          "late_pct": 7.3
+        },
+        {
+          "date": "2026-05-25",
+          "type": "weekday",
+          "n": 1140,
+          "late_pct": 2.5
+        },
+        {
+          "date": "2026-05-26",
+          "type": "weekday",
+          "n": 1405,
+          "late_pct": 7.6
+        },
+        {
+          "date": "2026-05-27",
+          "type": "weekday",
+          "n": 1086,
+          "late_pct": 6.0
+        },
+        {
+          "date": "2026-05-28",
+          "type": "weekday",
+          "n": 1204,
+          "late_pct": 4.1
+        },
+        {
+          "date": "2026-05-29",
+          "type": "weekday",
+          "n": 1422,
+          "late_pct": 3.3
+        },
+        {
+          "date": "2026-05-30",
+          "type": "Saturday",
+          "n": 1153,
+          "late_pct": 8.3
+        },
+        {
+          "date": "2026-05-31",
+          "type": "Sunday",
+          "n": 1105,
+          "late_pct": 1.2
+        },
+        {
+          "date": "2026-06-01",
+          "type": "weekday",
+          "n": 913,
+          "late_pct": 2.8
+        },
+        {
+          "date": "2026-06-02",
+          "type": "weekday",
+          "n": 1375,
+          "late_pct": 10.0
+        },
+        {
+          "date": "2026-06-03",
+          "type": "weekday",
+          "n": 1468,
+          "late_pct": 3.2
+        },
+        {
+          "date": "2026-06-04",
+          "type": "weekday",
+          "n": 1492,
+          "late_pct": 6.9
+        },
+        {
+          "date": "2026-06-05",
+          "type": "weekday",
+          "n": 1576,
+          "late_pct": 6.2
+        },
+        {
+          "date": "2026-06-06",
+          "type": "Saturday",
+          "n": 1118,
+          "late_pct": 23.4
+        },
+        {
+          "date": "2026-06-07",
+          "type": "Sunday",
+          "n": 1120,
+          "late_pct": 7.9
+        },
+        {
+          "date": "2026-06-08",
+          "type": "weekday",
+          "n": 1417,
+          "late_pct": 11.1
+        },
+        {
+          "date": "2026-06-09",
+          "type": "weekday",
+          "n": 1476,
+          "late_pct": 3.8
+        },
+        {
+          "date": "2026-06-10",
+          "type": "weekday",
+          "n": 1430,
+          "late_pct": 7.6
+        },
+        {
+          "date": "2026-06-11",
+          "type": "weekday",
+          "n": 1471,
+          "late_pct": 18.4
+        },
+        {
+          "date": "2026-06-12",
+          "type": "weekday",
+          "n": 1520,
+          "late_pct": 6.0
+        },
+        {
+          "date": "2026-06-13",
+          "type": "Saturday",
+          "n": 1060,
+          "late_pct": 10.9
+        },
+        {
+          "date": "2026-06-14",
+          "type": "Sunday",
+          "n": 1120,
+          "late_pct": 9.5
+        },
+        {
+          "date": "2026-06-15",
+          "type": "weekday",
+          "n": 1548,
+          "late_pct": 6.1
+        },
+        {
+          "date": "2026-06-16",
+          "type": "weekday",
+          "n": 1581,
+          "late_pct": 6.9
+        },
+        {
+          "date": "2026-06-17",
+          "type": "weekday",
+          "n": 1515,
+          "late_pct": 16.0
+        },
+        {
+          "date": "2026-06-18",
+          "type": "weekday",
+          "n": 1534,
+          "late_pct": 5.0
+        },
+        {
+          "date": "2026-06-19",
+          "type": "weekday",
+          "n": 1469,
+          "late_pct": 8.7
+        },
+        {
+          "date": "2026-06-20",
+          "type": "Saturday",
+          "n": 1103,
+          "late_pct": 5.8
+        },
+        {
+          "date": "2026-06-21",
+          "type": "Sunday",
+          "n": 1117,
+          "late_pct": 1.4
+        },
+        {
+          "date": "2026-06-22",
+          "type": "weekday",
+          "n": 1237,
+          "late_pct": 19.2
+        },
+        {
+          "date": "2026-06-23",
+          "type": "weekday",
+          "n": 1497,
+          "late_pct": 7.0
+        },
+        {
+          "date": "2026-06-24",
+          "type": "weekday",
+          "n": 1528,
+          "late_pct": 7.7
+        },
+        {
+          "date": "2026-06-25",
+          "type": "weekday",
+          "n": 1577,
+          "late_pct": 13.7
+        },
+        {
+          "date": "2026-06-26",
+          "type": "weekday",
+          "n": 1528,
+          "late_pct": 5.8
+        },
+        {
+          "date": "2026-06-27",
+          "type": "Saturday",
+          "n": 1012,
+          "late_pct": 6.4
+        },
+        {
+          "date": "2026-06-28",
+          "type": "Sunday",
+          "n": 1071,
+          "late_pct": 5.4
+        },
+        {
+          "date": "2026-06-29",
+          "type": "weekday",
+          "n": 1468,
+          "late_pct": 5.9
+        },
+        {
+          "date": "2026-06-30",
+          "type": "weekday",
+          "n": 1566,
+          "late_pct": 5.4
+        },
+        {
+          "date": "2026-07-01",
+          "type": "weekday",
+          "n": 1491,
+          "late_pct": 9.7
+        },
+        {
+          "date": "2026-07-02",
+          "type": "weekday",
+          "n": 1513,
+          "late_pct": 2.6
+        },
+        {
+          "date": "2026-07-03",
+          "type": "weekday",
+          "n": 1477,
+          "late_pct": 4.1
+        },
+        {
+          "date": "2026-07-04",
+          "type": "Saturday",
+          "n": 994,
+          "late_pct": 17.5
+        },
+        {
+          "date": "2026-07-05",
+          "type": "Sunday",
+          "n": 965,
+          "late_pct": 0.7
+        },
+        {
+          "date": "2026-07-06",
+          "type": "weekday",
+          "n": 1549,
+          "late_pct": 3.6
+        },
+        {
+          "date": "2026-07-07",
+          "type": "weekday",
+          "n": 1491,
+          "late_pct": 3.4
+        },
+        {
+          "date": "2026-07-08",
+          "type": "weekday",
+          "n": 1575,
+          "late_pct": 6.2
+        },
+        {
+          "date": "2026-07-09",
+          "type": "weekday",
+          "n": 1489,
+          "late_pct": 3.3
+        },
+        {
+          "date": "2026-07-10",
+          "type": "weekday",
+          "n": 1497,
+          "late_pct": 3.5
+        },
+        {
+          "date": "2026-07-12",
+          "type": "Sunday",
+          "n": 1139,
+          "late_pct": 4.6
+        },
+        {
+          "date": "2026-07-13",
+          "type": "weekday",
+          "n": 1540,
+          "late_pct": 4.4
+        },
+        {
+          "date": "2026-07-14",
+          "type": "weekday",
+          "n": 1503,
+          "late_pct": 4.6
+        },
+        {
+          "date": "2026-07-15",
+          "type": "weekday",
+          "n": 1529,
+          "late_pct": 8.0
+        },
+        {
+          "date": "2026-07-16",
+          "type": "weekday",
+          "n": 1602,
+          "late_pct": 3.6
+        },
+        {
+          "date": "2026-07-17",
+          "type": "weekday",
+          "n": 1488,
+          "late_pct": 8.7
+        },
+        {
+          "date": "2026-07-18",
+          "type": "Saturday",
+          "n": 1086,
+          "late_pct": 4.1
+        },
+        {
+          "date": "2026-07-19",
+          "type": "Sunday",
+          "n": 1091,
+          "late_pct": 4.1
+        },
+        {
+          "date": "2026-07-20",
+          "type": "weekday",
+          "n": 1586,
+          "late_pct": 0.9
+        },
+        {
+          "date": "2026-07-21",
+          "type": "weekday",
+          "n": 1580,
+          "late_pct": 0.9
+        },
+        {
+          "date": "2026-07-22",
+          "type": "weekday",
+          "n": 1590,
+          "late_pct": 2.5
+        },
+        {
+          "date": "2026-07-23",
+          "type": "weekday",
+          "n": 1624,
+          "late_pct": 3.0
+        },
+        {
+          "date": "2026-07-24",
+          "type": "weekday",
+          "n": 1621,
+          "late_pct": 1.4
+        },
+        {
+          "date": "2026-07-25",
+          "type": "Saturday",
+          "n": 1113,
+          "late_pct": 6.7
+        },
+        {
+          "date": "2026-07-26",
+          "type": "Sunday",
+          "n": 1072,
+          "late_pct": 7.5
+        },
+        {
+          "date": "2026-07-27",
+          "type": "weekday",
+          "n": 1522,
+          "late_pct": 6.4
+        },
+        {
+          "date": "2026-08-17",
+          "type": "weekday",
+          "n": 1503,
+          "late_pct": 3.8
+        },
+        {
+          "date": "2026-08-18",
+          "type": "weekday",
+          "n": 1611,
+          "late_pct": 3.8
+        },
+        {
+          "date": "2026-08-19",
+          "type": "weekday",
+          "n": 1570,
+          "late_pct": 2.0
+        },
+        {
+          "date": "2026-08-20",
+          "type": "weekday",
+          "n": 1555,
+          "late_pct": 2.1
+        },
+        {
+          "date": "2026-08-21",
+          "type": "weekday",
+          "n": 1535,
+          "late_pct": 3.7
+        },
+        {
+          "date": "2026-08-22",
+          "type": "Saturday",
+          "n": 1057,
+          "late_pct": 6.6
+        },
+        {
+          "date": "2026-08-23",
+          "type": "Sunday",
+          "n": 1053,
+          "late_pct": 9.4
+        },
+        {
+          "date": "2026-08-24",
+          "type": "weekday",
+          "n": 1525,
+          "late_pct": 4.5
+        },
+        {
+          "date": "2026-08-25",
+          "type": "weekday",
+          "n": 1502,
+          "late_pct": 3.6
+        },
+        {
+          "date": "2026-08-26",
+          "type": "weekday",
+          "n": 1520,
+          "late_pct": 5.7
+        },
+        {
+          "date": "2026-08-27",
+          "type": "weekday",
+          "n": 1478,
+          "late_pct": 9.4
+        },
+        {
+          "date": "2026-08-28",
+          "type": "weekday",
+          "n": 1517,
+          "late_pct": 6.5
+        },
+        {
+          "date": "2026-08-29",
+          "type": "Saturday",
+          "n": 1006,
+          "late_pct": 23.7
+        },
+        {
+          "date": "2026-08-30",
+          "type": "Sunday",
+          "n": 1067,
+          "late_pct": 7.2
+        },
+        {
+          "date": "2026-09-01",
+          "type": "weekday",
+          "n": 1449,
+          "late_pct": 6.8
+        },
+        {
+          "date": "2026-09-02",
+          "type": "weekday",
+          "n": 1284,
+          "late_pct": 17.2
+        },
+        {
+          "date": "2026-09-03",
+          "type": "weekday",
+          "n": 1487,
+          "late_pct": 3.4
+        },
+        {
+          "date": "2026-09-04",
+          "type": "weekday",
+          "n": 1573,
+          "late_pct": 2.7
+        },
+        {
+          "date": "2026-09-05",
+          "type": "Saturday",
+          "n": 1138,
+          "late_pct": 4.2
+        },
+        {
+          "date": "2026-09-06",
+          "type": "Sunday",
+          "n": 1325,
+          "late_pct": 56.0
+        },
+        {
+          "date": "2026-09-08",
+          "type": "weekday",
+          "n": 1122,
+          "late_pct": 3.1
+        },
+        {
+          "date": "2026-09-09",
+          "type": "weekday",
+          "n": 1514,
+          "late_pct": 29.8
+        },
+        {
+          "date": "2026-09-10",
+          "type": "weekday",
+          "n": 1527,
+          "late_pct": 12.8
+        },
+        {
+          "date": "2026-09-11",
+          "type": "weekday",
+          "n": 1439,
+          "late_pct": 8.1
+        },
+        {
+          "date": "2026-09-12",
+          "type": "Saturday",
+          "n": 1121,
+          "late_pct": 23.9
+        },
+        {
+          "date": "2026-09-13",
+          "type": "Sunday",
+          "n": 1129,
+          "late_pct": 6.7
+        },
+        {
+          "date": "2026-09-14",
+          "type": "weekday",
+          "n": 1332,
+          "late_pct": 4.2
+        },
+        {
+          "date": "2026-10-03",
+          "type": "Saturday",
+          "n": 143,
+          "late_pct": 0.7
+        },
+        {
+          "date": "2026-10-04",
+          "type": "Sunday",
+          "n": 1123,
+          "late_pct": 5.3
+        },
+        {
+          "date": "2026-10-05",
+          "type": "weekday",
+          "n": 1476,
+          "late_pct": 3.4
+        },
+        {
+          "date": "2026-10-06",
+          "type": "weekday",
+          "n": 1566,
+          "late_pct": 4.6
+        },
+        {
+          "date": "2026-10-07",
+          "type": "weekday",
+          "n": 1434,
+          "late_pct": 1.5
+        },
+        {
+          "date": "2026-10-08",
+          "type": "weekday",
+          "n": 1533,
+          "late_pct": 9.1
+        },
+        {
+          "date": "2026-10-18",
+          "type": "Sunday",
+          "n": 1157,
+          "late_pct": 4.6
+        },
+        {
+          "date": "2026-10-19",
+          "type": "weekday",
+          "n": 1542,
+          "late_pct": 8.2
+        },
+        {
+          "date": "2026-10-20",
+          "type": "weekday",
+          "n": 1500,
+          "late_pct": 25.3
+        },
+        {
+          "date": "2026-10-21",
+          "type": "weekday",
+          "n": 1393,
+          "late_pct": 7.0
+        },
+        {
+          "date": "2026-10-22",
+          "type": "weekday",
+          "n": 1552,
+          "late_pct": 18.4
+        },
+        {
+          "date": "2026-10-23",
+          "type": "weekday",
+          "n": 1492,
+          "late_pct": 3.4
+        },
+        {
+          "date": "2026-10-24",
+          "type": "Saturday",
+          "n": 1154,
+          "late_pct": 17.0
+        },
+        {
+          "date": "2026-10-25",
+          "type": "Sunday",
+          "n": 1114,
+          "late_pct": 2.9
+        },
+        {
+          "date": "2026-10-30",
+          "type": "weekday",
+          "n": 1528,
+          "late_pct": 1.6
+        },
+        {
+          "date": "2026-10-31",
+          "type": "Saturday",
+          "n": 1105,
+          "late_pct": 6.9
+        },
+        {
+          "date": "2026-11-01",
+          "type": "Sunday",
+          "n": 1158,
+          "late_pct": 4.1
+        },
+        {
+          "date": "2026-11-02",
+          "type": "weekday",
+          "n": 1568,
+          "late_pct": 6.7
+        },
+        {
+          "date": "2026-11-03",
+          "type": "weekday",
+          "n": 1567,
+          "late_pct": 5.4
+        },
+        {
+          "date": "2026-11-04",
+          "type": "weekday",
+          "n": 1512,
+          "late_pct": 7.2
+        },
+        {
+          "date": "2026-11-05",
+          "type": "weekday",
+          "n": 1363,
+          "late_pct": 18.5
+        },
+        {
+          "date": "2026-11-06",
+          "type": "weekday",
+          "n": 1564,
+          "late_pct": 3.2
+        },
+        {
+          "date": "2026-11-07",
+          "type": "Saturday",
+          "n": 1077,
+          "late_pct": 6.5
+        },
+        {
+          "date": "2026-11-08",
+          "type": "Sunday",
+          "n": 1164,
+          "late_pct": 8.0
+        },
+        {
+          "date": "2026-11-09",
+          "type": "weekday",
+          "n": 1553,
+          "late_pct": 8.4
+        },
+        {
+          "date": "2026-11-10",
+          "type": "weekday",
+          "n": 1611,
+          "late_pct": 6.1
+        },
+        {
+          "date": "2026-11-11",
+          "type": "weekday",
+          "n": 1534,
+          "late_pct": 3.4
+        },
+        {
+          "date": "2026-11-20",
+          "type": "weekday",
+          "n": 881,
+          "late_pct": 11.5
+        },
+        {
+          "date": "2026-11-24",
+          "type": "weekday",
+          "n": 1352,
+          "late_pct": 11.7
+        },
+        {
+          "date": "2026-11-25",
+          "type": "weekday",
+          "n": 1338,
+          "late_pct": 3.2
+        },
+        {
+          "date": "2026-11-26",
+          "type": "weekday",
+          "n": 574,
+          "late_pct": 4.7
+        }
+      ]
+    }
+  }
+}
