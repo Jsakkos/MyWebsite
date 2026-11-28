@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-26T18:00:02",
-  "data_through": "2026-11-26",
+  "generated_at": "2026-11-27T18:00:02",
+  "data_through": "2026-11-27",
   "first_day": "2025-08-10",
-  "clean_days": 399,
+  "clean_days": 400,
   "figures": {
     "on_time_pct": {
       "value": 92.7,
       "unit": "pct"
     },
     "recovery_trips": {
-      "value": 1011,
+      "value": 1014,
       "unit": "count"
     },
     "recovery_median_change_5": {
@@ -18,7 +18,7 @@
       "unit": "minutes"
     },
     "recovery_worse_5_pct": {
-      "value": 36.8,
+      "value": 36.7,
       "unit": "pct"
     },
     "recovery_better_5_pct": {
@@ -66,7 +66,7 @@
       "unit": "pct"
     },
     "local_nb_late_pct": {
-      "value": 6.9,
+      "value": 6.8,
       "unit": "pct"
     },
     "local_sb_late_pct": {
@@ -134,7 +134,7 @@
       "unit": "pct"
     },
     "weekday_bad_day_pct": {
-      "value": 7.4,
+      "value": 7.3,
       "unit": "pct"
     },
     "saturdays": {
@@ -568,116 +568,116 @@
         {
           "dow": 4,
           "hour": 18,
-          "n": 6090,
-          "late_pct": 11.8
+          "n": 6153,
+          "late_pct": 11.6
         },
         {
           "dow": 4,
           "hour": 19,
-          "n": 5009,
-          "late_pct": 9.6
+          "n": 5081,
+          "late_pct": 9.5
         },
         {
           "dow": 4,
           "hour": 20,
-          "n": 3573,
-          "late_pct": 9.9
+          "n": 3628,
+          "late_pct": 10.0
         },
         {
           "dow": 4,
           "hour": 21,
-          "n": 3527,
-          "late_pct": 7.7
+          "n": 3578,
+          "late_pct": 7.6
         },
         {
           "dow": 4,
           "hour": 22,
-          "n": 3519,
-          "late_pct": 7.1
+          "n": 3578,
+          "late_pct": 7.0
         },
         {
           "dow": 4,
           "hour": 23,
-          "n": 2911,
+          "n": 2954,
           "late_pct": 5.3
         },
         {
           "dow": 5,
           "hour": 5,
-          "n": 2519,
+          "n": 2547,
           "late_pct": 2.5
         },
         {
           "dow": 5,
           "hour": 6,
-          "n": 4260,
-          "late_pct": 4.4
+          "n": 4307,
+          "late_pct": 4.5
         },
         {
           "dow": 5,
           "hour": 7,
-          "n": 6303,
+          "n": 6364,
           "late_pct": 4.8
         },
         {
           "dow": 5,
           "hour": 8,
-          "n": 6108,
+          "n": 6169,
           "late_pct": 5.0
         },
         {
           "dow": 5,
           "hour": 9,
-          "n": 4867,
+          "n": 4927,
           "late_pct": 2.4
         },
         {
           "dow": 5,
           "hour": 10,
-          "n": 3437,
-          "late_pct": 6.1
+          "n": 3490,
+          "late_pct": 6.0
         },
         {
           "dow": 5,
           "hour": 11,
-          "n": 3521,
+          "n": 3581,
           "late_pct": 3.9
         },
         {
           "dow": 5,
           "hour": 12,
-          "n": 3583,
+          "n": 3630,
           "late_pct": 2.6
         },
         {
           "dow": 5,
           "hour": 13,
-          "n": 3420,
-          "late_pct": 4.2
+          "n": 3472,
+          "late_pct": 4.3
         },
         {
           "dow": 5,
           "hour": 14,
-          "n": 3531,
-          "late_pct": 5.6
+          "n": 3568,
+          "late_pct": 5.7
         },
         {
           "dow": 5,
           "hour": 15,
-          "n": 4467,
-          "late_pct": 6.3
+          "n": 4526,
+          "late_pct": 6.5
         },
         {
           "dow": 5,
           "hour": 16,
-          "n": 6021,
+          "n": 6071,
           "late_pct": 7.8
         },
         {
           "dow": 5,
           "hour": 17,
-          "n": 6087,
-          "late_pct": 9.8
+          "n": 6137,
+          "late_pct": 9.7
         },
         {
           "dow": 5,
@@ -938,7 +938,7 @@
       "fan": [
         {
           "k": 1,
-          "n": 784,
+          "n": 785,
           "p10": -1.0,
           "p25": -0.2,
           "median": 0.0,
@@ -948,7 +948,7 @@
         },
         {
           "k": 2,
-          "n": 756,
+          "n": 757,
           "p10": -1.2,
           "p25": -0.9,
           "median": 0.0,
@@ -958,7 +958,7 @@
         },
         {
           "k": 3,
-          "n": 685,
+          "n": 687,
           "p10": -1.2,
           "p25": -0.2,
           "median": 0.8,
@@ -968,7 +968,7 @@
         },
         {
           "k": 4,
-          "n": 625,
+          "n": 626,
           "p10": -1.9,
           "p25": -0.9,
           "median": 0.2,
@@ -978,7 +978,7 @@
         },
         {
           "k": 5,
-          "n": 552,
+          "n": 553,
           "p10": -1.3,
           "p25": -0.2,
           "median": 0.9,
@@ -988,7 +988,7 @@
         },
         {
           "k": 6,
-          "n": 534,
+          "n": 536,
           "p10": -2.0,
           "p25": -0.9,
           "median": 1.0,
@@ -998,7 +998,7 @@
         },
         {
           "k": 7,
-          "n": 484,
+          "n": 486,
           "p10": -1.9,
           "p25": -0.9,
           "median": 1.0,
@@ -1008,9 +1008,9 @@
         },
         {
           "k": 8,
-          "n": 433,
+          "n": 434,
           "p10": -2.0,
-          "p25": -0.8,
+          "p25": -0.6,
           "median": 1.0,
           "p75": 3.9,
           "p90": 9.9,
@@ -1018,7 +1018,7 @@
         },
         {
           "k": 9,
-          "n": 352,
+          "n": 354,
           "p10": -2.0,
           "p25": -1.0,
           "median": 0.9,
@@ -1069,10 +1069,10 @@
           "direction": "NB",
           "departs": "16:52",
           "last_stop": "22nd Street",
-          "runs": 279,
-          "late_pct": 33.7,
-          "ci_low": 28.4,
-          "ci_high": 39.4
+          "runs": 280,
+          "late_pct": 33.6,
+          "ci_low": 28.3,
+          "ci_high": 39.3
         },
         {
           "train": "507",
@@ -1102,10 +1102,10 @@
           "direction": "NB",
           "departs": "17:28",
           "last_stop": "22nd Street",
-          "runs": 277,
-          "late_pct": 32.5,
-          "ci_low": 27.2,
-          "ci_high": 38.2
+          "runs": 278,
+          "late_pct": 32.4,
+          "ci_low": 27.1,
+          "ci_high": 38.1
         },
         {
           "train": "527",
@@ -1135,10 +1135,10 @@
           "direction": "NB",
           "departs": "17:52",
           "last_stop": "22nd Street",
-          "runs": 278,
-          "late_pct": 23.4,
-          "ci_low": 18.8,
-          "ci_high": 28.7
+          "runs": 279,
+          "late_pct": 23.3,
+          "ci_low": 18.7,
+          "ci_high": 28.6
         },
         {
           "train": "421",
@@ -1156,13 +1156,13 @@
         {
           "service": "Local",
           "direction": "NB",
-          "n": 156010,
-          "late_pct": 6.9
+          "n": 156487,
+          "late_pct": 6.8
         },
         {
           "service": "Local",
           "direction": "SB",
-          "n": 167538,
+          "n": 168059,
           "late_pct": 6.1
         },
         {
@@ -1206,13 +1206,13 @@
         {
           "leader": "\u2264 0",
           "headway": "21\u201330",
-          "n": 91164,
-          "late_pct": 3.7
+          "n": 91450,
+          "late_pct": 3.6
         },
         {
           "leader": "\u2264 0",
           "headway": "31\u201340",
-          "n": 9989,
+          "n": 9996,
           "late_pct": 3.1
         },
         {
@@ -1230,13 +1230,13 @@
         {
           "leader": "0\u20134",
           "headway": "21\u201330",
-          "n": 99121,
+          "n": 99391,
           "late_pct": 6.6
         },
         {
           "leader": "0\u20134",
           "headway": "31\u201340",
-          "n": 7660,
+          "n": 7670,
           "late_pct": 6.2
         },
         {
@@ -1254,7 +1254,7 @@
         {
           "leader": "4\u201310",
           "headway": "21\u201330",
-          "n": 10049,
+          "n": 10072,
           "late_pct": 17.8
         },
         {
@@ -1278,7 +1278,7 @@
         {
           "leader": "10\u201320",
           "headway": "21\u201330",
-          "n": 2292,
+          "n": 2294,
           "late_pct": 33.9
         },
         {
@@ -1302,7 +1302,7 @@
         {
           "leader": "> 20",
           "headway": "21\u201330",
-          "n": 1307,
+          "n": 1308,
           "late_pct": 74.4
         },
         {
@@ -3838,8 +3838,14 @@
         {
           "date": "2026-11-26",
           "type": "weekday",
-          "n": 574,
-          "late_pct": 4.7
+          "n": 917,
+          "late_pct": 4.1
+        },
+        {
+          "date": "2026-11-27",
+          "type": "weekday",
+          "n": 667,
+          "late_pct": 6.0
         }
       ]
     }

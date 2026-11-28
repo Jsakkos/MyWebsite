@@ -2,27 +2,27 @@
   "on_time_percentage": 93.37,
   "minor_delay_percentage": 5.51,
   "major_delay_percentage": 1.12,
-  "total_arrivals": 774795,
+  "total_arrivals": 776401,
   "avg_delay_minutes": 1.39,
   "median_delay_minutes": 0.0,
-  "last_updated": "2026-11-26T18:00:02.782671",
+  "last_updated": "2026-11-27T18:00:02.797794",
   "date_range": {
     "start": "2025-08-10",
-    "end": "2026-11-26"
+    "end": "2026-11-27"
   },
-  "days_tracked": 453,
-  "rolling_7d_on_time": 91.4,
-  "rolling_30d_on_time": 93.41,
+  "days_tracked": 454,
+  "rolling_7d_on_time": 92.96,
+  "rolling_30d_on_time": 93.42,
   "clean": {
     "on_time_percentage": 92.68,
     "minor_delay_percentage": 6.11,
     "major_delay_percentage": 1.21,
-    "total_arrivals": 538635,
+    "total_arrivals": 539645,
     "avg_delay_minutes": 3.31,
     "median_delay_minutes": 0.8,
-    "days_tracked": 399,
+    "days_tracked": 400,
     "bad_feed_days": 54,
-    "rolling_7d_on_time": 92.06,
-    "rolling_30d_on_time": 93.22
+    "rolling_7d_on_time": 92.63,
+    "rolling_30d_on_time": 93.3
   }
 }
